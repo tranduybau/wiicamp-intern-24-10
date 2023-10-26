@@ -10,9 +10,15 @@
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
+    "@material-tailwind/react": "^2.1.4",
+    "classnames": "^2.3.2",
+    "lucide-react": "^0.288.0",
+    "lucide-svelte": "^0.288.0",
     "next": "13.5.6",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swiper": "^11.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10",

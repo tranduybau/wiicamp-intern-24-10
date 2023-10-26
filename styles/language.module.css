@@ -1,0 +1,15 @@
+.language{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.select {
+    margin-left: 386px;
+}
+
+@media (max-width: 768px) {
+    .select {
+        margin-left: 286px;
+    }
+}
