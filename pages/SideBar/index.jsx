@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-// import { Carousel } from "@material-tailwind/react";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -15,8 +14,13 @@ import styles from "../../styles/sidebar.module.css";
 const classNames = require("classnames");
 
 function Sidebar() {
+  //   const [selectedOption, setSelectedOption] = useState("Woman’s Fashion 1");
   const Category = [
-    { name: "Woman’s Fashion", href: "#", icon: <ChevronRight /> },
+    {
+      name: "Woman’s Fashion",
+      href: "#",
+      icon: <ChevronRight />,
+    },
     { name: "Men’s Fashion", href: "#", icon: <ChevronRight /> },
     { name: "Electronics", href: "#" },
     { name: "Home & Lifestyle", href: "#" },
@@ -26,6 +30,22 @@ function Sidebar() {
     { name: "Groceries & Pets", href: "#" },
     { name: "Health & Beauty", href: "#" },
   ];
+
+  //   const handleIconClick = (e) => {
+  //     setSelectedOption(e.target.value);
+  //   };
+
+  //   const listWonMan = [
+  //     {
+  //       name: "Woman’s Fashion 1",
+  //     },
+  //     {
+  //       name: "Woman’s Fashion 2",
+  //     },
+  //     {
+  //       name: "Woman’s Fashion 3",
+  //     },
+  //   ];
 
   const listSlider = [
     { src: "/img/sidle.png" },
@@ -43,19 +63,6 @@ function Sidebar() {
             styles.sidebar,
           )}
         >
-          {/* <li className="mb-4 flex w-full">
-            <p className=" w-auto">Woman’s Fashion</p>
-
-            <p className="flex justify-end w-full">
-              <ChevronRight />
-            </p>
-          </li>
-          <li className="mb-4 flex">
-            Men’s Fashion
-            <p className="flex justify-end w-full">
-              <ChevronRight />
-            </p>
-          </li> */}
           <li>
             {Category.map((item) => {
               return (
@@ -86,7 +93,6 @@ function Sidebar() {
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
           navigation
-          //   pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
         >
           {listSlider.map((item, index) => {

@@ -37,9 +37,7 @@ function Languages() {
             onChange={handleLanguage}
             className="bg-black text-text-1 font-poppins text-sm"
           >
-            <option value="en" className="">
-              English
-            </option>
+            <option value="en">English</option>
             <option value="vn">Tiếng việt</option>
           </select>
         </div>
