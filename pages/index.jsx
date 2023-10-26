@@ -1,19 +1,42 @@
 import React from "react";
-// import classNames from "classnames";
-import { Inter } from "next/font/google";
+import axios from "axios";
+import PropTypes from "prop-types";
 
+import FlashSale from "@/components/flashSale";
 import Slider from "@/components/slider";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Home({ products }) {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
-    >
+    <main>
       <section>
         <Slider />
       </section>
+
+      <section>
+        <FlashSale products={products} />
+      </section>
     </main>
   );
+}
+
+Home.propTypes = {
+  products: PropTypes.instanceOf(Array).isRequired,
+};
+
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get("https://fakestoreapi.com/products");
+
+    return {
+      props: {
+        products: response.data,
+      },
+
+      // revalidate: 24 * 60 * 60,
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }

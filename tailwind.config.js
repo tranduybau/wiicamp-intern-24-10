@@ -20,7 +20,14 @@ module.exports = {
           1: "#FAFAFA",
           2: "#000000",
         },
-        secondary: "#F5F5F5",
+        secondary: {
+          1: "#F5F5F5",
+          2: "#DB4444",
+        },
+        button: {
+          1: "#F5F5F5",
+          2: "#DB4444",
+        },
       },
       fontFamily: {
         poppins: "poppins",

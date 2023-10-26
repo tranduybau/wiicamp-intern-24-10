@@ -55,11 +55,11 @@ function Header() {
 
             <ul
               className={classNames(
-                "absolute !z-[3] rounded-lg top-10 px-3 py-2 right-1 flex flex-col justify-start bg-black",
+                "absolute !z-[4] rounded-lg top-10 px-3 py-2 right-1 flex flex-col justify-start bg-black",
                 !openLanguage && "hidden",
               )}
             >
-              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary-1">
                 <button
                   onClick={openSelectLanguage}
                   type="button"
@@ -69,7 +69,7 @@ function Header() {
                 </button>
               </li>
 
-              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary-1">
                 <button
                   onClick={openSelectLanguage}
                   type="button"
@@ -83,7 +83,7 @@ function Header() {
         </div>
       </section>
 
-      <header className="sticky top-0 z-[2] text-black bg-white border-b-gray-400 border-b-[1px]">
+      <header className="sticky top-0 z-[3] text-black bg-white border-b-gray-400 border-b-[1px]">
         <div className="container pt-[40px] pb-[15px] flex items-center">
           <div className="font-inter font-[700] text-[1.5rem] leading-[1.5rem] mr-auto">
             Exclusive
@@ -115,7 +115,7 @@ function Header() {
               <input
                 type="text"
                 placeholder="What are you looking for?"
-                className="h-10 w-full bg-secondary py-[0.3475rem] px-[0.75rem] pr-[2rem]"
+                className="h-10 w-full bg-secondary-1 py-[0.3475rem] px-[0.75rem] pr-[2rem]"
               />
 
               <button type="submit" className="absolute top-2 right-1">
@@ -183,11 +183,11 @@ function Header() {
 
             <ul
               className={classNames(
-                "absolute rounded-lg z-[3] text-text-1 top-[3.5rem] px-2 py-2 right-30 flex flex-col justify-start bg-black",
+                "absolute rounded-lg z-[4] text-text-1 top-[3.5rem] px-2 py-2 right-30 flex flex-col justify-start bg-black",
                 !openLanguage && "hidden",
               )}
             >
-              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary-1">
                 <button
                   onClick={openSelectLanguage}
                   type="button"
@@ -197,7 +197,7 @@ function Header() {
                 </button>
               </li>
 
-              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary-1">
                 <button
                   onClick={openSelectLanguage}
                   type="button"
@@ -214,7 +214,7 @@ function Header() {
               <input
                 type="text"
                 placeholder="What are you looking for?"
-                className="h-10 w-full bg-secondary py-[0.3475rem] px-[0.75rem] pr-[2rem]"
+                className="h-10 w-full bg-secondary-1 py-[0.3475rem] px-[0.75rem] pr-[2rem]"
               />
 
               <button type="submit" className="absolute top-2 right-1">
