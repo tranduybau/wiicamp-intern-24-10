@@ -10,17 +10,12 @@ function Languages() {
     setSelectedOption(e.target.value);
   };
   return (
-    <div
-      className={classNames(
-        "flex justify-around bg-black h-12",
-        styles.language,
-      )}
-    >
+    <div className={classNames("flex bg-black h-12", styles.language)}>
       <div className="flex container justify-end">
         <div className="flex ">
           <p
             className={classNames(
-              "font-poppins text-text-1 text-sm font-normal mr-2",
+              "font-poppins text-text-1 text-sm font-normal mr-2 ",
               styles.text,
             )}
           >

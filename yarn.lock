@@ -2710,10 +2710,10 @@
     "magic-string" "^0.30.4"
     "periscopic" "^3.1.0"
 
-"swiper@^11.0.1":
-  "integrity" "sha512-pxVygCS5CVL2pRYSnv8RbjlOC/nN+JrAn5/JM0WBQzIWisv9FYe1s69KEB82TOeqh/T3zc9zks/gxctY6G/XMg=="
-  "resolved" "https://registry.npmjs.org/swiper/-/swiper-11.0.1.tgz"
-  "version" "11.0.1"
+"swiper@^11.0.2":
+  "integrity" "sha512-JMHZYdUDG0V5ZdzWJkQicW4F7u4edmS4vlOhciTDhcZokDL2N8EE2uP4INxqIgpiJMoeHlwATqZk2yEAW7F6Dw=="
+  "resolved" "https://registry.npmjs.org/swiper/-/swiper-11.0.2.tgz"
+  "version" "11.0.2"
 
 "synckit@^0.8.5":
   "integrity" "sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q=="
