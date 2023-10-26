@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Woman’s Fashion",
+    "child": [
+      {
+        "name": "Woman’s Fashion 1"
+      },
+      {
+        "name": "Woman’s Fashion 2"
+      },
+      {
+        "name": "Woman’s Fashion 3"
+      }
+    ]
+  },
+  {
+    "name": "Men’s Fashion",
+    "child": [
+      {
+        "name": "Men’s Fashion 1"
+      },
+      {
+        "name": "Men’s Fashion 2"
+      },
+      {
+        "name": "Men’s Fashion 3"
+      }
+    ]
+  },
+  {
+    "name": "Electronics"
+  },
+  {
+    "name": "Home & Lifestyle"
+  },
+  {
+    "name": "Medicine"
+  },
+  {
+    "name": "Sports & Outdoor"
+  },
+  {
+    "name": "Baby’s & Toys"
+  },
+  {
+    "name": "Groceries & Pets"
+  },
+  {
+    "name": "Health & Beauty"
+  }
+]

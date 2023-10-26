@@ -1,21 +1,33 @@
-import React, { useState } from "react";
-import { Drawer } from "@material-tailwind/react";
+import React, { useCallback, useState } from "react";
 import classNames from "classnames";
-import { AlignJustify, XCircle } from "lucide-react";
+import {
+  AlignJustify,
+  Heart,
+  Search,
+  ShoppingCart,
+  XCircle,
+} from "lucide-react";
 import Link from "next/link";
 
-import Cart from "@/components/svg/cart";
-import Heath from "@/components/svg/heath";
+import DropDown from "../svg/dropDown";
 
 function Header() {
   const [openRight, setOpenRight] = useState(false);
 
-  const openDrawerRight = () => setOpenRight(true);
-  const closeDrawerRight = () => setOpenRight(false);
+  const [openLanguage, setOpenLanguage] = useState(false);
+
+  const openDrawerRight = useCallback(() => setOpenRight(true), []);
+
+  const closeDrawerRight = useCallback(() => setOpenRight(false), []);
+
+  const openSelectLanguage = useCallback(
+    () => setOpenLanguage((open) => !open),
+    [],
+  );
 
   return (
     <>
-      <section className="bg-black font-poppins text-text-1 text-[0.875rem] leading-[1.3125rem] py-3">
+      <section className="bg-black z-[1] font-poppins text-text-1 text-[0.875rem] leading-[1.3125rem] py-3">
         <div className="container grid grid-cols-12 gap-2">
           <div className="hidden lg:block col-span-2" />
 
@@ -30,31 +42,48 @@ function Header() {
             </Link>
           </div>
 
-          <div className="hidden col-span-2 lg:flex justify-end">
+          <div className="hidden col-span-2 lg:flex justify-end relative">
             <button
               className="flex items-center justify-between gap-1"
               type="button"
+              onClick={openSelectLanguage}
             >
               <span className="font-[400]">English</span>
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M12.364 12.95L17.314 8L18.728 9.414L12.364 15.778L6.00003 9.414L7.41403 8L12.364 12.95Z"
-                  fill="white"
-                />
-              </svg>
+              <DropDown />
             </button>
+
+            <ul
+              className={classNames(
+                "absolute !z-[3] rounded-lg top-10 px-3 py-2 right-1 flex flex-col justify-start bg-black",
+                !openLanguage && "hidden",
+              )}
+            >
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+                <button
+                  onClick={openSelectLanguage}
+                  type="button"
+                  className="w-full text-left px-1 py-1"
+                >
+                  English
+                </button>
+              </li>
+
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+                <button
+                  onClick={openSelectLanguage}
+                  type="button"
+                  className="w-full text-left px-1 py-1"
+                >
+                  Tiếng Việt
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <header className="sticky top-0 text-black bg-white border-b-gray-400 border-b-[1px]">
+      <header className="sticky top-0 z-[2] text-black bg-white border-b-gray-400 border-b-[1px]">
         <div className="container pt-[40px] pb-[15px] flex items-center">
           <div className="font-inter font-[700] text-[1.5rem] leading-[1.5rem] mr-auto">
             Exclusive
@@ -90,20 +119,7 @@ function Header() {
               />
 
               <button type="submit" className="absolute top-2 right-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M20 20L16.2223 16.2156M18.3158 11.1579C18.3158 13.0563 17.5617 14.8769 16.2193 16.2193C14.8769 17.5617 13.0563 18.3158 11.1579 18.3158C9.2595 18.3158 7.43886 17.5617 6.0965 16.2193C4.75413 14.8769 4 13.0563 4 11.1579C4 9.2595 4.75413 7.43886 6.0965 6.0965C7.43886 4.75413 9.2595 4 11.1579 4C13.0563 4 14.8769 4.75413 16.2193 6.0965C17.5617 7.43886 18.3158 9.2595 18.3158 11.1579V11.1579Z"
-                    stroke="black"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                <Search />
               </button>
             </form>
 
@@ -111,11 +127,11 @@ function Header() {
               className="ml-[1.5rem] mr-[1rem] flex items-center"
               href="./products"
             >
-              <Heath />
+              <Heart />
             </Link>
 
             <Link className="flex items-center" href="./products">
-              <Cart />
+              <ShoppingCart />
             </Link>
           </div>
 
@@ -129,110 +145,114 @@ function Header() {
         </div>
 
         <div
+          onClick={closeDrawerRight}
+          onKeyDown={closeDrawerRight}
+          role="button"
+          tabIndex={0}
+          aria-label="close"
           className={classNames(
-            "h-screen w-screen bg-opacity-50 z-[0] fixed top-0 backdrop-blur-sm",
+            "h-screen w-screen bg-opacity-50 fixed top-0 backdrop-blur-sm cursor-default",
             !openRight && "hidden",
           )}
         />
 
-        <Drawer
-          placement="right"
-          open={openRight}
-          onClose={closeDrawerRight}
+        <div
           className={classNames(
-            "h-screen w-screen m-0 p-0 fixed top-0 right-0",
+            "h-screen w-fit shadow-2xl fixed flex flex-col items-center !p-[2rem] top-0 right-0 z-[9999] bg-white",
             !openRight && "hidden",
           )}
         >
-          <div className="h-screen">
+          <button
+            type="button"
+            onClick={closeDrawerRight}
+            className="w-full absolute top-0 left-3 pt-3 pr-3"
+          >
+            <XCircle />
+          </button>
+
+          <div className="lg:hidden flex justify-center relative">
             <button
+              className="px-2 py-1 mt-5 rounded-lg bg-black text-text-1 flex items-center justify-between gap-1"
               type="button"
-              onClick={closeDrawerRight}
-              className="w-full flex justify-end pt-3 pr-3"
+              onClick={openSelectLanguage}
             >
-              <XCircle />
+              <span className="font-[400]">English</span>
+
+              <DropDown />
             </button>
 
-            <div className="lg:hidden flex justify-center">
-              <button
-                className="px-2 py-1 rounded-lg bg-black text-text-1 flex items-center justify-between gap-1"
-                type="button"
-              >
-                <span className="font-[400]">English</span>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
+            <ul
+              className={classNames(
+                "absolute rounded-lg z-[3] text-text-1 top-[3.5rem] px-2 py-2 right-30 flex flex-col justify-start bg-black",
+                !openLanguage && "hidden",
+              )}
+            >
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+                <button
+                  onClick={openSelectLanguage}
+                  type="button"
+                  className="w-full text-left px-1 py-1 !whitespace-nowrap"
                 >
-                  <path
-                    d="M12.364 12.95L17.314 8L18.728 9.414L12.364 15.778L6.00003 9.414L7.41403 8L12.364 12.95Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div className="md:hidden ml-auto flex flex-col items-center">
-              <form className="relative mt-5">
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  className="h-10 w-full bg-secondary py-[0.3475rem] px-[0.75rem] pr-[2rem]"
-                />
-
-                <button type="submit" className="absolute top-2 right-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M20 20L16.2223 16.2156M18.3158 11.1579C18.3158 13.0563 17.5617 14.8769 16.2193 16.2193C14.8769 17.5617 13.0563 18.3158 11.1579 18.3158C9.2595 18.3158 7.43886 17.5617 6.0965 16.2193C4.75413 14.8769 4 13.0563 4 11.1579C4 9.2595 4.75413 7.43886 6.0965 6.0965C7.43886 4.75413 9.2595 4 11.1579 4C13.0563 4 14.8769 4.75413 16.2193 6.0965C17.5617 7.43886 18.3158 9.2595 18.3158 11.1579V11.1579Z"
-                      stroke="black"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                  English
                 </button>
-              </form>
-              <div className="flex mt-[2rem] gap-3">
-                <Link className="flex items-center" href="./products">
-                  <Heath />
-                </Link>
+              </li>
 
-                <Link className="flex items-center" href="./products">
-                  <Cart />
-                </Link>
-              </div>
-            </div>
+              <li className="cursor-pointer hover:text-text-2 hover:bg-secondary">
+                <button
+                  onClick={openSelectLanguage}
+                  type="button"
+                  className="w-full text-left px-1 py-1 !whitespace-nowrap"
+                >
+                  Tiếng Việt
+                </button>
+              </li>
+            </ul>
+          </div>
 
-            <div className="lg:hidden mt-[3rem] ml-[2rem] w-fit flex flex-col gap-[2rem] text-[1rem] font-[400] leading-[1.5rem]">
-              <Link
-                className="font-poppins w-fit border-b-gray-400 border-b-[2px]"
-                href="./products"
-              >
-                Home
+          <div className="md:hidden ml-auto flex flex-col items-center">
+            <form className="relative mt-5">
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="h-10 w-full bg-secondary py-[0.3475rem] px-[0.75rem] pr-[2rem]"
+              />
+
+              <button type="submit" className="absolute top-2 right-1">
+                <Search />
+              </button>
+            </form>
+            <div className="flex mt-[2rem] gap-3">
+              <Link className="flex items-center" href="./products">
+                <Heart />
               </Link>
 
-              <Link className="font-poppins w-fit" href="./products">
-                Contact
-              </Link>
-
-              <Link className="font-poppins w-fit" href="./products">
-                About
-              </Link>
-
-              <Link className="font-poppins w-fit" href="./products">
-                Sign Up
+              <Link className="flex items-center" href="./products">
+                <ShoppingCart />
               </Link>
             </div>
           </div>
-        </Drawer>
+
+          <div className="lg:hidden mt-[3rem] w-full flex flex-col items-start gap-[2rem] text-[1rem] font-[400] leading-[1.5rem]">
+            <Link
+              className="font-poppins w-fit border-b-gray-400 border-b-[2px]"
+              href="./products"
+            >
+              Home
+            </Link>
+
+            <Link className="font-poppins w-fit" href="./products">
+              Contact
+            </Link>
+
+            <Link className="font-poppins w-fit" href="./products">
+              About
+            </Link>
+
+            <Link className="font-poppins w-fit" href="./products">
+              Sign Up
+            </Link>
+          </div>
+        </div>
       </header>
     </>
   );

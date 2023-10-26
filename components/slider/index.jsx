@@ -1,45 +1,84 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
+import classNames from "classnames";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-// import Link from "next/link";
 import banner1 from "@/assets/images/banner/banner1.jpg";
+import data from "@/data/categories.json";
+
+import styles from "./slider.module.scss";
 
 function Slider() {
+  const [categories, setCategories] = useState(data);
+
+  const toggleFrameCategories = useCallback(
+    (event, index) => {
+      event.stopPropagation();
+      const updatedCategories = [...categories];
+      updatedCategories[index].isExtend = !updatedCategories[index].isExtend;
+      setCategories(updatedCategories);
+    },
+    [categories, setCategories],
+  );
+
   return (
     <div className="container flex items-center">
-      <div className="mr-auto border-r-gray-400 border-r-[1px]">
+      <div className="hidden lg:block w-fit mr-auto border-r-gray-400 border-r-[1px]">
         <ul className="text-black font-poppins pt-[2.5rem] text-[1rem] font-[400] leading[1.5rem] flex flex-col gap-[1rem]">
-          <li className="flex gap-[3.19rem]">
-            Woman’s Fashion
-            <ChevronRight />
-          </li>
+          {categories?.map((item, index) => {
+            if (item?.child) {
+              return (
+                <div
+                  onMouseEnter={(event) => toggleFrameCategories(event, index)}
+                  onMouseLeave={(event) => toggleFrameCategories(event, index)}
+                  className="relative"
+                  key={item.name}
+                >
+                  <li className="hover:bg-gray-300 flex justify-between cursor-pointer ">
+                    <span className="mr-[3.19rem]">{item.name}</span>
 
-          <li className="flex gap-[5.06rem]">
-            Men’s Fashion
-            <ChevronRight />
-          </li>
+                    <ChevronRight className="mr-[1rem]" />
+                  </li>
 
-          <li>Electronics</li>
+                  <ul
+                    className={classNames(
+                      `${styles.custom_shadow} bg-white rounded-md absolute left-[13rem] top-[0] z-[1] w-full h-[20rem] px-2 py-3 flex flex-col gap-1`,
+                      !item?.isExtend && "hidden",
+                    )}
+                  >
+                    {item?.child?.map((child) => {
+                      return (
+                        <li
+                          key={child.name}
+                          className="hover:bg-gray-300 !whitespace-nowrap"
+                        >
+                          <Link className="px-2 py-1 block w-full" href="./">
+                            {child.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            }
 
-          <li>Home & Lifestyle</li>
-
-          <li>Medicine</li>
-
-          <li>Sports & Outdoor</li>
-
-          <li>Baby’s & Toys</li>
-
-          <li>Groceries & Pets</li>
-
-          <li>Health & Beauty</li>
+            return (
+              <li className="hover:bg-gray-300" key={item.name}>
+                <Link className="!whitespace-nowrap block w-full" href="./">
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
-      <div className="pt-[2.5rem] pl-[2.81rem]">
+      <div className="pt-[2.5rem] lg:pl-[2.81rem]">
         <div className="grid grid-cols-12 bg-black">
           <div className="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12">
-            <Image width={892} height={344} src={banner1} alt="..." />
+            <Image width={892} height={344} src={banner1} alt="..." priority />
           </div>
         </div>
       </div>

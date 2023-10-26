@@ -18,6 +18,7 @@ module.exports = {
         },
         text: {
           1: "#FAFAFA",
+          2: "#000000",
         },
         secondary: "#F5F5F5",
       },
@@ -33,7 +34,7 @@ module.exports = {
           // md: "51.5rem",
           // lg: "61.5rem",
           // xl: "71.5rem",
-          "2xl": "84.5rem",
+          "2xl": "77.5rem",
         },
         padding: {
           DEFAULT: "2rem",
