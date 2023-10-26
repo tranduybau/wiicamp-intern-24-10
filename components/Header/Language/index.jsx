@@ -12,7 +12,7 @@ function Languages() {
   return (
     <div className={classNames("flex bg-black h-12", styles.language)}>
       <div className="flex container justify-end">
-        <div className="flex ">
+        <div className="flex">
           <p
             className={classNames(
               "font-poppins text-text-1 text-sm font-normal mr-2 ",
@@ -24,7 +24,7 @@ function Languages() {
           <a
             href="http"
             className={classNames(
-              "font-poppins font-3 text-sm text-text-1 underline",
+              "font-poppins font-3 text-sm text-text-1 underline  ",
               styles.shopNow,
             )}
           >
