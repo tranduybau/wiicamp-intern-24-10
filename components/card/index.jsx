@@ -40,6 +40,7 @@ function Card(props) {
             alt="..."
             width={172}
             height={152}
+            priority
           />
         </div>
 

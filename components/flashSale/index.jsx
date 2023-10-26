@@ -91,6 +91,10 @@ function FlashSale(props) {
       <div className="text-center mt-[3.75rem]">
         <ViewAllProducts />
       </div>
+
+      <div className="container mt-[3.75rem] mb-[4.38rem]">
+        <hr className="border-1 border-solid border-black border-opacity-30" />
+      </div>
     </>
   );
 }
