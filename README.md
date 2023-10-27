@@ -38,3 +38,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Packages can be used
+
+1. Swiper: for slider.
+2. Axios: for calling api
+3. Bootstrap: you can (only) use the bootstrap classes, by import the CSS's Link of Bootstrap. No need to install the whole packge to the project. 
+4. classnames / clsx: For merging classes.
+
+If you want to use any packages, please confirm to me first.
+
+## Flow of working
+
+Please fork the source code to your repository. Then estimate your time for each task/section of the website.
+
+For more details. don't hesitate to contact  
