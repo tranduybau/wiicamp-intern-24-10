@@ -21,59 +21,61 @@ function Navigation() {
   }, []);
 
   const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-12 ">
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className={classNames(
-          "p-1 font-normal font-poppins sm:flex sm:justify-center text-base underline",
-          styles.home,
-        )}
-      >
-        <a href="http" className="flex items-center">
-          Home
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className={classNames(
-          "p-1 font-normal font-poppins sm:flex sm:justify-center text-base",
-          styles.contact,
-        )}
-      >
-        <a href="http" className="flex items-center">
-          Contact
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className={classNames(
-          "p-1 font-normal font-poppins sm:flex sm:justify-center text-base",
-          styles.about,
-        )}
-      >
-        <a href="http" className="flex items-center">
-          About
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className={classNames(
-          "p-1 font-normal font-poppins sm:flex sm:justify-center text-base",
-          styles.signUp,
-        )}
-      >
-        <a href="http" className="flex items-center">
-          Sign Up
-        </a>
-      </Typography>
+    <div className="mt-2 mb-4 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-12 ">
+      <div className="mt-2 mb-4 flex flex-col gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-12 mr-16">
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className={classNames(
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base underline hover:text-slate-500",
+            styles.home,
+          )}
+        >
+          <a href="http" className="flex items-center">
+            Home
+          </a>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className={classNames(
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500",
+            styles.contact,
+          )}
+        >
+          <a href="http" className="flex items-center">
+            Contact
+          </a>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className={classNames(
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500",
+            styles.about,
+          )}
+        >
+          <a href="http" className="flex items-center">
+            About
+          </a>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className={classNames(
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 lg:mr-32 ",
+            styles.signUp,
+          )}
+        >
+          <a href="http" className="flex items-center">
+            Sign Up
+          </a>
+        </Typography>
+      </div>
       <div className="relative sm:flex sm:justify-center">
         <input
           type="search"
@@ -89,7 +91,7 @@ function Navigation() {
           <Search />
         </button>
       </div>
-    </ul>
+    </div>
   );
 
   return (
@@ -145,7 +147,7 @@ function Navigation() {
                 </svg>
               )}
             </IconButton>
-            <div className="flex mx-6">
+            <div className="flex mr-6">
               <Heart size={32} />
               <ShoppingCart className="ml-6" size={32} />
             </div>

@@ -16,11 +16,13 @@ module.exports = {
         text: {
           1: "#FAFAFA",
           2: "#000000",
+          3: "#00FF66",
         },
         second: {
           1: "#FEFAF1",
           2: "#F5F5F5",
           3: "#DB4444",
+          4: "#FFAD33",
         },
         button: {
           1: "#00FF66",
@@ -46,6 +48,8 @@ module.exports = {
       backgroundColor: {
         White: "#FFFFFF",
         Black: "#363738",
+        secondary: "#F5F5F5",
+        green: "#00FF66",
       },
       boxShadow: {
         sm: "0 2px 4px 0 rgb(0 0 0 / 0.05)",

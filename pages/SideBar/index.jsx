@@ -14,7 +14,6 @@ import styles from "../../styles/sidebar.module.css";
 const classNames = require("classnames");
 
 function Sidebar() {
-  //   const [selectedOption, setSelectedOption] = useState("Woman’s Fashion 1");
   const Category = [
     {
       name: "Woman’s Fashion",
@@ -31,22 +30,6 @@ function Sidebar() {
     { name: "Health & Beauty", href: "#" },
   ];
 
-  //   const handleIconClick = (e) => {
-  //     setSelectedOption(e.target.value);
-  //   };
-
-  //   const listWonMan = [
-  //     {
-  //       name: "Woman’s Fashion 1",
-  //     },
-  //     {
-  //       name: "Woman’s Fashion 2",
-  //     },
-  //     {
-  //       name: "Woman’s Fashion 3",
-  //     },
-  //   ];
-
   const listSlider = [
     { src: "/img/sidle.png" },
     { src: "/img/sidle.png" },
@@ -59,7 +42,7 @@ function Sidebar() {
       <div className={styles.border}>
         <ul
           className={classNames(
-            "flex-none mt-14 font-poppins font-size text-text-2 shadow-sm ",
+            "flex-none mt-14 font-poppins font-size text-text-2  ",
             styles.sidebar,
           )}
         >
@@ -68,13 +51,13 @@ function Sidebar() {
               return (
                 <p
                   key={`${item.name}`}
-                  className={`w-full mb-4 ${
-                    item.icon ? "flex justify-between" : ""
+                  className={`w-full mb-4  ${
+                    item.icon ? "flex justify-between " : ""
                   }`}
                 >
                   <a
                     href={item.href}
-                    className=" block text-black  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                    className=" block text-black hover:text-slate-500 md:p-0 lg:w-96"
                     aria-current="page"
                   >
                     {item.name}
@@ -92,7 +75,7 @@ function Sidebar() {
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
-          navigation
+          //   navigation
           scrollbar={{ draggable: true }}
         >
           {listSlider.map((item, index) => {
