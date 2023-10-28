@@ -11,6 +11,7 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "banner-1": "url('/assets/images/banner/banner1.jpg')",
       },
       colors: {
         error: {
@@ -27,6 +28,7 @@ module.exports = {
         button: {
           1: "#F5F5F5",
           2: "#DB4444",
+          3: "#00FF66",
         },
       },
       fontFamily: {
@@ -34,6 +36,9 @@ module.exports = {
         inter: "inter",
       },
       container: {
+        padding: {
+          DEFAULT: "1rem",
+        },
         center: true,
         screens: {
           // DEFAULT: "81.5rem",
@@ -41,15 +46,7 @@ module.exports = {
           // md: "51.5rem",
           // lg: "61.5rem",
           // xl: "71.5rem",
-          "2xl": "77.5rem",
-        },
-        padding: {
-          DEFAULT: "2rem",
-          sm: "2rem",
-          md: "2rem",
-          lg: "2rem",
-          xl: "2rem",
-          "2xl": "2rem",
+          "2xl": "75.125rem",
         },
       },
     },

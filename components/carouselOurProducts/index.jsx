@@ -1,38 +1,35 @@
 import React, { useCallback, useRef } from "react";
 import PropTypes from "prop-types";
-// import required modules
-import { Autoplay } from "swiper/modules";
-// Import Swiper React components
+import { Autoplay, Grid } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import "swiper/css/grid";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
-import ArrowButtonCarousel from "../buttons/arrowCarousel";
+import ArrowCategoriesCarousel from "../buttons/arrowCategoriesCarousel";
 import Card from "../card";
 
-// Import Swiper styles
 import "swiper/css";
 
-function FlashSaleCarousel(props) {
+export default function OurProductsCarousel(props) {
   const { products } = props;
 
-  const swiperFlashSale = useRef();
+  const swiperOurProducts = useRef();
 
   const handleMouseEnter = useCallback(() => {
-    swiperFlashSale?.current?.swiper?.autoplay?.stop();
+    swiperOurProducts?.current?.swiper?.autoplay?.stop();
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    swiperFlashSale?.current?.swiper?.autoplay?.start();
+    swiperOurProducts?.current?.swiper?.autoplay?.start();
   }, []);
 
   const handleNext = useCallback(() => {
-    swiperFlashSale?.current?.swiper?.slideNext();
+    swiperOurProducts?.current?.swiper?.slideNext();
   }, []);
 
   const handlePrev = useCallback(() => {
-    swiperFlashSale?.current?.swiper?.slidePrev();
+    swiperOurProducts?.current?.swiper?.slidePrev();
   }, []);
 
   return (
@@ -41,22 +38,22 @@ function FlashSaleCarousel(props) {
       onMouseLeave={handleMouseLeave}
       className="relative cover_carousel_flash_sale"
     >
-      <ArrowButtonCarousel prev={handlePrev} next={handleNext} />
+      <ArrowCategoriesCarousel prev={handlePrev} next={handleNext} />
 
-      {/* Multi Carousel FlashSale */}
       <Swiper
-        ref={swiperFlashSale}
+        ref={swiperOurProducts}
         slidesPerView="auto"
-        spaceBetween={30}
+        grid={{
+          rows: 2,
+          fill: "row",
+        }}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
-        loop
-        // loopedSlidesLimit={false}
-        // loopedSlides={1}
-        modules={[Autoplay]}
-        className="swiper_flash_sale"
+        spaceBetween={30}
+        modules={[Grid, Autoplay]}
+        className="swiper_our_products"
       >
         {products.map((item) => {
           return (
@@ -70,8 +67,6 @@ function FlashSaleCarousel(props) {
   );
 }
 
-export default FlashSaleCarousel;
-
-FlashSaleCarousel.propTypes = {
+OurProductsCarousel.propTypes = {
   products: PropTypes.instanceOf(Array).isRequired,
 };

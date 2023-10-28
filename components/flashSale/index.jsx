@@ -84,7 +84,7 @@ function FlashSale(props) {
         </div>
       </div>
 
-      <div className="max-w-[1440px] pl-[2rem] xl:pl-[8rem] mx-auto">
+      <div className="max-w-[1440px] pl-0 xl:pl-[4rem] 2xl:pl-[8.5rem] mx-auto">
         <FlashSaleCarousel products={products} />
       </div>
 

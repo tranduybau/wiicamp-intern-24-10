@@ -107,3 +107,26 @@ body {
   height: 100%;
   object-fit: cover;
 } */
+
+.swiper_our_products .swiper {
+  width: 100%;
+  height: 100%;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+.swiper_our_products .swiper-slide {
+  text-align: center;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.875rem;
+  /* height: 100%; */
+}
+
+/* .swiper_our_products .swiper-grid-column>.swiper-wrapper {
+  flex-direction: unset !important;
+} */

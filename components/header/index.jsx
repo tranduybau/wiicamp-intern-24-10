@@ -110,8 +110,8 @@ function Header() {
             </Link>
           </div>
 
-          <div className="hidden ml-auto md:flex">
-            <form className="relative">
+          <div className="hidden ml-[9.25rem] md:flex items-center justify-center">
+            <form className="relative w-[15.1875rem] h-[2.375rem]">
               <input
                 type="text"
                 placeholder="What are you looking for?"
@@ -124,13 +124,16 @@ function Header() {
             </form>
 
             <Link
-              className="ml-[1.5rem] mr-[1rem] flex items-center"
+              className="w-[2rem] h-[2rem] ml-[1.5rem] mr-[1rem] flex justify-center items-center"
               href="./products"
             >
               <Heart />
             </Link>
 
-            <Link className="flex items-center" href="./products">
+            <Link
+              className="w-[2rem] h-[2rem] flex items-center justify-center"
+              href="./products"
+            >
               <ShoppingCart />
             </Link>
           </div>
@@ -165,7 +168,7 @@ function Header() {
           <button
             type="button"
             onClick={closeDrawerRight}
-            className="w-full absolute top-0 left-3 pt-3 pr-3"
+            className="absolute top-3 left-3"
           >
             <XCircle />
           </button>
@@ -210,7 +213,7 @@ function Header() {
           </div>
 
           <div className="md:hidden ml-auto flex flex-col items-center">
-            <form className="relative mt-5">
+            <form className="relative mt-5 w-[15.1875rem] h-[2.375rem]">
               <input
                 type="text"
                 placeholder="What are you looking for?"

@@ -47,7 +47,7 @@ function CategoriesCarousel(props) {
       <Swiper
         ref={swiperCategories}
         slidesPerView="auto"
-        spaceBetween={31}
+        spaceBetween={30}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,

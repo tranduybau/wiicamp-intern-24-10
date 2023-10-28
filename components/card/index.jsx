@@ -55,7 +55,7 @@ function Card(props) {
       </div>
 
       <div className="flex flex-col items-start gap-[0.5rem]">
-        <div className="text-text-2 max-w-[17rem] truncate font-poppins text-[1rem] font-[500] leading-[1.5rem] overflow-hidden">
+        <div className="text-text-2 max-w-[16.875rem] truncate font-poppins text-[1rem] font-[500] leading-[1.5rem] overflow-hidden">
           {product?.title}
         </div>
 

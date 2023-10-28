@@ -5,14 +5,17 @@ import PropTypes from "prop-types";
 import BestSelling from "@/components/bestSelling";
 import CategoriesBrowse from "@/components/categoriesBrowse";
 import FlashSale from "@/components/flashSale";
+import NewArrival from "@/components/newArrival";
+import OurProducts from "@/components/ourProducts";
 import SaleHunter from "@/components/saleHunter";
+import Services from "@/components/services";
 import Slider from "@/components/slider";
 
 import categories from "@/data/categoriesItems.json";
 
 export default function Home({ products, bestSelling }) {
   return (
-    <main>
+    <main className="subpixel-antialiased">
       <section>
         <Slider />
       </section>
@@ -31,6 +34,18 @@ export default function Home({ products, bestSelling }) {
 
       <section>
         <SaleHunter />
+      </section>
+
+      <section>
+        <OurProducts products={products} />
+      </section>
+
+      <section>
+        <NewArrival />
+      </section>
+
+      <section>
+        <Services />
       </section>
     </main>
   );

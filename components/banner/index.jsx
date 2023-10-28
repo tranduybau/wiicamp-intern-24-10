@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import banner1 from "@/assets/images/banner/banner1.jpg";
+// import banner1 from "@/assets/images/banner/banner1.jpg";
 import data from "@/data/categories.json";
 
 import "swiper/css";
@@ -47,14 +47,14 @@ function Banner() {
         {data.map((item) => {
           return (
             <SwiperSlide key={item.name}>
-              <div className="relative">
-                <Image
+              <div className="relative w-[892px] h-[344px] bg-banner-1">
+                {/* <Image
                   width={892}
                   height={344}
                   src={banner1}
                   alt="..."
                   priority
-                />
+                /> */}
 
                 <Link
                   href="./"
