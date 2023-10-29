@@ -1,22 +1,22 @@
 import React, { memo } from "react";
 
-import Card from "./Card/index";
-import FlashSales from "./FlashSales";
+import Card from "./Card";
+import Explore from "./Explore";
 
-function ToDay() {
+function OurProduct() {
   return (
-    <div className="container">
+    <div className="mt-16 container">
       <div className="flex gap-2 text-center items-center">
-        <p className="lg:w-5 lg:h-10 bg-second-3 rounded sm:w-4 sm:h-8" />
+        <p className="lg:w-5 lg:h-10 bg-second-3 rounded sm:w-3 sm:h-8" />
         <p className="text-second-3 font-poppins text-base font-semibold not-italic">
-          Today’s
+          Our Products
         </p>
       </div>
-      <FlashSales />
+      <Explore />
       <Card />
       <div className="mt-14 pb-14 border-b border-inherit border-solid">
         <div className="flex justify-center">
-          <p className="bg-second-3 lg:text-base text-xs font-poppins font-medium text-text-1 py-4 px-12">
+          <p className="bg-second-3 text-base font-poppins font-medium text-text-1 py-4 px-12 ">
             <a href="./product">View All Products</a>
           </p>
         </div>
@@ -24,5 +24,4 @@ function ToDay() {
     </div>
   );
 }
-
-export default memo(ToDay);
+export default memo(OurProduct);

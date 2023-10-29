@@ -1,3 +1,4 @@
+// sidebar
 import React, { memo } from "react";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";

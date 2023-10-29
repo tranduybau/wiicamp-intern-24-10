@@ -5,7 +5,7 @@ import Image from "next/image";
 function SaleTime() {
   return (
     <div className="mt-32 container w-full bg-black lg:flex md:block px-14">
-      <div className="w-2/4 text-text-1 mt-16  ">
+      <div className="w-2/4 text-text-1 mt-16">
         <p className="text-text-3 font-poppins text-base font-semibold mb-8 ">
           Categories
         </p>
@@ -52,10 +52,14 @@ function SaleTime() {
         </div>
         <div className="mt-10 w-40 h-14 bg-green flex justify-center ">
           <Button
-            className=" text-text-1 text-base font-medium font-poppins"
-            // OnClick={handleBuyNow}
+          // OnClick={handleBuyNow}
           >
-            Buy Now!
+            <a
+              href="/buyNow"
+              className=" text-text-1 text-base font-medium font-poppins"
+            >
+              Buy Now!
+            </a>
           </Button>
         </div>
       </div>

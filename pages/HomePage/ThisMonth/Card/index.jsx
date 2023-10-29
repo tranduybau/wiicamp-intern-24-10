@@ -40,11 +40,11 @@ function CardSales() {
   ];
 
   return (
-    <div className="flex gap-8 mt-10">
+    <div className="mt-10 grid xl:grid-cols-4 lg:grid-cols-3 gap-8 sm:grid-cols-2 justify-center">
       {listCard.map((item, index) => {
         return (
           <Card className=" max-w-[26rem] gap-4" key={item}>
-            <CardHeader className="bg-second-2 w-80 h-64 shadow-none">
+            <CardHeader className="bg-second-2 w-80 h-64 shadow-none group flex justify-center">
               <Image
                 src={item.img}
                 alt={index}
@@ -52,6 +52,14 @@ function CardSales() {
                 width={160}
                 height={160}
               />
+              <div className="!absolute h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
+                <button
+                  type="submit"
+                  className="bg-black text-white-0 py-2 px-5"
+                >
+                  Add to cart
+                </button>
+              </div>
               <div className="!absolute top-3 right-3">
                 <div className="rounded-full bg-white p-1.5">
                   <Heart />
@@ -60,13 +68,13 @@ function CardSales() {
                   <Eye />
                 </div>
               </div>
-              {/* <div className="!absolute top-3 left-3">
-                  <div className="bg-second-3 p-0.5 rounded ">
-                    <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
-                      -{item.discount}%
-                    </p>
-                  </div>
-                </div> */}
+              <div className="!absolute top-3 left-3">
+                <div className="bg-second-3 p-0.5 rounded ">
+                  <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
+                    -{item.discount}%
+                  </p>
+                </div>
+              </div>
             </CardHeader>
             <CardBody>
               <div className="gap-2">

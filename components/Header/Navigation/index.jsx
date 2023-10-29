@@ -28,7 +28,7 @@ function Navigation() {
           variant="small"
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base underline hover:text-slate-500",
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base underline hover:text-slate-500 text-text-2",
             styles.home,
           )}
         >
@@ -41,7 +41,7 @@ function Navigation() {
           variant="small"
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500",
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 text-text-2",
             styles.contact,
           )}
         >
@@ -54,7 +54,7 @@ function Navigation() {
           variant="small"
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500",
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 text-text-2",
             styles.about,
           )}
         >
@@ -67,7 +67,7 @@ function Navigation() {
           variant="small"
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 lg:mr-32 ",
+            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 lg:mr-32 text-text-2",
             styles.signUp,
           )}
         >
@@ -102,7 +102,7 @@ function Navigation() {
             as="a"
             href="#"
             className={classNames(
-              " font-inter  text-2xl font-bold ",
+              " font-inter  text-2xl font-bold text-text-2",
               styles.logo,
             )}
           >
@@ -112,7 +112,7 @@ function Navigation() {
             <div className="mr-4 hidden xl:block">{navList}</div>
             <IconButton
               variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent xl:hidden flex text-center"
+              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent xl:hidden flex text-center text-text-2"
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
@@ -147,7 +147,7 @@ function Navigation() {
                 </svg>
               )}
             </IconButton>
-            <div className="flex mr-6">
+            <div className="flex mr-6 text-text-2">
               <Heart size={32} />
               <ShoppingCart className="ml-6" size={32} />
             </div>

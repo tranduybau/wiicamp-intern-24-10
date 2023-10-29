@@ -1,5 +1,4 @@
 import React, { memo, useRef } from "react";
-import classNames from "classnames";
 import {
   Camera,
   Gamepad,
@@ -15,7 +14,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import "swiper/css";
-import styles from "../../../../styles/HomePage/Category/category.module.css";
 
 function Card() {
   const listCategory = [
@@ -67,7 +65,7 @@ function Card() {
   ];
   const swiperRef = useRef();
   return (
-    <div className="flex gap-8 pb-14 border-b border-inherit border-solid">
+    <div className="flex gap-8 pb-14 border-b border-inherit border-solid ">
       <Swiper
         spaceBetween={30}
         onBeforeInit={(swiper) => {
@@ -101,10 +99,7 @@ function Card() {
             return (
               <SwiperSlide key={item}>
                 <div
-                  className={classNames(
-                    "w-52 h-40 border border-inherit border-solid rounded hover:bg-second-3 flex justify-center",
-                    styles.text__center,
-                  )}
+                  className="w-52 h-40 border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center"
                   key={item}
                 >
                   <div>
