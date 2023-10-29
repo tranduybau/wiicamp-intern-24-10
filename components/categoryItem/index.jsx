@@ -12,13 +12,7 @@ function CategoryItem(props) {
     >
       <div className="flex flex-col gap[1rem]">
         <div className="flex items-center justify-center">
-          <Image
-            src={category.imgSrc}
-            alt="..."
-            width={56}
-            height={56}
-            priority
-          />
+          <Image src={category.imgSrc} alt="..." width={56} height={56} priority />
         </div>
 
         <span className="text-text-2 group-hover:text-text-1 font-poppins text-[1rem] font-[400] leading-[1.4rem]">

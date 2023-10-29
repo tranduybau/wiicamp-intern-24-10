@@ -13,15 +13,9 @@ export default function Document() {
           crossOrigin="anonymous"
         /> */}
 
-        <link
-          href="https://fonts.googleapis.com/css?family=Poppins"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
 
-        <link
-          href="https://fonts.googleapis.com/css?family=Inter"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
       </Head>
       <body>
         <Main />

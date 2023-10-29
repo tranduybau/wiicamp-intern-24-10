@@ -33,11 +33,7 @@ export default function OurProductsCarousel(props) {
   }, []);
 
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative cover_carousel_flash_sale"
-    >
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative cover_carousel_flash_sale">
       <ArrowCategoriesCarousel prev={handlePrev} next={handleNext} />
 
       <Swiper

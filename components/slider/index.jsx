@@ -38,9 +38,7 @@ function Slider() {
                   key={item.name}
                 >
                   <li className="hover:bg-gray-300 h-[2.5rem] flex justify-between items-center cursor-pointer ">
-                    <span className="mr-[3.19rem] !whitespace-nowrap">
-                      {item.name}
-                    </span>
+                    <span className="mr-[3.19rem] !whitespace-nowrap">{item.name}</span>
 
                     <ChevronRight className="mr-[1rem]" />
                   </li>
@@ -69,10 +67,7 @@ function Slider() {
             }
 
             return (
-              <li
-                className="hover:bg-gray-300 flex items-center h-[2.5rem]"
-                key={item.name}
-              >
+              <li className="hover:bg-gray-300 flex items-center h-[2.5rem]" key={item.name}>
                 <Link className="!whitespace-nowrap block w-full" href="./">
                   {item.name}
                 </Link>

@@ -1,12 +1,6 @@
 import React, { useCallback, useState } from "react";
 import classNames from "classnames";
-import {
-  AlignJustify,
-  Heart,
-  Search,
-  ShoppingCart,
-  XCircle,
-} from "lucide-react";
+import { AlignJustify, Heart, Search, ShoppingCart, XCircle } from "lucide-react";
 import Link from "next/link";
 
 import DropDown from "../svg/dropDown";
@@ -20,10 +14,7 @@ function Header() {
 
   const closeDrawerRight = useCallback(() => setOpenRight(false), []);
 
-  const openSelectLanguage = useCallback(
-    () => setOpenLanguage((open) => !open),
-    [],
-  );
+  const openSelectLanguage = useCallback(() => setOpenLanguage((open) => !open), []);
 
   return (
     <>
@@ -32,10 +23,7 @@ function Header() {
           <div className="hidden lg:block col-span-2" />
 
           <div className="col-span-12 md:col-span-10: lg:col-span-8 md:flex items-center md:justify-start lg:justify-center text-center">
-            <span className="mr-2">
-              Summer Sale For All Swim Suits And Free Express Delivery - OFF
-              50%!
-            </span>
+            <span className="mr-2">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
 
             <Link className="font-[600] underline" href="./products">
               ShopNow
@@ -43,11 +31,7 @@ function Header() {
           </div>
 
           <div className="hidden col-span-2 lg:flex justify-end relative">
-            <button
-              className="flex items-center justify-between gap-1"
-              type="button"
-              onClick={openSelectLanguage}
-            >
+            <button className="flex items-center justify-between gap-1" type="button" onClick={openSelectLanguage}>
               <span className="font-[400]">English</span>
 
               <DropDown />
@@ -60,21 +44,13 @@ function Header() {
               )}
             >
               <li className="cursor-pointer hover:text-text-2 hover:bg-secondary-1">
-                <button
-                  onClick={openSelectLanguage}
-                  type="button"
-                  className="w-full text-left px-1 py-1"
-                >
+                <button onClick={openSelectLanguage} type="button" className="w-full text-left px-1 py-1">
                   English
                 </button>
               </li>
 
               <li className="cursor-pointer hover:text-text-2 hover:bg-secondary-1">
-                <button
-                  onClick={openSelectLanguage}
-                  type="button"
-                  className="w-full text-left px-1 py-1"
-                >
+                <button onClick={openSelectLanguage} type="button" className="w-full text-left px-1 py-1">
                   Tiếng Việt
                 </button>
               </li>
@@ -85,15 +61,10 @@ function Header() {
 
       <header className="sticky top-0 z-[3] text-black bg-white border-b-gray-400 border-b-[1px]">
         <div className="container pt-[40px] pb-[15px] flex items-center">
-          <div className="font-inter font-[700] text-[1.5rem] leading-[1.5rem] mr-auto">
-            Exclusive
-          </div>
+          <div className="font-inter font-[700] text-[1.5rem] leading-[1.5rem] mr-auto">Exclusive</div>
 
           <div className="hidden lg:flex gap-[3rem] text-[1rem] font-[400] leading-[1.5rem]">
-            <Link
-              className="font-poppins border-b-gray-400 border-b-[2px]"
-              href="./products"
-            >
+            <Link className="font-poppins border-b-gray-400 border-b-[2px]" href="./products">
               Home
             </Link>
 
@@ -130,19 +101,12 @@ function Header() {
               <Heart />
             </Link>
 
-            <Link
-              className="w-[2rem] h-[2rem] flex items-center justify-center"
-              href="./products"
-            >
+            <Link className="w-[2rem] h-[2rem] flex items-center justify-center" href="./products">
               <ShoppingCart />
             </Link>
           </div>
 
-          <button
-            onClick={openDrawerRight}
-            className="lg:hidden ml-5"
-            type="button"
-          >
+          <button onClick={openDrawerRight} className="lg:hidden ml-5" type="button">
             <AlignJustify />
           </button>
         </div>
@@ -165,11 +129,7 @@ function Header() {
             !openRight && "hidden",
           )}
         >
-          <button
-            type="button"
-            onClick={closeDrawerRight}
-            className="absolute top-3 left-3"
-          >
+          <button type="button" onClick={closeDrawerRight} className="absolute top-3 left-3">
             <XCircle />
           </button>
 
@@ -236,10 +196,7 @@ function Header() {
           </div>
 
           <div className="lg:hidden mt-[3rem] w-full flex flex-col items-start gap-[2rem] text-[1rem] font-[400] leading-[1.5rem]">
-            <Link
-              className="font-poppins w-fit border-b-gray-400 border-b-[2px]"
-              href="./products"
-            >
+            <Link className="font-poppins w-fit border-b-gray-400 border-b-[2px]" href="./products">
               Home
             </Link>
 

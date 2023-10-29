@@ -36,11 +36,7 @@ function CategoriesCarousel(props) {
   }, []);
 
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative cover_carousel_categories"
-    >
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative cover_carousel_categories">
       <ArrowCategoriesCarousel prev={handlePrev} next={handleNext} />
 
       {/* Multi Carousel FlashSale */}

@@ -36,11 +36,7 @@ function FlashSaleCarousel(props) {
   }, []);
 
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative cover_carousel_flash_sale"
-    >
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative cover_carousel_flash_sale">
       <ArrowButtonCarousel prev={handlePrev} next={handleNext} />
 
       {/* Multi Carousel FlashSale */}

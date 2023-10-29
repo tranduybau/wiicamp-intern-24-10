@@ -13,9 +13,7 @@ function NewArrival() {
               <Rectangle />
             </div>
 
-            <span className="text-secondary-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">
-              Featured
-            </span>
+            <span className="text-secondary-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">Featured</span>
           </div>
 
           <div className="text-text-2 font-inter text-[2.25rem] font-[600] leading-[3rem] tracking-[0.09rem]">

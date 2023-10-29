@@ -19,9 +19,7 @@ function SaleHunter() {
           <div className="grid grid-cols-12 sm:inline-flex items-start gap-[0.5rem] sm:gap-[1.5rem] ml-[3.5rem] mt-[2rem]">
             <div className="col-span-6 w-[3.875rem] h-[3.875rem] flex-shrink-0 rounded-full bg-white flex items-center justify-center">
               <div className="flex flex-col items-center gap-[-0.25rem]">
-                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">
-                  23
-                </span>
+                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">23</span>
 
                 <span className="w-[2rem] text-text-2 font-poppins text-[0.6875rem] font-[400] leading-[1.125rem]">
                   Hours
@@ -31,9 +29,7 @@ function SaleHunter() {
 
             <div className="col-span-6 w-[3.875rem] h-[3.875rem] flex-shrink-0 rounded-full bg-white flex items-center justify-center">
               <div className="flex flex-col items-center gap-[-0.25rem]">
-                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">
-                  05
-                </span>
+                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">05</span>
 
                 <span className="w-[1.75rem] text-text-2 font-poppins text-[0.6875rem] font-[400] leading-[1.125rem]">
                   Days
@@ -43,9 +39,7 @@ function SaleHunter() {
 
             <div className="col-span-6 w-[3.875rem] h-[3.875rem] flex-shrink-0 rounded-full bg-white flex items-center justify-center">
               <div className="flex flex-col items-center gap-[-0.25rem]">
-                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">
-                  59
-                </span>
+                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">59</span>
 
                 <span className="w-[2.6875rem] text-text-2 font-poppins text-[0.6875rem] font-[400] leading-[1.125rem]">
                   Minutes
@@ -55,9 +49,7 @@ function SaleHunter() {
 
             <div className="col-span-6 w-[3.875rem] h-[3.875rem] flex-shrink-0 rounded-full bg-white flex items-center justify-center">
               <div className="flex flex-col items-center gap-[-0.25rem]">
-                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">
-                  35
-                </span>
+                <span className="text-text-2 font-poppins text-[1rem] font-[600] leading-[1.25rem]">35</span>
 
                 <span className="w-[3rem] text-text-2 font-poppins text-[0.6875rem] font-[400] leading-[1.125rem]">
                   Seconds
