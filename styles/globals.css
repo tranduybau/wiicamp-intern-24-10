@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --Button: #000000;
+  --Text: #fafafa;
+  --Text2: #000000;
+  --Secondary: #F5F5F5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +22,111 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
+
+.swiper_banner .swiper-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.25rem !important;
+}
+
+.swiper_banner .swiper-pagination-bullet {
+  box-sizing: content-box !important;
+  background: #ffffff !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  opacity: 0.5 !important;
+}
+
+.swiper_banner .swiper-pagination-bullet-active {
+  box-sizing: border-box !important;
+  background: #db4444 !important;
+  border: solid #ffffff 0.125rem !important;
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+  opacity: 1 !important;
+}
+
+.cover_carousel_flash_sale {
+  position: relative;
+  height: 100%;
+}
+
+.swiper_flash_sale .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_flash_sale .swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.875rem;
+  /* height: 100%; */
+}
+
+/* .swiper_flash_sale .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.cover_carousel_categories {
+  position: relative;
+  height: 100%;
+}
+
+.swiper_categories .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_categories .swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10.625rem;
+  /* height: 100%; */
+}
+
+/* .swiper_categories .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.swiper_our_products .swiper {
+  width: 100%;
+  height: 100%;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+.swiper_our_products .swiper-slide {
+  text-align: center;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.875rem;
+  /* height: 100%; */
+}
+
+/* .swiper_our_products .swiper-grid-column>.swiper-wrapper {
+  flex-direction: unset !important;
+} */

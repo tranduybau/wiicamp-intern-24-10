@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "imgSrc": "/assets/images/categories/phone.png",
+    "name": "Phones"
+  },
+  {
+    "id": 2,
+    "imgSrc": "/assets/images/categories/computer.png",
+    "name": "Computers"
+  },
+  {
+    "id": 3,
+    "imgSrc": "/assets/images/categories/smartWatch.png",
+    "name": "SmartWatch"
+  },
+  {
+    "id": 4,
+    "imgSrc": "/assets/images/categories/headPhone.png",
+    "name": "HeaderPhone"
+  },
+  {
+    "id": 5,
+    "imgSrc": "/assets/images/categories/gamePad.png",
+    "name": "Gaming"
+  },
+  {
+    "id": 6,
+    "imgSrc": "/assets/images/categories/phone.png",
+    "name": "Phones"
+  },
+  {
+    "id": 7,
+    "imgSrc": "/assets/images/categories/computer.png",
+    "name": "Computers"
+  },
+  {
+    "id": 8,
+    "imgSrc": "/assets/images/categories/smartWatch.png",
+    "name": "SmartWatch"
+  },
+  {
+    "id": 9,
+    "imgSrc": "/assets/images/categories/headPhone.png",
+    "name": "HeaderPhone"
+  },
+  {
+    "id": 10,
+    "imgSrc": "/assets/images/categories/gamePad.png",
+    "name": "Gaming"
+  },
+  {
+    "id": 11,
+    "imgSrc": "/assets/images/categories/phone.png",
+    "name": "Phones"
+  },
+  {
+    "id": 12,
+    "imgSrc": "/assets/images/categories/computer.png",
+    "name": "Computers"
+  },
+  {
+    "id": 13,
+    "imgSrc": "/assets/images/categories/smartWatch.png",
+    "name": "SmartWatch"
+  },
+  {
+    "id": 14,
+    "imgSrc": "/assets/images/categories/headPhone.png",
+    "name": "HeaderPhone"
+  },
+  {
+    "id": 15,
+    "imgSrc": "/assets/images/categories/gamePad.png",
+    "name": "Gaming"
+  }
+]
