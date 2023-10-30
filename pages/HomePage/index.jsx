@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-// import ToDay from "./ToDay/index";
+import ToDay from "./ToDay/index";
 import Category from "./Category";
 import Delivery from "./Delivery";
 import Featured from "./Featured";
@@ -11,7 +11,7 @@ import SaleTime from "./SaleTime";
 function HomePage() {
   return (
     <div className="mt-36">
-      {/* <ToDay /> */}
+      <ToDay />
       <Category />
       {/* <ThisMonth /> */}
       <SaleTime />
