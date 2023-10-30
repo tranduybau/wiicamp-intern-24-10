@@ -8,12 +8,12 @@ function FlashSale() {
         <p className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl items-center">
           Flash Sales
         </p>
-        <div className="flex lg:gap-3 sm:gap-1">
+        <div className="flex lg:gap-3 gap-2 md:mt-0 mt-2">
           <div>
             <p className="font-poppins text-xs font-medium not-italic text-text-2 ">
               Days
             </p>
-            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 text-base">
+            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 text-base flex justify-center">
               03
             </p>
           </div>
@@ -22,7 +22,7 @@ function FlashSale() {
             <p className="font-poppins text-xs font-medium not-italic text-text-2 ">
               Hours
             </p>
-            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl">
+            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl  flex justify-center">
               23
             </p>
           </div>
@@ -31,7 +31,7 @@ function FlashSale() {
             <p className="font-poppins text-xs font-medium not-italic text-text-2 ">
               Minutes
             </p>
-            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl">
+            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl  flex justify-center">
               19
             </p>
           </div>
@@ -40,7 +40,7 @@ function FlashSale() {
             <p className="font-poppins text-xs font-medium not-italic text-text-2 ">
               Seconds
             </p>
-            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl">
+            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl  flex justify-center">
               56
             </p>
           </div>

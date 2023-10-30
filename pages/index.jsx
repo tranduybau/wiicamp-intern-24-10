@@ -1,12 +1,20 @@
 import React from "react";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// import { Inter } from "next/font/google";
+import HomePage from "./HomePage";
+import SideBar from "./SideBar";
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main
-      className={`flex items-center justify-between p-24 bg-white ${inter.className}`}
-    />
+    // <main className={`p-24 bg-white ${inter.className}`}>
+    //   <SideBar />
+    //   <HomePage />
+    // </main>
+    <main>
+      <SideBar />
+      <HomePage />
+    </main>
   );
 }

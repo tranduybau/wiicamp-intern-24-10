@@ -31,7 +31,7 @@ function Languages() {
             Shop Now
           </a>
         </div>
-        <div className="xl:ml-96 lg:ml-72 md:ml-72  flex justify-center ">
+        <div className="xl:ml-96 lg:ml-72 md:ml-72  flex justify-end ">
           <select
             value={selectedOption}
             onChange={handleLanguage}

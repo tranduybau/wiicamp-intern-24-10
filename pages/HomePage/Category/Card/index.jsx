@@ -73,19 +73,23 @@ function Card() {
         }}
         breakpoints={{
           0: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
           480: {
             slidesPerView: 2,
             spaceBetween: 10,
           },
-          800: {
+          600: {
             slidesPerView: 3,
             spaceBetween: 10,
           },
-          1280: {
+          800: {
             slidesPerView: 4,
+            spaceBetween: 10,
+          },
+          1280: {
+            slidesPerView: 5,
             spaceBetween: 10,
           },
           1440: {
@@ -99,7 +103,7 @@ function Card() {
             return (
               <SwiperSlide key={item}>
                 <div
-                  className="w-52 h-40 border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center"
+                  className="w-44 h-36 border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center"
                   key={item}
                 >
                   <div>

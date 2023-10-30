@@ -1,80 +1,71 @@
 import React, { memo } from "react";
-import {
-  IconButton,
-  MobileNav,
-  Navbar,
-  Typography,
-} from "@material-tailwind/react";
 import classNames from "classnames";
-import { Heart, Search, ShoppingCart } from "lucide-react";
+import {
+  AlignJustify,
+  Heart,
+  //   Link,
+  Search,
+  ShoppingCart,
+  X,
+} from "lucide-react";
+import Link from "next/link";
 
 import styles from "@/styles/navigation.module.css";
 
 function Navigation() {
   const [openNav, setOpenNav] = React.useState(false);
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
+  const handlerClose = () => {
+    setOpenNav(false);
+  };
 
   const navList = (
-    <div className="mt-2 mb-4 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-12 ">
-      <div className="mt-2 mb-4 flex flex-col gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-12 mr-16">
-        <Typography
-          as="li"
-          variant="small"
+    <div className="mt-2 mb-4 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-20 lg:gap-16 md:gap-4">
+      <div className="mt-2 mb-4 flex flex-col xl:gap-12 gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 lg:mr-16 justify-center items-center">
+        <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base underline hover:text-slate-500 text-text-2",
+            "p-1 font-normal font-poppins md:block flex justify-center text-base underline hover:text-slate-500 text-text-2",
             styles.home,
           )}
         >
-          <a href="http" className="flex items-center">
+          <Link href="./HomePage" className="flex items-center">
             Home
-          </a>
-        </Typography>
-        <Typography
-          as="li"
-          variant="small"
+          </Link>
+        </p>
+        <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 text-text-2",
+            "p-1 font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
             styles.contact,
           )}
         >
-          <a href="http" className="flex items-center">
+          <Link href="./Contact" className="flex items-center">
             Contact
-          </a>
-        </Typography>
-        <Typography
-          as="li"
-          variant="small"
+          </Link>
+        </p>
+        <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 text-text-2",
+            "p-1 font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
             styles.about,
           )}
         >
-          <a href="http" className="flex items-center">
+          <Link href="./About" className="flex items-center">
             About
-          </a>
-        </Typography>
-        <Typography
-          as="li"
-          variant="small"
+          </Link>
+        </p>
+        <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins sm:flex sm:justify-center text-base hover:text-slate-500 lg:mr-32 text-text-2",
+            "p-1 font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 xl:mr-32 lg:mr-10 text-text-2",
             styles.signUp,
           )}
         >
-          <a href="http" className="flex items-center">
+          <Link href="./SignUp" className="flex items-center">
             Sign Up
-          </a>
-        </Typography>
+          </Link>
+        </p>
       </div>
       <div className="relative sm:flex sm:justify-center">
         <input
@@ -95,66 +86,50 @@ function Navigation() {
   );
 
   return (
-    <div className=" ">
-      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none  py-2 lg:px-8 lg:py-4 ">
+    <div className="border-b border-inherit border-solid ">
+      <div className="sticky top-0 z-10 h-max max-w-full rounded-none  py-2 lg:px-8 lg:py-4 ">
         <div className="flex justify-between text-blue-gray-900 container">
-          <Typography
-            as="a"
-            href="#"
+          <Link
+            href="./HomePage"
             className={classNames(
               " font-inter  text-2xl font-bold text-text-2",
               styles.logo,
             )}
           >
             Exclusive
-          </Typography>
-          <div className="flex items-center gap-4">
-            <div className="mr-4 hidden xl:block">{navList}</div>
-            <IconButton
-              variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent xl:hidden flex text-center text-text-2"
-              ripple={false}
+          </Link>
+          <div className="flex items-center xl:gap-4 lg:gap-1 order-3">
+            <div className="mr-4 hidden lg:block">{navList}</div>
+            <button
+              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden flex text-center text-text-2"
               onClick={() => setOpenNav(!openNav)}
+              type="button"
             >
-              {openNav ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </IconButton>
-            <div className="flex mr-6 text-text-2">
-              <Heart size={32} />
+              {openNav ? "" : <AlignJustify />}
+            </button>
+            <div className="flex text-text-2">
+              <Heart className="ml-6 lg:ml-0" size={32} />
               <ShoppingCart className="ml-6" size={32} />
             </div>
           </div>
+          {openNav && (
+            <div
+              className={classNames(
+                "lg:hidden drop-shadow-xl sm:block gap-12",
+                styles.menu_mobile,
+              )}
+            >
+              <div className="flex justify-end">
+                <X
+                  onClick={handlerClose}
+                  className="cursor-pointer mr-4 pt-2"
+                />
+              </div>
+              {navList}
+            </div>
+          )}
         </div>
-        <MobileNav open={openNav}>{navList}</MobileNav>
-      </Navbar>
+      </div>
     </div>
   );
 }

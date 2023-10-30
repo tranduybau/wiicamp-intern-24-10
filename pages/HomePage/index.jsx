@@ -10,7 +10,7 @@ import ThisMonth from "./ThisMonth";
 
 function HomePage() {
   return (
-    <div className="mt-36">
+    <div className="mt-36 mb-36">
       <ToDay />
       <Category />
       <ThisMonth />

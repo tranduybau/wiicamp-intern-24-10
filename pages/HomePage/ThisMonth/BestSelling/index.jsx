@@ -9,7 +9,7 @@ function BestSelling() {
         </p>
         <div>
           <div className="flex justify-center">
-            <p className="bg-second-3 lg:text-base text-xs font-poppins font-medium text-text-1 py-4 px-12 ">
+            <p className="bg-second-3 lg:text-base text-xs font-poppins font-medium text-text-1 lg:py-4 lg:px-12 py-2 px-4">
               <a href="./bestSelling">View All</a>
             </p>
           </div>

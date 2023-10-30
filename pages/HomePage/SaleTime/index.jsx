@@ -4,8 +4,8 @@ import Image from "next/image";
 
 function SaleTime() {
   return (
-    <div className="mt-32 container w-full bg-black lg:flex md:block px-14">
-      <div className="w-2/4 text-text-1 mt-16">
+    <div className="mt-32 container w-full bg-black lg:flex md:block px-14 py-14">
+      <div className="w-2/4 text-text-1 ">
         <p className="text-text-3 font-poppins text-base font-semibold mb-8 ">
           Categories
         </p>
@@ -63,7 +63,7 @@ function SaleTime() {
         <Image
           src="/img/radio.png"
           alt="radio"
-          className="my-20 "
+          className="mt-20 "
           width={600}
           height={600}
           priority
