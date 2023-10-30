@@ -68,14 +68,15 @@ function CardSales() {
       star: <Star className="fill-current" />,
       review: "99",
     },
-    // {
-    //   name: "IPSS-Series Comfort Chair",
-    //   discount: "25",
-    //   price: "400",
-    //   img: "/img/toys.png",
-    //   star: <Star className="fill-current" />,
-    //   review: "99",
-    // },
+    {
+      id: "7",
+      name: "IPSS-Series Comfort Chair",
+      discount: "25",
+      price: "400",
+      img: "/img/toys.png",
+      star: <Star className="fill-current" />,
+      review: "99",
+    },
   ];
   const swiperRef = useRef();
   return (
@@ -92,19 +93,19 @@ function CardSales() {
             slidesPerView: 1,
             spaceBetween: 10,
           },
-          480: {
+          640: {
             slidesPerView: 2,
             spaceBetween: 10,
           },
-          800: {
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          1024: {
             slidesPerView: 3,
             spaceBetween: 10,
           },
           1280: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          1440: {
             slidesPerView: 4,
             spaceBetween: 10,
           },
@@ -114,31 +115,37 @@ function CardSales() {
           listCard.map((item, index) => {
             return (
               <SwiperSlide key={item.id}>
-                <div key={item.id} className="gap-4">
-                  <div className="bg-second-2 ">
-                    <div className="bg-second-2 w-80 h-64 shadow-none flex justify-center items-center">
-                      <Image
-                        src={item.img}
-                        alt={index}
-                        className="flex justify-center"
-                        width={160}
-                        height={160}
-                        priority
-                      />
-                      <div className="!absolute top-3 right-3">
-                        <div className="rounded-full bg-white p-1.5">
-                          <Heart />
-                        </div>
-                        <div className="rounded-full bg-white p-1.5 mt-2">
-                          <Eye />
-                        </div>
+                <div key={item.id} className="">
+                  {/* <div className="bg-second-2 "> */}
+                  <div className="bg-second-2 w-72 h-64 shadow-none group relative inline-flex justify-center overflow-hidden items-center">
+                    <Image
+                      src={item.img}
+                      alt={index}
+                      width={160}
+                      height={160}
+                      priority
+                    />
+                    <div className="!absolute  h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
+                      <button
+                        type="submit"
+                        className="bg-black text-white-0 py-2 px-5 w-72"
+                      >
+                        Add to cart
+                      </button>
+                    </div>
+                    <div className="!absolute top-3 right-3">
+                      <div className="rounded-full bg-white p-1.5">
+                        <Heart />
                       </div>
-                      <div className="!absolute top-3 left-3">
-                        <div className="bg-second-3 p-0.5 rounded ">
-                          <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
-                            -{item.discount}%
-                          </p>
-                        </div>
+                      <div className="rounded-full bg-white p-1.5 mt-2">
+                        <Eye />
+                      </div>
+                    </div>
+                    <div className="!absolute top-3 left-3">
+                      <div className="bg-second-3 p-0.5 rounded ">
+                        <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
+                          -{item.discount}%
+                        </p>
                       </div>
                     </div>
                   </div>

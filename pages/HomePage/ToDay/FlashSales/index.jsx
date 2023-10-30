@@ -4,16 +4,16 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 function FlashSale() {
   return (
     <div className="flex mt-6 justify-between">
-      <div className=" flex gap-20 ">
+      <div className=" lg:flex gap-20 sm:block">
         <p className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl items-center">
           Flash Sales
         </p>
-        <div className="flex lg:gap-3 sm:gap-2">
+        <div className="flex lg:gap-3 sm:gap-1">
           <div>
             <p className="font-poppins text-xs font-medium not-italic text-text-2 ">
               Days
             </p>
-            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl">
+            <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 text-base">
               03
             </p>
           </div>

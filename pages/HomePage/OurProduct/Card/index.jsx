@@ -54,7 +54,7 @@ function CardSales() {
       {listCard.map((item, index) => {
         return (
           <div className=" max-w-[26rem] gap-4 " key={item}>
-            <div className="bg-second-2 w-80 h-64 shadow-none group relative inline-flex justify-center overflow-hidden items-center">
+            <div className="bg-second-2 w-72 h-64 shadow-none group relative inline-flex justify-center overflow-hidden items-center">
               <Image
                 src={item.img}
                 alt={index}
@@ -66,7 +66,7 @@ function CardSales() {
               <div className="!absolute h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
                 <button
                   type="submit"
-                  className="bg-black text-white-0 py-2 px-5"
+                  className="bg-black text-white-0 py-2 px-5 w-72"
                 >
                   Add to cart
                 </button>

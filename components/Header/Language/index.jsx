@@ -10,12 +10,12 @@ function Languages() {
     setSelectedOption(e.target.value);
   };
   return (
-    <div className={classNames("flex bg-black h-12", styles.language)}>
-      <div className="flex container justify-end">
-        <div className="flex">
+    <div className="lg:flex sm:block bg-black py-2.5 items-center w-full">
+      <div className="md:flex container justify-end sm:block">
+        <div className="xl:flex block">
           <p
             className={classNames(
-              "font-poppins text-text-1 text-sm font-normal mr-2 ",
+              "font-poppins text-text-1 text-xs md:text-sm font-normal mr-2 flex justify-center items-center",
               styles.text,
             )}
           >
@@ -24,18 +24,18 @@ function Languages() {
           <a
             href="http"
             className={classNames(
-              "font-poppins font-3 text-sm text-text-1 underline  ",
+              "font-poppins font-3 sm:text-sm text-xs text-text-1 underline  flex justify-center",
               styles.shopNow,
             )}
           >
             Shop Now
           </a>
         </div>
-        <div className={styles.select}>
+        <div className="xl:ml-96 lg:ml-72 md:ml-72  flex justify-center ">
           <select
             value={selectedOption}
             onChange={handleLanguage}
-            className="bg-black text-text-1 font-poppins text-sm"
+            className="bg-black text-text-1 font-poppins sm:text-sm text-xs"
           >
             <option value="en">English</option>
             <option value="vn">Tiếng việt</option>

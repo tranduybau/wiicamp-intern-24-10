@@ -76,7 +76,6 @@ function Sidebar() {
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
-          //   navigation
           scrollbar={{ draggable: true }}
         >
           {listSlider.map((item, index) => {
