@@ -44,8 +44,6 @@ function LogIn() {
 
         setIsLoading(false);
       } catch (error) {
-        console.log("««««« error »»»»»", error.response.data);
-
         setIsLoading(false);
       }
     },

@@ -2,12 +2,7 @@ import React from "react";
 
 function Loading() {
   return (
-    <svg
-      version="1.0"
-      width="64px"
-      height="64px"
-      viewBox="0 0 128 128"
-    >
+    <svg version="1.0" width="64px" height="64px" viewBox="0 0 128 128">
       <g>
         <linearGradient id="linear-gradient">
           <stop offset="0%" stopColor="#fff" />
@@ -25,7 +20,7 @@ function Loading() {
           to="360 64 64"
           dur="1080ms"
           repeatCount="indefinite"
-        ></animateTransform>
+        />
       </g>
     </svg>
   );
