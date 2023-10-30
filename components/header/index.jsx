@@ -129,7 +129,7 @@ function Header() {
 
             <Link
               className="w-[2rem] h-[2rem] ml-[1.5rem] mr-[1rem] flex justify-center items-center"
-              href="./products"
+              href="./wishList"
             >
               <Heart />
             </Link>
