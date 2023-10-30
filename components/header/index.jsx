@@ -1,20 +1,51 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
-import { AlignJustify, Heart, Search, ShoppingCart, XCircle } from "lucide-react";
+import {
+  AlignJustify,
+  Heart,
+  LogIn,
+  LogOut,
+  Search,
+  ShoppingBag,
+  ShoppingCart,
+  Star,
+  User,
+  XCircle,
+} from "lucide-react";
 import Link from "next/link";
 
 import DropDown from "../svg/dropDown";
 
 function Header() {
+  const [token, setToken] = useState(false);
+
   const [openRight, setOpenRight] = useState(false);
 
   const [openLanguage, setOpenLanguage] = useState(false);
+
+  const [openUserSetting, setOpenUserSetting] = useState(false);
 
   const openDrawerRight = useCallback(() => setOpenRight(true), []);
 
   const closeDrawerRight = useCallback(() => setOpenRight(false), []);
 
   const openSelectLanguage = useCallback(() => setOpenLanguage((open) => !open), []);
+
+  const openUserSettingMenu = useCallback(() => setOpenUserSetting(true), []);
+
+  const closeUserSettingMenu = useCallback(() => setOpenUserSetting(false), []);
+
+  useEffect(() => {
+    const getToken = localStorage.getItem("TOKEN");
+
+    setToken(getToken);
+  }, []);
+
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem("TOKEN");
+
+    setOpenUserSetting(false);
+  }, []);
 
   return (
     <>
@@ -83,7 +114,7 @@ function Header() {
             </Link>
           </div>
 
-          <div className="hidden ml-[9.25rem] md:flex items-center justify-center">
+          <div className="hidden ml-[8.12rem] md:flex items-center justify-center">
             <form className="relative w-[15.1875rem] h-[2.375rem]">
               <input
                 type="text"
@@ -106,6 +137,129 @@ function Header() {
             <Link className="w-[2rem] h-[2rem] flex items-center justify-center" href="./products">
               <ShoppingCart />
             </Link>
+
+            <button
+              type="button"
+              onMouseEnter={openUserSettingMenu}
+              onMouseLeave={closeUserSettingMenu}
+              className="group relative flex items-center justify-center w-[2rem] h-[2rem] ml-[1rem] rounded-full hover:bg-secondary-2"
+            >
+              <User className="group-hover:text-text-1" />
+
+              <div
+                className={classNames(
+                  "absolute right-0 top-[1.7rem] w-[14rem] bg- flex pt-[1.125rem] pr-[0.75rem] pb-[0.625rem] pl-[1.25rem] justify-end items-center backdrop-blur-sm bg-[rgba(0,0,0,0.8)] rounded-[0.25rem]",
+                  !openUserSetting && "hidden",
+                )}
+              >
+                {token ? (
+                  <div className="flex flex-col items-start gap-[0.8125rem]">
+                    <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                      <User className="w-[2rem] h-[2rem] text-text-1" />
+
+                      <span className="text-text-1 flex items-center justify-start w-[9rem]  font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                        Manage My Account
+                      </span>
+                    </Link>
+
+                    <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                      <ShoppingBag className="w-[2rem] h-[2rem] text-text-1" />
+
+                      <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                        My Order
+                      </span>
+                    </Link>
+
+                    <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                      <XCircle className="w-[2rem] h-[2rem] text-text-1" />
+
+                      <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                        My Cancellations
+                      </span>
+                    </Link>
+
+                    <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                      <Star className="w-[2rem] h-[2rem] text-text-1" />
+
+                      <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                        My Reviews
+                      </span>
+                    </Link>
+
+                    <Link
+                      href="./logIn"
+                      onClick={handleLogout}
+                      className="flex items-center gap-[1rem] hover:bg-gray-500"
+                    >
+                      <LogOut className="w-[2rem] h-[2rem] text-text-1" />
+
+                      <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                        Logout
+                      </span>
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-start gap-[0.8125rem]">
+                    <Link
+                      href="./logIn"
+                      onClick={handleLogout}
+                      className="flex items-center gap-[1rem] hover:bg-gray-500"
+                    >
+                      <LogIn className="w-[2rem] h-[2rem] text-text-1" />
+
+                      <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                        Login
+                      </span>
+                    </Link>
+                  </div>
+                )}
+                {/* <div className="flex flex-col items-start gap-[0.8125rem]">
+                  <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                    <User className="w-[2rem] h-[2rem] text-text-1" />
+
+                    <span className="text-text-1 flex items-center justify-start w-[9rem]  font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                      Manage My Account
+                    </span>
+                  </Link>
+
+                  <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                    <ShoppingBag className="w-[2rem] h-[2rem] text-text-1" />
+
+                    <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                      My Order
+                    </span>
+                  </Link>
+
+                  <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                    <XCircle className="w-[2rem] h-[2rem] text-text-1" />
+
+                    <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                      My Cancellations
+                    </span>
+                  </Link>
+
+                  <Link href="./" className="flex items-center gap-[1rem] hover:bg-gray-500">
+                    <Star className="w-[2rem] h-[2rem] text-text-1" />
+
+                    <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                      My Reviews
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="./logIn"
+                    onClick={handleLogout}
+                    className="flex items-center gap-[1rem] hover:bg-gray-500"
+                  >
+                    <LogOut className="w-[2rem] h-[2rem] text-text-1" />
+
+                    <span className="text-text-1 flex items-center justify-start w-[9rem] font-poppins text-[0.875rem] font-[400] leading-[1.3125rem]">
+                      Logout
+                    </span>
+                  </Link>
+                </div> */}
+              </div>
+            </button>
           </div>
 
           <button onClick={openDrawerRight} className="lg:hidden ml-5" type="button">
@@ -191,9 +345,13 @@ function Header() {
                 <Heart />
               </Link>
 
-              <Link className="flex items-center" href="./products">
+              <Link className="flex items-center ml-[1rem]" href="./products">
                 <ShoppingCart />
               </Link>
+
+              <button type="button" className="ml-[1rem]">
+                <User />
+              </button>
             </div>
           </div>
 
@@ -210,7 +368,7 @@ function Header() {
               About
             </Link>
 
-            <Link className="font-poppins w-fit" href="./products">
+            <Link onClick={closeDrawerRight} className="font-poppins w-fit" href="./signUp">
               Sign Up
             </Link>
           </div>
