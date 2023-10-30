@@ -82,9 +82,11 @@ function CardSales() {
     <div className="flex gap-8 mt-10 justify-center">
       <Swiper
         spaceBetween={30}
+        slidesPerView="auto"
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
+        className="w-auto"
         breakpoints={{
           0: {
             slidesPerView: 1,
