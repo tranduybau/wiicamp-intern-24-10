@@ -1,13 +1,6 @@
 import React, { memo } from "react";
 import classNames from "classnames";
-import {
-  AlignJustify,
-  Heart,
-  //   Link,
-  Search,
-  ShoppingCart,
-  X,
-} from "lucide-react";
+import { AlignJustify, Heart, Search, ShoppingCart, X } from "lucide-react";
 import Link from "next/link";
 
 import styles from "@/styles/navigation.module.css";
@@ -29,7 +22,7 @@ function Navigation() {
             styles.home,
           )}
         >
-          <Link href="./HomePage" className="flex items-center">
+          <Link href="./" className="flex items-center">
             Home
           </Link>
         </p>
