@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 import ToDay from "./ToDay/index";
-import Category from "./Category";
+// import Category from "./Category";
 import Delivery from "./Delivery";
 import Featured from "./Featured";
 // import OurProduct from "./OurProduct";
@@ -12,7 +12,7 @@ function HomePage() {
   return (
     <div className="mt-36">
       <ToDay />
-      <Category />
+      {/* <Category /> */}
       {/* <ThisMonth /> */}
       <SaleTime />
       {/* <OurProduct /> */}

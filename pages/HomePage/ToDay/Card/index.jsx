@@ -1,7 +1,7 @@
 // import swiper
 
 import React, { memo, useRef } from "react";
-import { Card, CardBody, CardHeader } from "@material-tailwind/react";
+// import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import { Eye, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -79,7 +79,7 @@ function CardSales() {
   ];
   const swiperRef = useRef();
   return (
-    <div className="flex gap-8 mt-10 justify-center">
+    <div className="flex gap-8 mt-10 justify-center ">
       <Swiper
         spaceBetween={30}
         slidesPerView="auto"
@@ -114,60 +114,61 @@ function CardSales() {
           listCard.map((item, index) => {
             return (
               <SwiperSlide key={item.id}>
-                <Card key={item.id} className="gap-4">
-                  <CardHeader className="bg-second-2 w-80 h-64 shadow-none">
-                    <Image
-                      src={item.img}
-                      alt={index}
-                      className="m-12"
-                      width={160}
-                      height={160}
-                      priority
-                    />
-                    <div className="!absolute top-3 right-3">
-                      <div className="rounded-full bg-white p-1.5">
-                        <Heart />
+                <div key={item.id} className="gap-4">
+                  <div className="bg-second-2 ">
+                    <div className="bg-second-2 w-80 h-64 shadow-none flex justify-center items-center">
+                      <Image
+                        src={item.img}
+                        alt={index}
+                        className="flex justify-center"
+                        width={160}
+                        height={160}
+                        priority
+                      />
+                      <div className="!absolute top-3 right-3">
+                        <div className="rounded-full bg-white p-1.5">
+                          <Heart />
+                        </div>
+                        <div className="rounded-full bg-white p-1.5 mt-2">
+                          <Eye />
+                        </div>
                       </div>
-                      <div className="rounded-full bg-white p-1.5 mt-2">
-                        <Eye />
+                      <div className="!absolute top-3 left-3">
+                        <div className="bg-second-3 p-0.5 rounded ">
+                          <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
+                            -{item.discount}%
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="!absolute top-3 left-3">
-                      <div className="bg-second-3 p-0.5 rounded ">
-                        <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
-                          -{item.discount}%
-                        </p>
-                      </div>
+                  </div>
+
+                  <div className="gap-2 mt-4">
+                    <p className="text-base font-bold font-poppins text-text-2 ">
+                      {item.name}
+                    </p>
+                    <div className="flex gap-2 text-base font-poppins font-medium ">
+                      <span className="text-second-3">
+                        ${item.price - (item.price * item.discount * 1) / 100}
+                      </span>
+                      <span className="line-through font-medium opacity-50">
+                        ${item.price}
+                      </span>
                     </div>
-                  </CardHeader>
-                  <CardBody>
-                    <div className="gap-2">
-                      <p className="text-base font-bold font-poppins text-text-2 ">
-                        {item.name}
+                    <div className="flex gap-2">
+                      <p className="text-second-4 flex">
+                        {item.star}
+                        {item.star}
+                        {item.star}
+                        {item.star}
+                        {item.star}
                       </p>
-                      <div className="flex gap-2 text-base font-poppins font-medium ">
-                        <span className="text-second-3">
-                          ${item.price - (item.price * item.discount * 1) / 100}
-                        </span>
-                        <span className="line-through font-medium opacity-50">
-                          ${item.price}
-                        </span>
-                      </div>
-                      <div className="flex gap-2">
-                        <p className="text-second-4 flex">
-                          {item.star}
-                          {item.star}
-                          {item.star}
-                          {item.star}
-                          {item.star}
-                        </p>
-                        <p className="font-medium opacity-50 font-poppins text-base">
-                          {item.review}
-                        </p>
-                      </div>
+                      <p className="font-medium opacity-50 font-poppins text-base">
+                        {item.review}
+                      </p>
                     </div>
-                  </CardBody>
-                </Card>
+                  </div>
+                </div>
               </SwiperSlide>
             );
           })}
