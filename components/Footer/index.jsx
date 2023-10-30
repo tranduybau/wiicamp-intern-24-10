@@ -101,6 +101,7 @@ function Footer() {
                   className="mr-2"
                   width={80}
                   height={80}
+                  priority
                 />
               </a>
               <div>
@@ -111,6 +112,7 @@ function Footer() {
                     className="mr-2"
                     width={110}
                     height={80}
+                    priority
                   />
                 </a>
                 <a href="http">
@@ -120,6 +122,7 @@ function Footer() {
                     className="mr-2 mt-2"
                     width={110}
                     height={80}
+                    priority
                   />
                 </a>
               </div>

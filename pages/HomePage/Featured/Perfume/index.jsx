@@ -11,6 +11,7 @@ function Perfume() {
         className="w-auto"
         width={300}
         height={300}
+        priority
       />
     </div>
   );

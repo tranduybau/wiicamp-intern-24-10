@@ -88,6 +88,7 @@ function Sidebar() {
                   className="h-full w-full object-cover"
                   width={892}
                   height={600}
+                  priority
                 />
               </SwiperSlide>
             );

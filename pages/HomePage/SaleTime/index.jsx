@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Button } from "@material-tailwind/react";
+// import { Button } from "@material-tailwind/react";
 import Image from "next/image";
 
 function SaleTime() {
@@ -50,17 +50,13 @@ function SaleTime() {
             </div>
           </div>
         </div>
-        <div className="mt-10 w-40 h-14 bg-green flex justify-center ">
-          <Button
-          // OnClick={handleBuyNow}
+        <div className="mt-10 w-40 h-14 bg-green flex justify-center  items-center">
+          <a
+            href="/buyNow"
+            className=" text-text-1 text-base font-medium font-poppins"
           >
-            <a
-              href="/buyNow"
-              className=" text-text-1 text-base font-medium font-poppins"
-            >
-              Buy Now!
-            </a>
-          </Button>
+            Buy Now!
+          </a>
         </div>
       </div>
       <div>
@@ -70,6 +66,7 @@ function SaleTime() {
           className="my-20 "
           width={600}
           height={600}
+          priority
         />
       </div>
     </div>

@@ -11,6 +11,7 @@ function WomenCollection() {
         className="w-auto "
         width={400}
         height={400}
+        priority
       />
     </div>
   );

@@ -10,6 +10,7 @@ function FlayStation() {
         className="w-auto  "
         width={600}
         height={600}
+        priority
       />
     </div>
   );

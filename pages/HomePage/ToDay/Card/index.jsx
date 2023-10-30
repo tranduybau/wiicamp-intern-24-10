@@ -122,6 +122,7 @@ function CardSales() {
                       className="m-12"
                       width={160}
                       height={160}
+                      priority
                     />
                     <div className="!absolute top-3 right-3">
                       <div className="rounded-full bg-white p-1.5">
