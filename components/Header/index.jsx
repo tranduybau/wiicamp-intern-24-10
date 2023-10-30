@@ -2,7 +2,7 @@ import React, { memo } from "react";
 
 import styles from "@/styles/header.module.css";
 
-import Language from "./language";
+import Language from "./Language";
 import Navigation from "./Navigation";
 
 function Header() {
