@@ -61,10 +61,12 @@ function Header() {
 
       <header className="sticky top-0 z-[3] text-black bg-white border-b-gray-400 border-b-[1px]">
         <div className="container pt-[40px] pb-[15px] flex items-center">
-          <div className="font-inter font-[700] text-[1.5rem] leading-[1.5rem] mr-auto">Exclusive</div>
+          <Link href="./" className="font-inter font-[700] text-[1.5rem] leading-[1.5rem] mr-auto">
+            Exclusive
+          </Link>
 
           <div className="hidden lg:flex gap-[3rem] text-[1rem] font-[400] leading-[1.5rem]">
-            <Link className="font-poppins border-b-gray-400 border-b-[2px]" href="./products">
+            <Link className="font-poppins border-b-gray-400 border-b-[2px]" href="./">
               Home
             </Link>
 
@@ -76,7 +78,7 @@ function Header() {
               About
             </Link>
 
-            <Link className="font-poppins" href="./products">
+            <Link className="font-poppins" href="./signUp">
               Sign Up
             </Link>
           </div>

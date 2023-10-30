@@ -8,12 +8,12 @@ import styles from "./signUp.module.scss";
 
 function SignUp() {
   return (
-    <div className="container mt-[3.75rem] min-w-[81.5625rem] flex items-center gap-[8.0625rem]">
-      <div className="flex w-[50.3125rem] h-[48.8125rem] pt-[75px] justify-end items-center rounded-tl-0 rounded-tr-0.25rem rounded-br-0.25rem rounded-bl-0 bg-[#CBE4E8]">
+    <div className="container mt-[3.75rem] max-w-[1480px] flex justify-center 2xl:justify-start items-center gap-[8.0625rem]">
+      <div className="hidden 2xl:flex w-[50.3125rem] h-[48.8125rem] pt-[75px] justify-end items-center rounded-tl-0 rounded-tr-0.25rem rounded-br-0.25rem rounded-bl-0 bg-[#CBE4E8]">
         <div className={classNames("w-[57.4375rem] h-[44.125rem]", styles.left_banner)} />
       </div>
 
-      <form className="flex flex-col items-start gap-[3rem]">
+      <form className="flex flex-col items-center 2xl:items-start gap-[3rem]">
         <div className="flex flex-col items-start gap-[1.5rem]">
           <span className="text-text-2 font-inter text-[2.25rem] font-[600] leading-[1.875rem] tracking-[0.09rem]">
             Create an account
@@ -26,7 +26,7 @@ function SignUp() {
 
         <div className="flex flex-col items-center gap-[2.5rem]">
           <div className="flex flex-col items-start gap-[2.5rem]">
-            <div className="flex flex-col items-start gap-[0.5rem] text-text-2 border-solid border-b-black border-b-[1px]">
+            <div className="flex flex-col items-start gap-[0.5rem] text-text-2 border-solid border-b-black border-b-[1px] border-opacity-50">
               <input
                 className="w-[23.125rem] h-[2rem] text-text-2 font-poppins text-[1rem] font-[400] leading-[1.5rem]"
                 type="text"
@@ -34,7 +34,7 @@ function SignUp() {
               />
             </div>
 
-            <div className="flex flex-col items-start gap-[0.5rem] text-text-2 border-solid border-b-black border-b-[1px]">
+            <div className="flex flex-col items-start gap-[0.5rem] text-text-2 border-solid border-b-black border-b-[1px] border-opacity-50">
               <input
                 className="w-[23.125rem] h-[2rem] text-text-2 font-poppins text-[1rem] font-[400] leading-[1.5rem]"
                 type="text"
@@ -42,7 +42,7 @@ function SignUp() {
               />
             </div>
 
-            <div className="flex flex-col items-start gap-[0.5rem] text-text-2 border-solid border-b-black border-b-[1px]">
+            <div className="flex flex-col items-start gap-[0.5rem] text-text-2 border-solid border-b-black border-b-[1px] border-opacity-50">
               <input
                 className="w-[23.125rem] h-[2rem] text-text-2 font-poppins text-[1rem] font-[400] leading-[1.5rem]"
                 type="text"
@@ -67,7 +67,7 @@ function SignUp() {
                 <div className="flex items-start gap-[1rem]">
                   <LogoGoogle />
 
-                  <span className="text-text-2 font-poppins text-[1rem] font-[400] leading-[1.5rem]">
+                  <span className="flex items-center justify-center text-text-2 font-poppins text-[1rem] font-[400] leading-[1.5rem]">
                     Sign up with Google
                   </span>
                 </div>
@@ -79,8 +79,8 @@ function SignUp() {
                 </span>
 
                 <Link
-                  href="./"
-                  className="flex items-start h-[1.65rem] border-solid border-b-black border-b-[1px] text-text-2 font-poppins text-[1rem] font-[600] leading-[1.5rem] opacity-[0.7]"
+                  href="./logIn"
+                  className="flex items-start h-[1.65rem] border-solid border-b-black border-b-[1px] border-opacity-50 text-text-2 font-poppins text-[1rem] font-[600] leading-[1.5rem] opacity-[0.7]"
                 >
                   Log in
                 </Link>
