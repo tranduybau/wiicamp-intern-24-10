@@ -7,6 +7,7 @@ import {
   Smartphone,
   Watch,
 } from "lucide-react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/navigation";
@@ -65,36 +66,31 @@ function Card() {
   ];
   const swiperRef = useRef();
   return (
-    <div className="flex gap-8 pb-14 border-b border-inherit border-solid ">
+    <div className="flex pb-[69px] border-b border-inherit border-solid ">
       <Swiper
         spaceBetween={30}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
+        className=""
         breakpoints={{
           0: {
             slidesPerView: 2,
-            spaceBetween: 10,
           },
           480: {
             slidesPerView: 2,
-            spaceBetween: 10,
           },
           600: {
             slidesPerView: 3,
-            spaceBetween: 10,
           },
           800: {
             slidesPerView: 4,
-            spaceBetween: 10,
           },
           1280: {
             slidesPerView: 5,
-            spaceBetween: 10,
           },
           1440: {
             slidesPerView: 6,
-            spaceBetween: 10,
           },
         }}
       >
@@ -103,15 +99,15 @@ function Card() {
             return (
               <SwiperSlide key={item}>
                 <div
-                  className="w-44 h-36 border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center"
+                  className="min-w-[170px] min-h-[145px] border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center "
                   key={item}
                 >
-                  <div>
+                  <Link href="./id">
                     <p className="mb-4 flex justify-center">{item.icon}</p>
                     <p className="text-base font-poppins font-normal text-text-2">
                       {item.name}
                     </p>
-                  </div>
+                  </Link>
                 </div>
               </SwiperSlide>
             );

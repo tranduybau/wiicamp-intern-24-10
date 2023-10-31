@@ -45,12 +45,7 @@ function Sidebar() {
   ];
 
   const navList = (
-    <div
-      className={classNames(
-        "border-r border-solid border-inherit ",
-        styles.border,
-      )}
-    >
+    <div className={classNames("", styles.border)}>
       <ul className="flex-none  font-poppins font-size text-text-2">
         <li>
           {Category.map((item) => {
@@ -80,19 +75,19 @@ function Sidebar() {
   );
 
   return (
-    <div className="lg:flex block bg-white container relative lg:mt-14 mt-4">
-      <div className="w-1/5">
-        <div className="mr-4 hidden lg:block">{navList}</div>
+    <div className="lg:flex block bg-white container relative ">
+      <div className="w-[217px] lg:border-r  lg:border-solid border-inherit lg:pt-10 border-none">
+        <div className="mr-4 hidden lg:block z-">{navList}</div>
         <button
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden flex text-center text-text-2"
+          className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden flex text-center text-text-2"
           onClick={() => setOpenNav(!openNav)}
           type="button"
         >
-          {openNav ? "" : <AlignJustify />}
+          {openNav ? "" : <AlignJustify size={32} />}
         </button>
       </div>
       {openNav && (
-        <div className="lg:hidden drop-shadow-xl sm:block gap-12 !absolute bg-white left-0">
+        <div className="lg:hidden drop-shadow-xl sm:block gap-12 !absolute bg-white left-0 z-40">
           <div className="pt-2 flex justify-end">
             <X onClick={handlerClose} className="cursor-pointer pb-2 " />
           </div>
@@ -100,7 +95,7 @@ function Sidebar() {
         </div>
       )}
 
-      <div className="ml-12 w-3/4">
+      <div className="lg:ml-[45px] ml-0 min-w-[898px]  pt-10">
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
@@ -112,9 +107,9 @@ function Sidebar() {
                 <Image
                   src={item.src}
                   alt={`Slide ${index}`}
-                  className="h-full w-full object-cover"
+                  className="h-[344px] w-full object-cover"
                   width={600}
-                  height={600}
+                  height={700}
                   priority
                 />
               </SwiperSlide>

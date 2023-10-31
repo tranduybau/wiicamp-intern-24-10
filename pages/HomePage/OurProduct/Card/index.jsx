@@ -2,6 +2,7 @@
 import React, { memo } from "react";
 import { Eye, Heart, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function CardSales() {
   const listCard = [
@@ -11,7 +12,7 @@ function CardSales() {
       new: "new",
       price: "160",
       img: "/img/toys.png",
-      star: <Star className="fill-current" />,
+      star: <Star className="fill-current" size={20} />,
       review: "88",
     },
     {
@@ -20,7 +21,7 @@ function CardSales() {
       new: "new",
       price: "1160",
       img: "/img/keyboard.png",
-      star: <Star className="fill-current" />,
+      star: <Star className="fill-current" size={20} />,
       review: "75",
     },
     {
@@ -28,7 +29,7 @@ function CardSales() {
       discount: "30",
       price: "400",
       img: "/img/screen.png",
-      star: <Star className="fill-current" />,
+      star: <Star className="fill-current" size={20} />,
       review: "99",
     },
     {
@@ -36,7 +37,7 @@ function CardSales() {
       discount: "25",
       price: "400",
       img: "/img/screen.png",
-      star: <Star className="fill-current" />,
+      star: <Star className="fill-current" size={20} />,
       review: "99",
     },
     {
@@ -44,29 +45,31 @@ function CardSales() {
       discount: "25",
       price: "400",
       img: "/img/toys.png",
-      star: <Star className="fill-current" />,
+      star: <Star className="fill-current" size={20} />,
       review: "99",
     },
   ];
 
   return (
-    <div className="mt-10 grid xl:grid-cols-4 lg:grid-cols-3 gap-8 sm:grid-cols-2 justify-center">
+    <div className="mt-[60px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 justify-center">
       {listCard.map((item, index) => {
         return (
-          <div className=" max-w-[26rem] gap-4 " key={item}>
-            <div className="bg-second-2 w-72 h-64 shadow-none group relative inline-flex justify-center overflow-hidden items-center">
-              <Image
-                src={item.img}
-                alt={index}
-                // className="m-12 "
-                width={160}
-                height={160}
-                priority
-              />
+          <div className="mb-[30px]" key={item}>
+            <div className="bg-second-2 min-w-[270px]  min-h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
+              <Link href="./product/id">
+                <Image
+                  src={item.img}
+                  alt={index}
+                  width={160}
+                  height={160}
+                  priority
+                />
+              </Link>
+
               <div className="!absolute h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
                 <button
                   type="submit"
-                  className="bg-black text-white-0 py-2 px-5 w-72"
+                  className="bg-black text-white-0 py-2 px-5 min-w-[270px]"
                 >
                   Add to cart
                 </button>
@@ -91,9 +94,9 @@ function CardSales() {
             </div>
 
             <div className="gap-2 mt-4">
-              <p className="text-base font-bold font-poppins text-text-2 ">
+              <h3 className="text-base font-bold font-poppins text-text-2 ">
                 {item.name}
-              </p>
+              </h3>
               <div className="flex gap-2 text-base font-poppins font-medium ">
                 <span className="text-second-3">
                   ${item.price - (item.price * item.discount * 1) / 100}
@@ -102,8 +105,8 @@ function CardSales() {
                   ${item.price}
                 </span>
               </div>
-              <div className="flex gap-2">
-                <p className="text-second-4 flex">
+              <div className="flex">
+                <p className="text-second-4 flex mr-2">
                   {item.star}
                   {item.star}
                   {item.star}

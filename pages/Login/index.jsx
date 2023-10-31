@@ -16,7 +16,7 @@ function SignUp() {
         />
       </div>
       <div className="lg:ml-32 ml:0 lg:mt-0 mt-4 flex justify-center items-center">
-        <div className="w-96 h-3/4 flex flex-col">
+        <div className="min-w-[370px] h-3/4 flex flex-col">
           <p className="font-inter lg:text-4xl text-3xl font-medium leading-7 text-text-2 mb-6 lg:mt-0 mt-8">
             Log in to Exclusive
           </p>
@@ -38,7 +38,7 @@ function SignUp() {
           <div className="flex justify-between">
             <button
               type="button"
-              className="bg-second-3 text-text-1 py-4 px-14 font-poppins text-base font-medium mb-4 "
+              className="bg-second-3 text-text-1 py-[16px] px-[48px] font-poppins text-base font-medium mb-4 "
             >
               Login
             </button>

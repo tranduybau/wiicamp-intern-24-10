@@ -13,12 +13,12 @@ function Navigation() {
   };
 
   const navList = (
-    <div className="mt-2 mb-4 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-20 lg:gap-16 md:gap-4">
-      <div className="mt-2 mb-4 flex flex-col xl:gap-12 gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 lg:mr-16 justify-center items-center">
+    <div className="mt-2 flex flex-col lg:mt-0 lg:flex-row lg:items-center ">
+      <div className="mt-2 mb-4 flex flex-col gap-12  lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  justify-center items-center">
         <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins md:block flex justify-center text-base underline hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base underline hover:text-slate-500 text-text-2",
             styles.home,
           )}
         >
@@ -29,7 +29,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
             styles.contact,
           )}
         >
@@ -40,7 +40,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
             styles.about,
           )}
         >
@@ -51,7 +51,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "p-1 font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 xl:mr-32 lg:mr-10 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
             styles.signUp,
           )}
         >
@@ -60,7 +60,7 @@ function Navigation() {
           </Link>
         </p>
       </div>
-      <div className="relative sm:flex sm:justify-center">
+      <div className="relative sm:flex sm:justify-center ml-[148px]">
         <input
           type="search"
           id="default-search"
@@ -80,7 +80,7 @@ function Navigation() {
 
   return (
     <div className="border-b border-inherit border-solid ">
-      <div className="sticky top-0 z-10 h-max max-w-full rounded-none  py-2 lg:px-8 lg:py-4 ">
+      <div className="sticky top-0 z-10 h-max max-w-full rounded-none  pt-10 pb-4">
         <div className="flex justify-between text-blue-gray-900 container">
           <Link
             href="./HomePage"
@@ -91,18 +91,22 @@ function Navigation() {
           >
             Exclusive
           </Link>
-          <div className="flex items-center xl:gap-4 lg:gap-1 order-3">
-            <div className="mr-4 hidden lg:block">{navList}</div>
+          <div className="flex items-center">
+            <div className=" hidden lg:block">{navList}</div>
             <button
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden flex text-center text-text-2"
+              className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden flex text-center text-text-2"
               onClick={() => setOpenNav(!openNav)}
               type="button"
             >
-              {openNav ? "" : <AlignJustify />}
+              {openNav ? "" : <AlignJustify size={32} />}
             </button>
             <div className="flex text-text-2">
-              <Heart className="ml-6 lg:ml-0" size={32} />
-              <ShoppingCart className="ml-6" size={32} />
+              <Link href="./WishList">
+                <Heart className="ml-6" size={32} />
+              </Link>
+              <Link href="./Cart">
+                <ShoppingCart className="ml-4" size={32} />
+              </Link>
             </div>
           </div>
           {openNav && (

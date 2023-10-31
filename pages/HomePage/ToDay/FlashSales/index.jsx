@@ -1,13 +1,20 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 function FlashSale() {
+  const [numberState, setNumberState] = useState(0);
+  const PlusPercent = () => {
+    setNumberState(numberState + 1);
+  };
+  const PlusPercent1 = () => {
+    setNumberState(numberState - 1);
+  };
   return (
     <div className="flex mt-6 justify-between">
-      <div className=" lg:flex gap-20 sm:block">
-        <p className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl items-center">
+      <div className=" lg:flex gap-[87px] sm:block">
+        <h2 className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl items-center">
           Flash Sales
-        </p>
+        </h2>
         <div className="flex lg:gap-3 gap-2 md:mt-0 mt-2">
           <div>
             <p className="font-poppins text-xs font-medium not-italic text-text-2 ">
@@ -48,12 +55,21 @@ function FlashSale() {
       </div>
 
       <div className="flex gap-2 items-center">
-        <div className="relative w-6 h-6 bg-second-2 rounded-full">
-          <ArrowLeft />
+        <div className="relative  bg-second-2 rounded-full">
+          <ArrowLeft
+            size={32}
+            onClick={PlusPercent}
+            disabled={numberState >= 7}
+          />
         </div>
-        <div className="relative w-6 h-6 bg-second-2 rounded-full">
-          <ArrowRight />
+        <div className="relative bg-second-2 rounded-full">
+          <ArrowRight
+            size={32}
+            onClick={PlusPercent1}
+            disabled={numberState <= 0}
+          />
         </div>
+        <h1>{numberState}</h1>
       </div>
     </div>
   );

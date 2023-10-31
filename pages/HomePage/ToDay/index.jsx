@@ -1,5 +1,7 @@
 import React, { memo } from "react";
 
+import Button from "../../Button";
+
 import Card from "./Card/index";
 import FlashSales from "./FlashSales";
 
@@ -14,12 +16,8 @@ function ToDay() {
       </div>
       <FlashSales />
       <Card />
-      <div className="mt-14 pb-14 border-b border-inherit border-solid">
-        <div className="flex justify-center">
-          <p className="bg-second-3 lg:text-base text-xs font-poppins font-medium text-text-1 py-4 lg:px-12 px-4">
-            <a href="./product">View All Products</a>
-          </p>
-        </div>
+      <div className="mt-[60px] pb-[59px] border-b border-inherit border-solid">
+        <Button />
       </div>
     </div>
   );

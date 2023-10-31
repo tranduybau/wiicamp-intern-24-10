@@ -58,12 +58,12 @@ module.exports = {
         center: true,
         // screens: "84.5rem",
         screens: {
-          DEFAULT: "84.5rem",
+          DEFAULT: "1155px",
           //   sm: "41.5rem",
           //   md: "48.5rem",
           //   lg: "61.5rem",
           //   xl: "71.5rem",
-          "2xl": "84.5rem",
+          "2xl": "1155px",
         },
       },
       margin: {

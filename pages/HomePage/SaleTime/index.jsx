@@ -4,12 +4,12 @@ import Image from "next/image";
 
 function SaleTime() {
   return (
-    <div className="mt-32 container w-full bg-black lg:flex md:block px-14 py-14">
+    <div className="mt-[140px] container w-full bg-black lg:flex md:block px-14 py-[69px]">
       <div className="w-2/4 text-text-1 ">
         <p className="text-text-3 font-poppins text-base font-semibold mb-8 ">
           Categories
         </p>
-        <p className="text-5xl font-semibold font-inter mr-7 leading-tight mb-8 w-3/5">
+        <p className="lg:text-5xl text-3xl font-semibold font-inter mr-7 leading-tight mb-8 min-w-[443px]">
           Enhance Your Music Experience
         </p>
         <div className="lg:flex md:block">
@@ -59,16 +59,15 @@ function SaleTime() {
           </a>
         </div>
       </div>
-      <div>
-        <Image
-          src="/img/radio.png"
-          alt="radio"
-          className="mt-20 "
-          width={600}
-          height={600}
-          priority
-        />
-      </div>
+
+      <Image
+        src="/img/radio.png"
+        alt="radio"
+        className="mt-[13px] min-h-[330px] lg:pt-0 pt-6"
+        width={600}
+        height={600}
+        priority
+      />
     </div>
   );
 }
