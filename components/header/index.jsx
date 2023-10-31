@@ -134,7 +134,7 @@ function Header() {
               <Heart />
             </Link>
 
-            <Link className="w-[2rem] h-[2rem] flex items-center justify-center" href="./products">
+            <Link className="w-[2rem] h-[2rem] flex items-center justify-center" href="./cart">
               <ShoppingCart />
             </Link>
 

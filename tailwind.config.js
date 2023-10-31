@@ -20,6 +20,9 @@ module.exports = {
           1: "#FAFAFA",
           2: "#000000",
         },
+        primary: {
+          1: "#FFFFFF",
+        },
         secondary: {
           1: "#F5F5F5",
           2: "#DB4444",
@@ -47,6 +50,9 @@ module.exports = {
           // xl: "71.5rem",
           "2xl": "75.125rem",
         },
+      },
+      boxShadow: {
+        custom: "0px 1px 13px 0px rgba(0,0,0,0.05)",
       },
     },
   },
