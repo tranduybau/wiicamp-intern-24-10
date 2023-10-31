@@ -39,14 +39,35 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+# WIICAMP's Intern Template
+
+## Deisgn:
+
+[Figma](https://www.figma.com/file/sjxL6SpJOeGDnMR4p1CrOs/Full-E-Commerce-Website-UI-UX-Design---Wiicamp-version?type=design&node-id=1%3A3&mode=dev)
+
 ## Packages can be used
 
 1. Swiper: for slider.
 2. Axios: for calling api
 3. Bootstrap: you can (only) use the bootstrap classes, by import the CSS's Link of Bootstrap. No need to install the whole packge to the project. 
 4. classnames / clsx: For merging classes.
+5. React-hook-form and Yup for validation.
+6. Icons: use icons from lucide icon.
 
 If you want to use any packages, please confirm to me first.
+
+## Point of review
+
+- **Perfect Pixel Alignment with Figma Designs.**
+- **Clear and Organized Folder Structure.**
+- **Correct HTML structure:** Ensure that the HTML structure is correct and follows standards. Use basic HTML tags such as <html>, <head>, <body>, and make sure they are properly closed.
+- **Appropriate use of HTML tags:** Check whether HTML tags are used with meaningful and appropriate purposes. Do not use tags for purposes other than their intended use.
+- **Proper tag count:** Ensure that there are no extra or missing HTML tags. Make sure each opening tag has a corresponding closing tag.
+- **Readability and maintainability:** Check if the code is readable. Are variables, comments, and naming conventions used appropriately to make the code maintainable?
+- **Use of ESLint:** Check if the code complies with ESLint rules. Ensure there are no errors or warnings from ESLint.
+- **Interaction with Next.js:** If the code uses Next.js, ensure that all Next.js features are used correctly, such as routing or server-side rendering.
+- **Browser compatibility:** Check that the code works on various browsers and doesn't cause errors or incorrect display on specific browsers.
+- **Compliance with interaction rules:** Ensure that the code adheres to user interaction rules, such as mobile-friendliness and interaction security.
 
 ## Flow of working
 
