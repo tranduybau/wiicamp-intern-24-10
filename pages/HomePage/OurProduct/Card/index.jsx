@@ -54,7 +54,7 @@ function CardSales() {
     <div className="mt-[60px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 justify-center">
       {listCard.map((item, index) => {
         return (
-          <div className="mb-[30px]" key={item}>
+          <div className="mb-[16px]" key={item}>
             <div className="bg-second-2 min-w-[270px]  min-h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
               <Link href="./product/id">
                 <Image
@@ -114,7 +114,7 @@ function CardSales() {
                   {item.star}
                 </p>
                 <p className="font-medium opacity-50 font-poppins text-base">
-                  {item.review}
+                  ({item.review})
                 </p>
               </div>
             </div>

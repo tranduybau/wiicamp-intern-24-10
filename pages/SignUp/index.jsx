@@ -2,6 +2,8 @@ import React, { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// import Button from "../Button";
+
 function SignUp() {
   return (
     <div className="container mt-16 mb-36 lg:flex block ">
@@ -16,7 +18,7 @@ function SignUp() {
         />
       </div>
       <div className="lg:ml-32 ml:0 lg:mt-0 mt-4 flex justify-center items-center">
-        <div className="w-80 h-3/4 flex flex-col">
+        <div className="max-w-[371px] h-3/4 flex flex-col">
           <p className="font-inter lg:text-4xl text-3xl font-medium leading-7 text-text-2 mb-6 lg:mt-0 mt-8">
             Create an account
           </p>
@@ -46,6 +48,7 @@ function SignUp() {
           >
             Create Account
           </button>
+          {/* <Button classCustom="px-[117px] mb-4" title="Create Account" /> */}
           <Link
             href="https://www.google.com.vn/"
             className="border border-inherit border-solids py-4 w-full flex justify-center mb-8"

@@ -3,8 +3,8 @@ import { Headphones, Truck } from "lucide-react";
 
 function Delivery() {
   return (
-    <div className="mt-[140px] gap-[88px] container lg:flex sm:block justify-between :px-[122px]">
-      <div className="">
+    <div className="lg:mt-[140px] mt-[60px] gap-[88px] container lg:flex sm:block justify-between px-[114px]">
+      <div className="min-w-[249px]">
         <div className="flex justify-center ">
           <div className="bg-slate-300 p-2 rounded-full mb-6">
             <p className="bg-black p-4 rounded-full">
@@ -21,7 +21,8 @@ function Delivery() {
           </p>
         </div>
       </div>
-      <div>
+
+      <div className="min-w-[262px]">
         <div className="flex justify-center lg:mt-0 sm:mt-4">
           <div className="bg-slate-300 p-2 rounded-full mb-6">
             <p className="bg-black p-4 rounded-full">
@@ -38,8 +39,9 @@ function Delivery() {
           </p>
         </div>
       </div>
-      <div className="">
-        <div className="flex justify-center ">
+
+      <div className="min-w-[256px]">
+        <div className="flex justify-center sm:mt-4">
           <div className="bg-slate-300 p-2 rounded-full mb-6">
             <p className="bg-black p-4 rounded-full">
               <Truck className="w-8 h-8  text-text-1 " />

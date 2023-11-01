@@ -16,13 +16,22 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: white;
+html, body, :root {
+    /* font-size : 12px; */
+  /* color: rgb(var(--foreground-rgb));
+  background: white; */
   /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+}
+
+@media (min-width: them('scheme.md')) {
+    font-size : 12px;
+}
+
+@media(min-width: them('scheme.lg')){
+    font-size : 16px;
 }

@@ -17,7 +17,7 @@ function OurProduct() {
       <Explore />
       <Card />
       <div className="mt-[60px]">
-        <Button />
+        <Button classCustom="lg:px-12  px-4" title="View All Products" />
       </div>
     </div>
   );

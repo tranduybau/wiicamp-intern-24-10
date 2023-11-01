@@ -18,7 +18,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base underline hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base underline hover:text-second-3 text-text-2 leading-6",
             styles.home,
           )}
         >
@@ -29,7 +29,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base hover:text-second-3 text-text-2 leading-6",
             styles.contact,
           )}
         >
@@ -40,7 +40,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base hover:text-second-3 text-text-2 leading-6",
             styles.about,
           )}
         >
@@ -51,7 +51,7 @@ function Navigation() {
         <p
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base hover:text-slate-500 text-text-2",
+            "font-normal font-poppins md:block flex justify-center text-base hover:text-second-3 text-text-2 leading-6",
             styles.signUp,
           )}
         >
@@ -60,11 +60,11 @@ function Navigation() {
           </Link>
         </p>
       </div>
-      <div className="relative sm:flex sm:justify-center ml-[148px]">
+      <div className="relative lg:flex sm:justify-center lg:ml-[148px]">
         <input
           type="search"
           id="default-search"
-          className="block p-3 text-sm text-gray-900 bg-gray-50 w-[243px] "
+          className="block p-2 text-sm text-text-2 bg-gray-50 w-[243px] "
           placeholder="What are you looking for?"
           required
         />
@@ -79,20 +79,20 @@ function Navigation() {
   );
 
   return (
-    <div className="border-b border-inherit border-solid ">
-      <div className="sticky top-0 z-10 h-max max-w-full rounded-none  pt-10 pb-4">
-        <div className="flex justify-between text-blue-gray-900 container">
+    <div className="border-b border-inherit border-solid">
+      <div className="sticky top-0 z-10 h-max max-w-full rounded-none pt-10 pb-4">
+        <div className="flex justify-between container">
           <Link
-            href="./HomePage"
+            href="./"
             className={classNames(
-              " font-inter  text-2xl font-bold text-text-2",
+              " font-inter text-2xl font-bold text-text-2 leading-6 tracking-wider ",
               styles.logo,
             )}
           >
             Exclusive
           </Link>
           <div className="flex items-center">
-            <div className=" hidden lg:block">{navList}</div>
+            <div className="hidden lg:block">{navList}</div>
             <button
               className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden flex text-center text-text-2"
               onClick={() => setOpenNav(!openNav)}

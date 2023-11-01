@@ -17,7 +17,7 @@ function ToDay() {
       <FlashSales />
       <Card />
       <div className="mt-[60px] pb-[59px] border-b border-inherit border-solid">
-        <Button />
+        <Button classCustom="lg:px-12 px-4" title="View All Product" />
       </div>
     </div>
   );

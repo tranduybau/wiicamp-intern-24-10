@@ -1,18 +1,21 @@
 import React, { memo } from "react";
 import { Copyright, SendHorizontal } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Footer() {
   return (
-    <div className="bg-black text-text-1 ">
+    <div className="bg-black text-text-1">
       <div className="container">
         <div className="lg:flex block gap-[87px] pt-[82px] pb-[60px]">
           <div className="sm:flex block gap-[87px]">
-            <div className="w-[217px]">
+            <div className="max:w-[217px]">
               <p className="font-inter font-semibold text-2xl leading-6 tracking-wider mb-6">
-                <a href="./home">Exclusive</a>
+                <Link href="./home">Exclusive</Link>
               </p>
-              <p className="font-poppins font-medium text-xl mb-6">Subscribe</p>
+              <p className="font-poppins font-medium text-xl mb-6">
+                <Link href="./Subscribe">Subscribe</Link>
+              </p>
               <p className="font-poppins text-base font-normal mb-4">
                 Get 10% off your first order
               </p>
@@ -33,7 +36,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="w-[175px] sm:mt-0 mt-10">
+            <div className="max-w-[175px] sm:mt-0 mt-10">
               <p className="font-poppins font-medium text-xl leading-6 tracking-wider mb-6">
                 Support
               </p>
@@ -41,10 +44,12 @@ function Footer() {
                 111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                exclusive@gmail.com
+                <Link href="mailto: exclusive@gmail.com">
+                  exclusive@gmail.com
+                </Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                +88015-88888-9999
+                <Link href="tel:+88015-88888-9999">+88015-88888-9999</Link>
               </p>
             </div>
           </div>
@@ -54,19 +59,19 @@ function Footer() {
                 Account
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                My Account
+                <Link href="./MyAccount">My Account</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                Login / Register
+                <Link href="./SignUp">Login / Register</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                Cart
+                <Link href="./Cart"> Cart</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                Wishlist
+                <Link href="Wishlist">Wishlist</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                Shop
+                <Link href="./">Shop</Link>
               </p>
             </div>
 
@@ -75,16 +80,16 @@ function Footer() {
                 Quick Link
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <a href="./csbm">Privacy Policy</a>
+                <Link href="./">Privacy Policy</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <a href="./dk">Terms Of Use</a>
+                <Link href="./">Terms Of Use</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <a href="./faq">FAQ</a>
+                <Link href="./">FAQ</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <a href="./contact">Contact</a>
+                <Link href="./Contact">Contact</Link>
               </p>
             </div>
           </div>
@@ -97,7 +102,7 @@ function Footer() {
                 Save $3 with App New User Only
               </p>
               <div className="flex mt-2">
-                <a href="/img/qrcode.jpg">
+                <Link href="/img/qrcode.jpg">
                   <Image
                     src="/img/qrcode.jpg"
                     alt="qrcode"
@@ -106,9 +111,9 @@ function Footer() {
                     height={80}
                     priority
                   />
-                </a>
+                </Link>
                 <div>
-                  <a href="http">
+                  <Link href="http">
                     <Image
                       src="/img/googleplay.png"
                       alt="googleplay"
@@ -117,8 +122,8 @@ function Footer() {
                       height={80}
                       priority
                     />
-                  </a>
-                  <a href="http">
+                  </Link>
+                  <Link href="http">
                     <Image
                       src="/img/appstore.png"
                       alt="appstore"
@@ -127,7 +132,7 @@ function Footer() {
                       height={80}
                       priority
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

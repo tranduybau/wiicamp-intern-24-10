@@ -1,10 +1,46 @@
-import React, { memo } from "react";
-// import { Button } from "@material-tailwind/react";
+import React, { memo, useEffect, useState } from "react";
 import Image from "next/image";
 
 function SaleTime() {
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  useEffect(() => {
+    function getNextSunday() {
+      const now = new Date();
+      const daysUntilSunday = 7 - now.getDay();
+      const nextSunday = new Date(now);
+      nextSunday.setDate(now.getDate() + daysUntilSunday);
+      nextSunday.setHours(7, 0, 0, 0);
+      return nextSunday;
+    }
+
+    const target = getNextSunday();
+
+    const interval = setInterval(() => {
+      const now = new Date();
+      const difference = target.getTime() - now.getTime();
+
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      setDays(d);
+
+      const h = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      setHours(h);
+
+      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      setMinutes(m);
+
+      const s = Math.floor((difference % (1000 * 60)) / 1000);
+      setSeconds(s);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <div className="mt-[140px] container w-full bg-black lg:flex md:block px-14 py-[69px]">
+    <div className="mt-[140px] container w-full bg-black lg:flex md:block px-14 py-[78.5px]">
       <div className="w-2/4 text-text-1 ">
         <p className="text-text-3 font-poppins text-base font-semibold mb-8 ">
           Categories
@@ -14,39 +50,39 @@ function SaleTime() {
         </p>
         <div className="lg:flex md:block">
           <div className="flex gap-6">
-            <div className="bg-white w-14 h-14 rounded-full text-text-2 p-1">
+            <div className="bg-white min-w-[62px] min-h-[62px] rounded-full text-text-2 p-1">
               <span className="font-poppins font-semibold flex justify-center">
-                23
+                {hours}
               </span>
-              <p className="flex justify-center text-xs font-normal font-poppins">
+              <span className="flex justify-center text-xs font-normal font-poppins">
                 Hours
-              </p>
-            </div>
-            <div className="bg-white w-14 h-14 rounded-full text-text-2 p-1">
-              <span className="font-poppins font-semibold flex justify-center">
-                05
               </span>
-              <p className="flex justify-center text-xs font-normal font-poppins">
-                Days
-              </p>
+            </div>
+            <div className="bg-white min-w-[62px] min-h-[62px] rounded-full text-text-2 p-1">
+              <span className="font-poppins font-semibold flex justify-center">
+                {days}
+              </span>
+              <span className="flex justify-center text-xs font-normal font-poppins">
+                Day
+              </span>
             </div>
           </div>
           <div className="flex gap-6 lg:ml-6 md:ml-0 lg:mt-0 mt-6">
-            <div className="bg-white w-14 h-14 rounded-full text-text-2 p-1">
+            <div className="bg-white min-w-[62px] min-h-[62px] rounded-full text-text-2 p-1">
               <span className="font-poppins font-semibold flex justify-center">
-                59
+                {minutes}
               </span>
-              <p className="flex justify-center text-xs font-normal font-poppins">
+              <span className="flex justify-center text-xs font-normal font-poppins">
                 Minutes
-              </p>
-            </div>
-            <div className="bg-white w-14 h-14 rounded-full text-text-2 p-1">
-              <span className="font-poppins font-semibold flex justify-center">
-                35
               </span>
-              <p className="flex justify-center text-xs font-normal font-poppins">
+            </div>
+            <div className="bg-white min-w-[62px] min-h-[62px] rounded-full text-text-2 p-1">
+              <span className="font-poppins font-semibold flex justify-center">
+                {seconds}
+              </span>
+              <span className="flex justify-center text-xs font-normal font-poppins">
                 Seconds
-              </p>
+              </span>
             </div>
           </div>
         </div>
