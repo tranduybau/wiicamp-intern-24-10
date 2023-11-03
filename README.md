@@ -53,6 +53,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 4. classnames / clsx: For merging classes.
 5. React-hook-form and Yup for validation.
 6. Icons: use icons from lucide icon.
+7. [cookies-next](https://www.npmjs.com/package/cookies-next)
 
 If you want to use any packages, please confirm to me first.
 
@@ -73,4 +74,8 @@ If you want to use any packages, please confirm to me first.
 
 Please fork the source code to your repository. Then estimate your time for each task/section of the website.
 
-For more details. don't hesitate to contact  
+For more details. don't hesitate to contact
+
+## Note for windows's user
+
+If you are using windows, please change the size of the screen view to `1457px`, by that your html's body will be `1440px`.
