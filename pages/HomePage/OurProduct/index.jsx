@@ -1,24 +1,32 @@
 import React, { memo } from "react";
+import { useRouter } from "next/router";
 
-import Button from "@/pages/Button";
+import Button from "../../Button/ButtonRed";
 
 import Card from "./Card";
 import Explore from "./Explore";
 
 function OurProduct() {
+  const router = useRouter();
+  const HandleShowProduct = () => {
+    router.push("/product");
+  };
   return (
     <div className="mt-[71px] container">
       <div className="flex gap-2 text-center items-center">
         <p className="w-5 h-10 bg-second-3 rounded " />
-        <p className="text-second-3 font-poppins text-base font-semibold not-italic">
+        <h3 className="text-second-3 font-poppins text-base font-semibold not-italic">
           Our Products
-        </p>
+        </h3>
       </div>
       <Explore />
       <Card />
-      <div className="mt-[60px]">
-        <Button classCustom="lg:px-12  px-4" title="View All Products" />
-      </div>
+
+      <Button
+        classCustom="lg:px-12  px-4 mt-[60px]"
+        title="View All Products"
+        link={HandleShowProduct}
+      />
     </div>
   );
 }

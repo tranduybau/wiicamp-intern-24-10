@@ -8,9 +8,9 @@ function ThisMonth() {
     <div className="container mt-[70px] ">
       <div className="flex gap-2 text-center items-center">
         <p className="w-5 h-10 bg-second-3 rounded " />
-        <p className="text-second-3 font-poppins text-base font-semibold not-italic">
+        <h3 className="text-second-3 font-poppins text-base font-semibold not-italic">
           This Month
-        </p>
+        </h3>
       </div>
       <BestSelling />
       <Card />

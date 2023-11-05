@@ -2,7 +2,13 @@ import React, { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Button from "../Button/ButtonRed";
+
 function SignUp() {
+  const HandleSubmit = () => {
+    // eslint-disable-next-line no-console
+    console.log("login");
+  };
   return (
     <div className="container mt-16 mb-36 lg:flex block ">
       <div className="lg:w-3/5 w-full">
@@ -36,12 +42,11 @@ function SignUp() {
             />
           </div>
           <div className="flex justify-between">
-            <button
-              type="button"
-              className="bg-second-3 text-text-1 py-[16px] px-[48px] font-poppins text-base font-medium mb-4 "
-            >
-              Login
-            </button>
+            <Button
+              classCustom="px-[48px]"
+              title="Login"
+              submit={HandleSubmit}
+            />
             <Link href="./" className="py-4 text-second-3">
               Forget Password?
             </Link>

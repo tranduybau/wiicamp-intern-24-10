@@ -4,15 +4,23 @@ import React, { memo, useRef } from "react";
 import { Eye, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+import Button from "../../../Button/ButtonCart";
+
 import "swiper/css";
 
 function CardSales() {
+  const HandleAddCart = () => {
+    // eslint-disable-next-line no-console
+    console.log("Add to Cart");
+  };
+
   const listCard = [
     {
       id: "1",
@@ -79,14 +87,21 @@ function CardSales() {
     },
   ];
   const swiperRef = useRef();
+
+  //   const handleNext = useCallback(() => {
+  //     swiperRef?.current?.swiper?.slideNext();
+  //   }, []);
+
   return (
     <div className="flex mt-10 justify-center ">
       <Swiper
+        modules={[Autoplay]}
         spaceBetween="30px"
         slidesPerView="auto"
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
+        autoplay={{
+          delay: 2000,
         }}
+        ref={swiperRef}
         breakpoints={{
           0: {
             slidesPerView: 1,
@@ -120,30 +135,18 @@ function CardSales() {
                       className="content"
                     />
                   </Link>
-
-                  <div className="!absolute text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
-                    <button
-                      type="submit"
-                      className="bg-black text-white-0 py-2 px-5 min-w-[270px]"
-                    >
-                      Add to cart
-                    </button>
-                  </div>
+                  <Button title="Add to cart" link={HandleAddCart} />
                   <div className="!absolute top-3 right-3">
-                    <div className="rounded-full bg-white p-1.5">
-                      <Heart />
-                    </div>
-                    <div className="rounded-full bg-white p-1.5 mt-2">
-                      <Eye />
-                    </div>
+                    <Heart className="rounded-full bg-white p-1.5" size={32} />
+                    <Eye
+                      className="rounded-full bg-white p-1.5 mt-2"
+                      size={32}
+                    />
                   </div>
-                  <div className="!absolute top-3 left-3">
-                    <div className="bg-second-3 p-0.5 rounded ">
-                      <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
-                        -{item.discount}%
-                      </p>
-                    </div>
-                  </div>
+
+                  <p className="!absolute top-3 left-3 bg-second-3  rounded font-poppins text-xs font-normal py-[4px] px-[12px] text-text-1">
+                    -{item.discount}%
+                  </p>
                 </div>
                 <div className="flex flex-col gap-[8px] mt-4">
                   <h3 className="text-base font-bold font-poppins text-text-2 ">

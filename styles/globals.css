@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,9 +14,9 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-html, body, :root {
+/* html, body, :root { */
     /* font-size : 12px; */
   /* color: rgb(var(--foreground-rgb));
   background: white; */
@@ -26,12 +26,66 @@ html, body, :root {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+/* } */
+
+/* :root {
+    font-size : 16px;
 }
 
-@media (min-width: them('scheme.md')) {
+@media (min-width: them('screens.md')) {
     font-size : 12px;
 }
 
-@media(min-width: them('scheme.lg')){
-    font-size : 16px;
-}
+@media(min-width: them('screens.lg')){
+    font-size : 14px;
+} */
+
+
+:root {
+    font-size: 12px;
+  
+    @media (min-width: theme("screens.sm")) {
+      font-size: 12px
+    };
+  
+    @media (min-width: theme("screens.md")) {
+      font-size: 14px
+    };
+    
+    @media (min-width: theme("screens.lg")) {
+      font-size: 16px;
+    }
+  
+    @media (min-width: theme("screens.xl")) {
+      font-size: 16px;
+    }
+  
+    @media (min-width: theme("screens.2xl")) {
+      font-size: 16px;
+    }
+  }
+
+
+  .swiper_banner .swiper-pagination {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+  }
+  
+  .swiper_banner .swiper-pagination-bullet {
+    box-sizing: content-box !important;
+    background: #ffffff !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    opacity: 0.5 !important;
+  }
+  
+  .swiper_banner .swiper-pagination-bullet-active {
+    box-sizing: border-box !important;
+    background: #db4444 !important;
+    border: solid #ffffff 0.125rem !important;
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+    opacity: 1 !important;
+  }

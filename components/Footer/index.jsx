@@ -1,5 +1,12 @@
 import React, { memo } from "react";
-import { Copyright, SendHorizontal } from "lucide-react";
+import {
+  Copyright,
+  Facebook,
+  Instagram,
+  Linkedin,
+  SendHorizontal,
+  Twitter,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,8 +14,8 @@ function Footer() {
   return (
     <div className="bg-black text-text-1">
       <div className="container">
-        <div className="lg:flex block gap-[87px] pt-[82px] pb-[60px]">
-          <div className="sm:flex block gap-[87px]">
+        <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-[82px] pb-[60px] ">
+          <div className="lg:block flex justify-center">
             <div className="max:w-[217px]">
               <p className="font-inter font-semibold text-2xl leading-6 tracking-wider mb-6">
                 <Link href="./home">Exclusive</Link>
@@ -19,7 +26,7 @@ function Footer() {
               <p className="font-poppins text-base font-normal mb-4">
                 Get 10% off your first order
               </p>
-              <div className="relative border-solid border border-current ">
+              <div className="relative border-solid border border-current max-w-[217px]">
                 <input
                   type="send"
                   id="default-send"
@@ -35,8 +42,9 @@ function Footer() {
                 </button>
               </div>
             </div>
-
-            <div className="max-w-[175px] sm:mt-0 mt-10">
+          </div>
+          <div className="flex justify-center lg:ml-[80px] ml-0">
+            <div className="max-w-[175px] sm:mt-0 mt-10 ">
               <p className="font-poppins font-medium text-xl leading-6 tracking-wider mb-6">
                 Support
               </p>
@@ -51,10 +59,11 @@ function Footer() {
               <p className="font-poppins text-base font-normal mb-4 leading-6">
                 <Link href="tel:+88015-88888-9999">+88015-88888-9999</Link>
               </p>
+              {/* </div> */}
             </div>
           </div>
-          <div className="sm:flex block gap-[87px]  lg:mt-0 mt-10">
-            <div className="lg:min-w-[123px] min-w-[217px]">
+          <div className="flex justify-center lg:ml-[84px] ml-0">
+            <div className="max-w-[123px] md:mt-0 mt-[20px]">
               <p className="font-poppins  font-medium text-xl leading-6 tracking-wider mb-6">
                 Account
               </p>
@@ -74,8 +83,9 @@ function Footer() {
                 <Link href="./">Shop</Link>
               </p>
             </div>
-
-            <div className="lg:min-w-[109px] ">
+          </div>
+          <div className="flex justify-center lg:ml-[22px] ml-0">
+            <div className="lg:min-w-[109px] md:min-w-[217px] md:mt-0 mt-[20px]">
               <p className="font-poppins  font-medium text-xl leading-6 tracking-wider mb-6">
                 Quick Link
               </p>
@@ -91,9 +101,10 @@ function Footer() {
               <p className="font-poppins text-base font-normal mb-4 leading-6">
                 <Link href="./Contact">Contact</Link>
               </p>
+              {/* </div> */}
             </div>
           </div>
-          <div className="flex  lg:mt-0 mt-10 min-w-[217px]">
+          <div className="flex justify-center lg:ml-[35px] ml-0">
             <div className="min-w-[198px] ">
               <p className="font-poppins font-medium text-xl leading-6 tracking-wider mb-6">
                 Download App
@@ -134,6 +145,20 @@ function Footer() {
                     />
                   </Link>
                 </div>
+              </div>
+              <div className="flex mt-[24px] gap-[24px]">
+                <Link href="https://www.facebook.com/hoangvinh02">
+                  <Facebook size={24} />
+                </Link>
+                <Link href="https://www.twitter.com">
+                  <Twitter size={24} />
+                </Link>
+                <Link href="https://www.instagram.com">
+                  <Instagram size={24} />
+                </Link>
+                <Link href="https://www.instagram.com">
+                  <Linkedin size={24} />
+                </Link>
               </div>
             </div>
           </div>

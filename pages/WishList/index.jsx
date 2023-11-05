@@ -3,6 +3,9 @@ import { Eye, ShoppingCart, Star, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import ButtonCart from "../Button/ButtonCart";
+import Button from "../Button/ButtonWhite";
+
 function Wishlist() {
   const listCard = [
     {
@@ -50,18 +53,19 @@ function Wishlist() {
     // eslint-disable-next-line no-console
     console.log("View");
   };
+
+  const handleAddCart = () => {
+    // eslint-disable-next-line no-console
+    console.log("AddCart");
+  };
+
   return (
     <div className="container mt-[80px] ">
       <div className="flex items-center justify-between mb-[60px]">
         <p className="font-poppins text-xl font-normal leading-6 text-text-2">
           Wishlist ({listCard.length})
         </p>
-        <button
-          type="button"
-          className="text-base font-poppins font-medium leading-6 text-text-2 border border-inherit border-solid px-[48px] py-[16px]"
-        >
-          Move All To Bag
-        </button>
+        <Button title="Move All To Bag" link={HandleDelete} />
       </div>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-[26px]  justify-center">
         {listCard &&
@@ -78,16 +82,12 @@ function Wishlist() {
                       priority
                     />
                   </Link>
-
-                  <div className="!absolute h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
-                    <button
-                      type="submit"
-                      className="bg-black text-white-0 py-2 min-w-[270px] flex justify-center gap-[8px]"
-                    >
-                      <ShoppingCart />
-                      Add to cart
-                    </button>
-                  </div>
+                  <ButtonCart
+                    classCustom="flex justify-center gap-[8px]"
+                    icon={<ShoppingCart />}
+                    title="Add to cart"
+                    link={handleAddCart}
+                  />
                   <div className="!absolute top-3 right-3">
                     <button
                       type="button"
@@ -132,12 +132,7 @@ function Wishlist() {
             Just For You
           </p>
         </div>
-        <button
-          type="button"
-          className="text-base font-poppins font-medium leading-6 text-text-2 border border-inherit border-solid px-[48px] py-[16px]"
-        >
-          See All
-        </button>
+        <Button title="See All" link={HandleView} />
       </div>
       <div className="mt-[60px] mb-[140px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 justify-center">
         {listCard.map((item, index) => {
@@ -154,14 +149,12 @@ function Wishlist() {
                   />
                 </Link>
 
-                <div className="!absolute h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
-                  <button
-                    type="submit"
-                    className="bg-black text-white-0 py-2 px-5 min-w-[270px]"
-                  >
-                    Add to cart
-                  </button>
-                </div>
+                <ButtonCart
+                  classCustom="flex justify-center gap-[8px]"
+                  icon={<ShoppingCart />}
+                  title="Add to cart"
+                  link={handleAddCart}
+                />
                 <div className="!absolute top-3 right-3">
                   <button
                     type="button"

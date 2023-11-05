@@ -8,12 +8,9 @@ function Browse() {
         Browse By Category
       </h2>
       <div className="flex gap-2 items-center">
-        <span className="relative  bg-second-2 rounded-full">
-          <ArrowLeft size={32} />
-        </span>
-        <span className="relative bg-second-2 rounded-full">
-          <ArrowRight size={32} />
-        </span>
+        <ArrowLeft size={32} className="relative  bg-second-2 rounded-full" />
+
+        <ArrowRight size={32} className="relative bg-second-2 rounded-full" />
       </div>
     </div>
   );

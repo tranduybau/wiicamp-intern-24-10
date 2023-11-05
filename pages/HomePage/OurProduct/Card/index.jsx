@@ -4,12 +4,19 @@ import { Eye, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Button from "../../../Button/ButtonCart";
+
 function CardSales() {
+  const HandleAddCart = () => {
+    // eslint-disable-next-line no-console
+    console.log("Add to Cart");
+  };
+
   const listCard = [
     {
       name: "HAVIT HV-G92 Gamepad",
       discount: "40",
-      new: "new",
+      new: "NEW",
       price: "160",
       img: "/img/toys.png",
       star: <Star className="fill-current" size={20} />,
@@ -18,7 +25,7 @@ function CardSales() {
     {
       name: "AK-900 Wired Keyboard",
       discount: "35",
-      new: "new",
+      new: "NEW",
       price: "1160",
       img: "/img/keyboard.png",
       star: <Star className="fill-current" size={20} />,
@@ -65,58 +72,41 @@ function CardSales() {
                   priority
                 />
               </Link>
-
-              <div className="!absolute h-10  text-text-1 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all ">
-                <button
-                  type="submit"
-                  className="bg-black text-white-0 py-2 px-5 min-w-[270px]"
-                >
-                  Add to cart
-                </button>
-              </div>
+              <Button title=" Add to cart" link={HandleAddCart} />
               <div className="!absolute top-3 right-3">
-                <div className="rounded-full bg-white p-1.5">
-                  <Heart />
-                </div>
-                <div className="rounded-full bg-white p-1.5 mt-2">
-                  <Eye />
-                </div>
+                <Heart className="rounded-full bg-white p-1.5" size={32} />
+                <Eye className="rounded-full bg-white p-1.5 mt-2" size={32} />
               </div>
               <div className="!absolute top-3 left-3">
                 {item.new && (
-                  <div className="bg-green p-0.5 rounded ">
-                    <p className="font-poppins text-xs font-normal py-1 px-3 text-text-1">
-                      {item.new}
-                    </p>
-                  </div>
+                  <p className="bg-green rounded  font-poppins text-xs font-normal py-[4px] px-[12px] text-text-1">
+                    {item.new}
+                  </p>
                 )}
               </div>
             </div>
-
-            <div className="gap-2 mt-4">
-              <h3 className="text-base font-bold font-poppins text-text-2 ">
-                {item.name}
-              </h3>
-              <div className="flex gap-2 text-base font-poppins font-medium ">
-                <span className="text-second-3">
-                  ${item.price - (item.price * item.discount * 1) / 100}
-                </span>
-                <span className="line-through font-medium opacity-50">
-                  ${item.price}
-                </span>
-              </div>
-              <div className="flex">
-                <p className="text-second-4 flex mr-2">
-                  {item.star}
-                  {item.star}
-                  {item.star}
-                  {item.star}
-                  {item.star}
-                </p>
-                <p className="font-medium opacity-50 font-poppins text-base">
-                  ({item.review})
-                </p>
-              </div>
+            <h3 className="text-base font-bold font-poppins text-text-2 mt-4">
+              {item.name}
+            </h3>
+            <div className="flex gap-2 text-base font-poppins font-medium ">
+              <span className="text-second-3">
+                ${item.price - (item.price * item.discount * 1) / 100}
+              </span>
+              <span className="line-through font-medium opacity-50">
+                ${item.price}
+              </span>
+            </div>
+            <div className="flex">
+              <p className="text-second-4 flex mr-2">
+                {item.star}
+                {item.star}
+                {item.star}
+                {item.star}
+                {item.star}
+              </p>
+              <p className="font-medium opacity-50 font-poppins text-base">
+                ({item.review})
+              </p>
             </div>
           </div>
         );

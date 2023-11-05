@@ -1,8 +1,9 @@
 // sidebar
 import React, { memo } from "react";
-import { AlignJustify, ChevronRight, X } from "lucide-react";
+import { AlignJustify, ArrowRight, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,10 +14,15 @@ import "swiper/css/scrollbar";
 import "swiper/css";
 
 function Sidebar() {
+  const router = useRouter();
   const [openNav, setOpenNav] = React.useState(false);
 
   const handlerClose = () => {
     setOpenNav(false);
+  };
+
+  const handleShopNow = () => {
+    router.push("/");
   };
 
   const ListWomen = [
@@ -30,25 +36,26 @@ function Sidebar() {
     },
   ];
 
+  const ListMen = [
+    {
+      id: "1",
+      name: "Men’s Fashion 1",
+    },
+    {
+      id: "2",
+      name: "Men’s Fashion 1",
+    },
+  ];
+
+  const [isShowWoMen, setIsShowWoMen] = React.useState(false);
   const handleSelectWomen = () => {
-    // eslint-disable-next-line no-console
-    console.log("aaa");
-    return (
-      <div className="relative">
-        <div className="absolute bg-black min-w-[160px] drop-shadow">
-          {ListWomen &&
-            ListWomen.map((item) => {
-              return (
-                <div key={item.id} className=" hidden">
-                  <Link href="./">{item.name}</Link>
-                </div>
-              );
-            })}
-        </div>
-      </div>
-    );
+    setIsShowWoMen(!isShowWoMen);
   };
-  //   const [isShowMen, setIsShowMen] = React.useState(false);
+
+  const [isShowMen, setIsShowMen] = React.useState(false);
+  const handleSelectMen = () => {
+    setIsShowMen(!isShowMen);
+  };
 
   const Category = [
     {
@@ -61,7 +68,9 @@ function Sidebar() {
     {
       name: "Men’s Fashion",
       href: "#",
-      icon: <ChevronRight className="cursor-pointer" />,
+      icon: (
+        <ChevronRight className="cursor-pointer" onClick={handleSelectMen} />
+      ),
     },
     { name: "Electronics", href: "#" },
     { name: "Home & Lifestyle", href: "#" },
@@ -72,19 +81,68 @@ function Sidebar() {
     { name: "Health & Beauty", href: "#" },
   ];
 
+  const Slide = (
+    <div className="bg-black  max-h-[344px] max-w-[892px] object-cover flex gap-[38px]">
+      <div className="min-w-[294px] text-text-1 ml-[64px] mt-[58px]">
+        <div className="flex gap-[24px] items-center">
+          <Image
+            src="/img/apple.png"
+            alt="apple"
+            className=" object-cover"
+            width={40}
+            height={49}
+            priority
+          />
+          <span className="font-poppins text-base font-normal leading-6">
+            iPhone 14 Series
+          </span>
+        </div>
+        <span className="mt-[20px] font-inter text-5xl font-semibold leading-[60px] tracking-[1.92px] w-[294px]">
+          Up to 10% off Voucher
+        </span>
+        <button
+          type="button"
+          className="mt-[22px] flex gap-[8px]"
+          onClick={handleShopNow}
+        >
+          <p className="pb-[4px] border-b border-inherit border-solid font-poppins text-base font-medium leading-6">
+            Shop now
+          </p>
+          <ArrowRight />
+        </button>
+      </div>
+
+      <Image
+        src="/img/iphone.png"
+        alt="iphone"
+        className="h-[344px]  sm:w-full  object-cover"
+        width={600}
+        height={700}
+        priority
+      />
+    </div>
+  );
+
   const listSlider = [
-    { src: "/img/sidle.png" },
-    { src: "/img/sidle.png" },
-    { src: "/img/sidle.png" },
-    { src: "/img/sidle.png" },
-    { src: "/img/sidle.png" },
+    {
+      src: Slide,
+    },
+    {
+      src: Slide,
+    },
+    {
+      src: Slide,
+    },
+    {
+      src: Slide,
+    },
   ];
 
   const navList = (
     <ul className="flex-none  font-poppins font-size text-text-2">
       <li>
         {Category &&
-          Category.map((item) => {
+          Category.map((item, index) => {
             return (
               <div key={`${item.name}`} className="w-full mb-4">
                 <div
@@ -99,14 +157,36 @@ function Sidebar() {
                   >
                     {item.name}
                   </a>
-                  {item.icon && (
-                    <div className="flex justify-end">
+                  {item.icon && index === 0 && (
+                    <div className="flex justify-end relative">
                       {item.icon}
-                      <div className="bg-white min-w-[160px] drop-shadow">
+                      <div
+                        className={`bg-white min-h-[200px] min-w-[160px] drop-shadow absolute ${
+                          isShowWoMen ? "block top-0 left-full z-40" : "hidden"
+                        }`}
+                      >
                         {ListWomen &&
                           ListWomen.map((item1) => {
                             return (
-                              // className=" hidden"
+                              <div key={item1.id}>
+                                <Link href="./">{item1.name}</Link>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  )}
+                  {item.icon && index === 1 && (
+                    <div className="flex justify-end relative">
+                      {item.icon}
+                      <div
+                        className={`bg-white min-h-[200px] min-w-[160px] drop-shadow absolute ${
+                          isShowMen ? "block top-0 left-full z-40" : "hidden"
+                        }`}
+                      >
+                        {ListMen &&
+                          ListMen.map((item1) => {
+                            return (
                               <div key={item1.id}>
                                 <Link href="./">{item1.name}</Link>
                               </div>
@@ -137,7 +217,7 @@ function Sidebar() {
         </button>
       </div>
       {openNav && (
-        <div className="lg:hidden drop-shadow-xl sm:block gap-12 !absolute bg-white left-0 z-40 w-[217px]">
+        <div className="lg:hidden drop-shadow-xl sm:block gap-12 !absolute bg-white left-0 z-40 min-w-[217px]">
           <div className="pt-2 flex justify-end">
             <X onClick={handlerClose} className="cursor-pointer" />
           </div>
@@ -150,18 +230,17 @@ function Sidebar() {
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
           scrollbar={{ draggable: true }}
+          pagination={{
+            clickable: true,
+          }}
+          className="swiper_banner"
         >
-          {listSlider.map((item, index) => {
+          {listSlider.map((item) => {
             return (
               <SwiperSlide key={item}>
-                <Image
-                  src={item.src}
-                  alt={`Slide ${index}`}
-                  className="h-[344px] sm:w-full  object-cover"
-                  width={600}
-                  height={700}
-                  priority
-                />
+                <div className="object-cover h-[344px] sm:w-full">
+                  {item.src}
+                </div>
               </SwiperSlide>
             );
           })}

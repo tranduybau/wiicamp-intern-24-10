@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 
 function Header() {
   return (
-    <div>
+    <div className="sticky top-0 z-40 bg-white">
       <Language />
       <Navigation />
     </div>

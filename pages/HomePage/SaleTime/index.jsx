@@ -45,7 +45,7 @@ function SaleTime() {
         <p className="text-text-3 font-poppins text-base font-semibold mb-8 ">
           Categories
         </p>
-        <p className="lg:text-5xl text-3xl font-semibold font-inter mr-7 leading-tight mb-8 min-w-[443px]">
+        <p className="lg:text-5xl text-3xl font-semibold font-inter mr-7 leading-tight mb-8 max-w-[443px]">
           Enhance Your Music Experience
         </p>
         <div className="lg:flex md:block">
@@ -99,7 +99,7 @@ function SaleTime() {
       <Image
         src="/img/radio.png"
         alt="radio"
-        className="mt-[13px] min-h-[330px] lg:pt-0 pt-6"
+        className="mt-[13px] max-h-[330px] lg:pt-0 pt-6"
         width={600}
         height={600}
         priority

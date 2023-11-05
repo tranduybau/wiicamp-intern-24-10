@@ -25,7 +25,7 @@ import Link from "next/link";
 function Speaker() {
   return (
     <div className="text-text-1 relative flex items-end">
-      <div className="absolute ml-[24px] ">
+      <div className="absolute ml-[24px] mb-[24px]">
         <h1 className="font-inter text-2xl font-semibold leading-6">
           Speakers
         </h1>
@@ -34,9 +34,11 @@ function Speaker() {
         </p>
         <Link
           href="./"
-          className="mt-[8px] font-poppins text-base font-medium underline leading-6"
+          className="mt-[8px] font-poppins text-base font-medium leading-6"
         >
-          Show now
+          <p className="border-b border-inherit border-solid mt-[4px] max-w-[81px]">
+            Show now
+          </p>
         </Link>
       </div>
       <div className="mt-[31px] ml-[40px]">
@@ -44,7 +46,7 @@ function Speaker() {
           src="/img/speaker.png"
           alt="playstation"
           // className="m-12 "
-          className="w-full "
+          className="w-full"
           width={300}
           height={300}
           priority

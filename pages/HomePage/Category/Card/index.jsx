@@ -8,6 +8,7 @@ import {
   Watch,
 } from "lucide-react";
 import Link from "next/link";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/navigation";
@@ -68,11 +69,16 @@ function Card() {
   return (
     <div className="flex pb-[69px] border-b border-inherit border-solid ">
       <Swiper
+        modules={[Autoplay]}
         spaceBetween={30}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
+        slidesPerView="auto"
+        autoplay={{
+          delay: 2000,
         }}
-        className=""
+        // onBeforeInit={(swiper) => {
+        //   swiperRef.current = swiper;
+        // }}
+        ref={swiperRef}
         breakpoints={{
           0: {
             slidesPerView: 2,

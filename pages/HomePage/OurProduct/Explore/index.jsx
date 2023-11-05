@@ -8,12 +8,9 @@ function Explore() {
         Explore Our Products
       </h2>
       <div className="flex gap-2 items-center">
-        <div className="relative bg-second-2 rounded-full">
-          <ArrowLeft size={32} />
-        </div>
-        <div className="relative bg-second-2 rounded-full">
-          <ArrowRight size={32} />
-        </div>
+        <ArrowLeft size={32} className="relative bg-second-2 rounded-full" />
+
+        <ArrowRight size={32} className="relative bg-second-2 rounded-full" />
       </div>
     </div>
   );

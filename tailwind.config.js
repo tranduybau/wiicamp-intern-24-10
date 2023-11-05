@@ -41,10 +41,6 @@ module.exports = {
         poppins: "poppins",
         inter: "inter",
       },
-      fontSize: {
-        text: "1rem",
-        logo: "24px",
-      },
       backgroundColor: {
         White: "#FFFFFF",
         Black: "#363738",
@@ -65,17 +61,6 @@ module.exports = {
           //   xl: "71.5rem",
           "2xl": "1170px",
         },
-      },
-      margin: {
-        icon1: "3.1875rem",
-        icon2: "5.0625rem",
-        navigator: "40px",
-      },
-      width: {
-        sidle: "55.75rem",
-      },
-      height: {
-        sidle: "21.5rem",
       },
     },
   },

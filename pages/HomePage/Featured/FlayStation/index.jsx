@@ -14,15 +14,17 @@ function FlayStation() {
         </p>
         <Link
           href="./"
-          className="mt-[16px] font-poppins text-base font-medium underline leading-6"
+          className="mt-[16px] font-poppins text-base font-medium leading-6"
         >
-          Show now
+          <p className="border-b border-inherit border-solid mt-[4px] max-w-[81px]">
+            Show now
+          </p>
         </Link>
       </div>
       <Image
         src="/img/playstation.png"
         alt="playstation"
-        className="w-auto "
+        className="w-auto pt-[31px]"
         width={600}
         height={700}
         priority

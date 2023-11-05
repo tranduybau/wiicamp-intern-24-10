@@ -15,7 +15,7 @@ function Languages() {
         <div className="xl:flex block">
           <p
             className={classNames(
-              "font-poppins text-text-1 text-xs md:text-sm font-normal mr-2 flex justify-center items-center",
+              "font-poppins text-text-1 text-sm font-normal mr-2 flex justify-center items-center",
               styles.text,
             )}
           >
@@ -24,7 +24,7 @@ function Languages() {
           <a
             href="http"
             className={classNames(
-              "font-poppins font-3 sm:text-sm text-xs text-text-1 underline  flex justify-center",
+              "font-poppins font-3 text-sm  text-text-1 underline  flex justify-center",
               styles.shopNow,
             )}
           >
@@ -35,7 +35,7 @@ function Languages() {
           <select
             value={selectedOption}
             onChange={handleLanguage}
-            className="bg-black text-text-1 font-poppins sm:text-sm text-xs"
+            className="bg-black text-text-1 font-poppins text-sm "
           >
             <option value="en">English</option>
             <option value="vn">Tiếng việt</option>
