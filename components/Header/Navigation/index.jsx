@@ -42,7 +42,7 @@ function Navigation() {
         <li
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base underline hover:text-second-3 text-text-2 leading-6",
+            "font-normal font-poppins md:block flex justify-center text-base  hover:text-second-3 text-text-2 leading-6 ",
             styles.home,
           )}
         >
@@ -107,7 +107,7 @@ function Navigation() {
       id: "1",
       icon: <User size={24} />,
       name: "Manage My Account",
-      link: "./",
+      link: "./Account",
     },
     {
       id: "2",

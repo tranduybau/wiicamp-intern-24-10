@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 
-import Browse from "./Browse";
 import Card from "./Card";
 
 function Category() {
@@ -13,7 +12,6 @@ function Category() {
         </h3>
       </div>
       <div className="mt-5">
-        <Browse />
         <Card />
       </div>
     </div>

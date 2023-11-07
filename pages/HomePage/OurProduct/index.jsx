@@ -22,11 +22,13 @@ function OurProduct() {
       <Explore />
       <Card />
 
-      <Button
-        classCustom="lg:px-12  px-4 mt-[60px]"
-        title="View All Products"
-        link={HandleShowProduct}
-      />
+      <div className="flex justify-center">
+        <Button
+          classCustom="lg:px-12  px-4 mt-[60px]"
+          title="View All Products"
+          link={HandleShowProduct}
+        />
+      </div>
     </div>
   );
 }

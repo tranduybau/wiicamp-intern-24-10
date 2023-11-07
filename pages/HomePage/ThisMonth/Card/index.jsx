@@ -59,6 +59,7 @@ function CardSales() {
                   width={160}
                   height={160}
                   priority
+                  className="object-contain"
                 />
               </Link>
               <Button title="Add to cart" link={HandleAddCart} />
@@ -68,28 +69,30 @@ function CardSales() {
               </div>
             </div>
 
-            <h3 className="text-base font-bold font-poppins text-text-2 mt-4">
-              {item.name}
-            </h3>
-            <div className="flex gap-2 text-base font-poppins font-medium ">
-              <span className="text-second-3">
-                ${item.price - (item.price * item.discount * 1) / 100}
-              </span>
-              <span className="line-through font-medium opacity-50">
-                ${item.price}
-              </span>
-            </div>
-            <div className="flex">
-              <p className="text-second-4 flex mr-2">
-                {item.star}
-                {item.star}
-                {item.star}
-                {item.star}
-                {item.star}
-              </p>
-              <p className="font-medium opacity-50 font-poppins text-base">
-                ({item.review})
-              </p>
+            <div className="flex flex-col gap-[8px] mt-4">
+              <h3 className="text-base font-bold font-poppins text-text-2 ">
+                {item.name}
+              </h3>
+              <div className="flex gap-2 text-base font-poppins font-medium ">
+                <span className="text-second-3">
+                  ${item.price - (item.price * item.discount * 1) / 100}
+                </span>
+                <span className="line-through font-medium opacity-50">
+                  ${item.price}
+                </span>
+              </div>
+              <div className="flex">
+                <p className="text-second-4 flex mr-2">
+                  {item.star}
+                  {item.star}
+                  {item.star}
+                  {item.star}
+                  {item.star}
+                </p>
+                <p className="font-medium opacity-50 font-poppins text-base">
+                  ({item.review})
+                </p>
+              </div>
             </div>
           </div>
         );

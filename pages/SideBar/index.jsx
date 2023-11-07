@@ -233,7 +233,7 @@ function Sidebar() {
           pagination={{
             clickable: true,
           }}
-          className="swiper_banner"
+          className="swiper_banner max-w-full"
         >
           {listSlider.map((item) => {
             return (

@@ -13,7 +13,7 @@ function SignUp() {
 
   return (
     <div className="container mt-16 mb-36 lg:flex block max-h-[781px]">
-      <div className="lg:max-w-[805px] w-full h-full ">
+      <div className="lg:max-w-[805px] ">
         <Image
           src="/img/login.png"
           alt="sign up"

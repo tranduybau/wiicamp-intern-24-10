@@ -108,7 +108,7 @@ function Wishlist() {
                   </div>
                 </div>
 
-                <div className="gap-2 mt-4">
+                <div className="flex flex-col gap-2 mt-4">
                   <h3 className="text-base font-bold font-poppins text-text-2 ">
                     {item.name}
                   </h3>
@@ -175,7 +175,7 @@ function Wishlist() {
                 </div>
               </div>
 
-              <div className="gap-2 mt-4">
+              <div className="flex flex-col gap-2 mt-4">
                 <h3 className="text-base font-bold font-poppins text-text-2 ">
                   {item.name}
                 </h3>

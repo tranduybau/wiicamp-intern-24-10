@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import Button from "../../Button/ButtonRed";
 
 import Card from "./Card/index";
-import FlashSales from "./FlashSales";
 
 function ToDay() {
   const router = useRouter();
@@ -21,9 +20,8 @@ function ToDay() {
           Today’s
         </h3>
       </div>
-      <FlashSales />
       <Card />
-      <div className="mt-[60px] pb-[59px] border-b border-inherit border-solid">
+      <div className="mt-[60px] pb-[59px] border-b border-inherit border-solid flex justify-center">
         <Button
           classCustom="lg:px-12 px-4"
           title="View All Product"

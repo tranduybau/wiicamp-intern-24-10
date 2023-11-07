@@ -1,0 +1,7 @@
+
+.shadow{
+    border-radius: 4px;
+    background: var(--Primary, #FFF);
+    /* Categogy/5 */
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}

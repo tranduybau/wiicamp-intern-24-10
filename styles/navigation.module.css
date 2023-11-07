@@ -10,3 +10,7 @@
     background: rgba(0, 0, 0, 0.04);
     backdrop-filter: blur(75px);
 }
+
+.current-page {
+    border-bottom: 2px solid #333; /* Đường line dưới liên kết cho trang hiện tại */
+  }
