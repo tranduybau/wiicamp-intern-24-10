@@ -17,9 +17,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ArrowRight from "@/pages/Button/ArrowRight";
-
-import ArrowLeft from "../../../Button/ArrowLeft";
+import ArrowLeft from "../../../../components/Button/ArrowLeft";
+import ArrowRight from "../../../../components/Button/ArrowRight";
 
 import "swiper/css";
 

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 
-import Button from "../Button/ButtonRed";
+import Button from "../../components/Button/ButtonRed";
 
 import styles from "../../styles/contact.module.css";
 
@@ -96,7 +96,7 @@ function Contact() {
             />
           </div>
           <input
-            className=" bg-secondary  px-[16px] rounded min-h-[207px] max-w-[737px] "
+            className=" bg-secondary  px-[16px] rounded min-h-[207px] max-w-[737px]"
             type="name"
             placeholder="Your Massage"
             required

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Button from "../Button/ButtonRed";
+import Button from "../../components/Button/ButtonRed";
 
 function SignUp() {
   const HandleSubmit = () => {

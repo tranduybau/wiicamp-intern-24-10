@@ -1,12 +1,13 @@
 import React, { memo } from "react";
 import { useRouter } from "next/router";
+import PropTypes from "prop-types";
 
-import Button from "../../Button/ButtonRed";
+import Button from "../../../components/Button/ButtonRed";
 
 import Card from "./Card";
-import Explore from "./Explore";
+// import Explore from "./Explore";
 
-function OurProduct() {
+function OurProduct({ products }) {
   const router = useRouter();
   const HandleShowProduct = () => {
     router.push("/product");
@@ -19,8 +20,8 @@ function OurProduct() {
           Our Products
         </h3>
       </div>
-      <Explore />
-      <Card />
+      {/* <Explore /> */}
+      <Card products={products} />
 
       <div className="flex justify-center">
         <Button
@@ -33,3 +34,7 @@ function OurProduct() {
   );
 }
 export default memo(OurProduct);
+
+OurProduct.propTypes = {
+  products: PropTypes.instanceOf(Array).isRequired,
+};

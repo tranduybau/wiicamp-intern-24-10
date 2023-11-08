@@ -1,9 +1,10 @@
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 
 import BestSelling from "./BestSelling";
 import Card from "./Card";
 
-function ThisMonth() {
+function ThisMonth({ products }) {
   return (
     <div className="container mt-[70px] ">
       <div className="flex gap-2 text-center items-center">
@@ -13,8 +14,11 @@ function ThisMonth() {
         </h3>
       </div>
       <BestSelling />
-      <Card />
+      <Card products={products} />
     </div>
   );
 }
 export default memo(ThisMonth);
+ThisMonth.propTypes = {
+  products: PropTypes.instanceOf(Array).isRequired,
+};

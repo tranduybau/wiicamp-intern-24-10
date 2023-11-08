@@ -5,7 +5,7 @@ import Link from "next/link";
 function WomenCollection() {
   return (
     <div className="text-text-1 relative flex items-end xl:pb-0 pb-[33px]">
-      <div className="!absolute max-w-[255px] ml-[24px] mb-[24px] ">
+      <div className="!absolute min-w-[255px] ml-[24px] mb-[24px] ">
         <h1 className="font-inter text-2xl font-semibold leading-6 ">
           Women’s Collections
         </h1>

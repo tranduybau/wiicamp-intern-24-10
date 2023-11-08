@@ -7,7 +7,7 @@ function ArrowPrev({ HandlePrev }) {
     // <div className="flex gap-2 items-center">
     <button
       type="button"
-      className="relative  bg-second-2 rounded-full p-1"
+      className="relative  bg-second-2 rounded-full lg:p-1 p-0"
       onClick={HandlePrev}
     >
       <ArrowLeft size={32} />

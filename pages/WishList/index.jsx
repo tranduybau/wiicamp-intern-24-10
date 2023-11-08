@@ -3,8 +3,8 @@ import { Eye, ShoppingCart, Star, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import ButtonCart from "../Button/ButtonCart";
-import Button from "../Button/ButtonWhite";
+import ButtonCart from "../../components/Button/ButtonCart";
+import Button from "../../components/Button/ButtonWhite";
 
 function Wishlist() {
   const listCard = [
@@ -91,7 +91,7 @@ function Wishlist() {
                   <div className="!absolute top-3 right-3">
                     <button
                       type="button"
-                      className="rounded-full bg-white p-1.5 cursor-move"
+                      className="rounded-full bg-white p-1.5 cursor-pointer"
                       onClick={HandleDelete}
                     >
                       <Trash2 />

@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useRouter } from "next/router";
 
-import Button from "../../../Button/ButtonRed";
+import Button from "../../../../components/Button/ButtonRed";
 
 function BestSelling() {
   const router = useRouter();
