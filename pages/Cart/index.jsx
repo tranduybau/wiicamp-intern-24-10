@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import classNames from "classnames";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -63,6 +64,20 @@ function Cart() {
             </div>
             {listCart &&
               listCart.map((item) => {
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                const [counter, setCounter] = React.useState(1);
+
+                const HandleIncrease = () => {
+                  setCounter(counter + 1);
+                };
+
+                let HandleDecrease = () => {
+                  setCounter(counter - 1);
+                };
+
+                if (counter <= 1) {
+                  HandleDecrease = () => setCounter(1);
+                }
                 return (
                   <div
                     key={item.id}
@@ -84,16 +99,24 @@ function Cart() {
                     </span>
                     <div className="flex gap-[282px]">
                       <span>${item.price}</span>
-                      <span className="min-w-[72px] flex relative min-h-[44px]">
+                      <span className="max-w-[72px] flex max-h-[44px] relative">
                         <input
                           style={{ width: "80%" }}
-                          type="number"
-                          value={item.quantity}
+                          type="text"
+                          value={counter}
                           min="1"
-                          className={classNames("py-1 px-3", styles.border)}
+                          className={classNames(
+                            "py-1 px-2",
+                            styles.border,
+                            "pr-8",
+                          )}
                         />
+                        <div className="absolute top-1 right-6 cursor-pointer">
+                          <ChevronUp size={16} onClick={HandleIncrease} />
+                          <ChevronDown size={16} onClick={HandleDecrease} />
+                        </div>
                       </span>
-                      <span>${item.price * item.quantity}</span>
+                      <span>${item.price * counter}</span>
                     </div>
                   </div>
                 );
