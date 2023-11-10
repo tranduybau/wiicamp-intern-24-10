@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 
-import ButtonApplyCoupon from "../../components/Button/ButtonRed";
+import Button from "../../components/Button/ButtonRed";
 
 import styles from "../../styles/checkout.module.css";
 
@@ -24,8 +24,8 @@ function Checkout() {
   ];
 
   return (
-    <div className="container mt-[80px] mb-[140px]">
-      <div className="flex gap-[12px] font-poppins text-sm font-normal leading-5 ">
+    <div className="container mt-[80px] mb-[140px] xl:px-0 px-[16px]">
+      <div className="md:flex block gap-[12px] font-poppins text-sm font-normal leading-5 ">
         <Link href="./Account" className="opacity-50">
           Account
         </Link>
@@ -46,12 +46,12 @@ function Checkout() {
           Checkout
         </Link>
       </div>
-      <div className="flex  mt-[80px]">
+      <div className="lg:flex block mt-[80px]">
         <div className="">
           <p className="font-inter text-4xl font-medium leading-[30px] tracking-[1.44px]">
             Billing Details
           </p>
-          <div className="mt-[48px] flex flex-col gap-[32px] min-w-[470px]">
+          <div className="mt-[48px] flex flex-col gap-[32px] lg:min-w-[470px] max-w-[470px]">
             <div className="flex flex-col gap-[8px]">
               <span className="font-poppins text-base font-normal leading-6 opacity-40">
                 First Name
@@ -141,12 +141,12 @@ function Checkout() {
             </label> */}
           </div>
         </div>
-        <div className="flex flex-col gap-[32px]  min-w-[527px] ml-[173px] font-poppins text-base font-normal leading-6">
+        <div className="flex flex-col gap-[32px]  xl:min-w-[527px] max-w-[527px] lg:ml-[173px] ml-0 font-poppins text-base font-normal leading-6 lg:mt-0 mt-[20px]">
           {listItem &&
             listItem.map((item) => {
               return (
                 <div key={item.id}>
-                  <div className="flex flex-col  font-poppins text-base font-normal leading-6 text-text-2 mr-[102px]">
+                  <div className="flex flex-col  font-poppins text-base font-normal leading-6 text-text-2 lg:mr-[102px] mr-0">
                     <div className="flex justify-between">
                       <div className="flex">
                         <Image
@@ -165,7 +165,7 @@ function Checkout() {
                 </div>
               );
             })}
-          <div className=" flex flex-col gap-[16px] mr-[102px]">
+          <div className=" flex flex-col gap-[16px] lg:mr-[102px] mr-0">
             <div className="flex justify-between ">
               <span>Subtotal:</span>
               <span>$1750</span>
@@ -181,19 +181,40 @@ function Checkout() {
               <span>$1750</span>
             </div>
           </div>
-          <div className="flex justify-between mr-[102px]">
+          <div className="sm:flex block justify-between lg:mr-[102px] mr-0">
             <div className="flex gap-[16px]">
               <input type="radio" />
               <p>Bank</p>
-              <div className="py-[5.6px] px-[2.1px]">
-                <Image
-                  src="/img/bkashBank.png"
-                  width={37.8}
-                  height={16.8}
-                  priority
-                  alt="aa"
-                />
-              </div>
+            </div>
+            <div className="flex gap-[8px]">
+              <Image
+                src="/img/bkashBank.png"
+                width={42}
+                height={28}
+                priority
+                alt="aa"
+              />
+              <Image
+                src="/img/visa.png"
+                width={42}
+                height={28}
+                priority
+                alt="aa"
+              />
+              <Image
+                src="/img/masterCard.png"
+                width={39.2}
+                height={25.2}
+                priority
+                alt="aa"
+              />
+              <Image
+                src="/img/nagad.png"
+                width={39.2}
+                height={25.2}
+                priority
+                alt="aa"
+              />
             </div>
           </div>
           <div className="flex justify-between mr-[102px]">
@@ -202,20 +223,23 @@ function Checkout() {
               <p>Cash on delivery</p>
             </div>
           </div>
-          <div className="flex gap-[16px]">
+          <div className="xl:flex gap-[16px] block">
             <input
               type="text"
               placeholder="Coupon Code"
               className={classNames(
-                "py-[16px] pl-[24px] min-w-[300px] font-poppins text-base font-normal opacity-50",
+                "lg:py-[16px] py-2 pl-[24px] lg:min-w-[300px] max-w-[300px] font-poppins text-base font-normal opacity-50 lg:mr-0 mr-[20px]",
                 styles.border,
               )}
             />
-            <ButtonApplyCoupon title="Apply Coupon" classCustom="px-[48px]" />
+            <Button
+              title="Apply Coupon"
+              classCustom="px-[48px] xl:mt-0 mt-[32px] py-[16px]"
+            />
           </div>
-          {/* <div>
-            <ButtonPlaceOrder title="aaa" />
-          </div> */}
+          <div>
+            <Button title="Place Order" classCustom="px-[48px] py-[16px]" />
+          </div>
         </div>
       </div>
     </div>

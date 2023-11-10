@@ -14,7 +14,7 @@ function Contact() {
         <Link href="./" className="opacity-50">
           Home
         </Link>
-        <p>/</p>
+        <p className="opacity-50">/</p>
         <Link href="./Contact" className="active:text-text-2">
           Contact
         </Link>
@@ -102,7 +102,7 @@ function Contact() {
             required
           />
           <div className="flex justify-end">
-            <Button title="Send Massage" classCustom="px-[48px] " />
+            <Button title="Send Massage" classCustom="px-[48px] py-[16px]" />
           </div>
         </div>
       </div>

@@ -36,8 +36,6 @@ const addDiscountById = (data) => {
 export async function getServerSideProps() {
   const response = await axios.get(apiName);
   const products = addDiscountById(response.data);
-  // eslint-disable-next-line no-console
-  console.log("data", products);
 
   return {
     props: {

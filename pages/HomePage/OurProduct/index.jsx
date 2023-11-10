@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import Button from "../../../components/Button/ButtonRed";
+import Button from "@/components/Button/ButtonRed";
 
 import Card from "./Card";
 // import Explore from "./Explore";
@@ -25,7 +25,7 @@ function OurProduct({ products }) {
 
       <div className="flex justify-center">
         <Button
-          classCustom="lg:px-12  px-4 mt-[60px]"
+          classCustom="lg:px-12  px-4 mt-[60px] py-[16px]"
           title="View All Products"
           link={HandleShowProduct}
         />

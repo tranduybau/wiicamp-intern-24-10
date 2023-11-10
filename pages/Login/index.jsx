@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Button from "../../components/Button/ButtonRed";
+import Button from "@/components/Button/ButtonRed";
 
 function SignUp() {
   const HandleSubmit = () => {
@@ -43,7 +43,7 @@ function SignUp() {
           </div>
           <div className="flex justify-between">
             <Button
-              classCustom="px-[48px]"
+              classCustom="px-[48px] py-[16px]"
               title="Login"
               submit={HandleSubmit}
             />

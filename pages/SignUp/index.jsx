@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import Button from "../../components/Button/ButtonRed";
+import Button from "@/components/Button/ButtonRed";
 
 function SignUp() {
   const router = useRouter();
@@ -48,7 +48,7 @@ function SignUp() {
           />
         </div>
         <Button
-          classCustom="px-[122px] mb-4"
+          classCustom="px-[122px] mb-4 py-[16px]"
           title="Create Account"
           submit={HandleSignUp}
         />

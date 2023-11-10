@@ -5,9 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
+import Button from "@/components/Button/ButtonCart";
 import RatingDisplay from "@/components/Button/RatingDisplay";
-
-import Button from "../../../../components/Button/ButtonCart";
 
 function CardSales({ products }) {
   const router = useRouter();

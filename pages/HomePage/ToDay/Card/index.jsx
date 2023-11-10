@@ -85,7 +85,7 @@ function CardSales({ products }) {
               return (
                 <SwiperSlide key={item.id}>
                   <div className="min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
-                    <Link href="./product">
+                    <Link href="./ProductDetails">
                       <Image
                         src={item.image}
                         alt={index}

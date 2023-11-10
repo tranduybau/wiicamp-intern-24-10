@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import Button from "../../../components/Button/ButtonRed";
+import Button from "@/components/Button/ButtonRed";
 
 import Card from "./Card/index";
 
@@ -24,7 +24,7 @@ function ToDay({ products }) {
       <Card products={products} />
       <div className="mt-[60px] pb-[59px] border-b border-inherit border-solid flex justify-center">
         <Button
-          classCustom="lg:px-12 px-4"
+          classCustom="lg:px-12 px-4 py-[16px]"
           title="View All Product"
           link={HandleShowProduct}
         />

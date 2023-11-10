@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useRouter } from "next/router";
 
-import Button from "../../../../components/Button/ButtonRed";
+import Button from "@/components/Button/ButtonRed";
 
 function BestSelling() {
   const router = useRouter();
@@ -15,7 +15,7 @@ function BestSelling() {
           Best Selling Products
         </h2>
         <Button
-          classCustom="lg:px-12  px-4"
+          classCustom="lg:px-12  px-4 py-[16px]"
           title="View All"
           link={HandleViewAll}
         />

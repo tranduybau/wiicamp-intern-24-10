@@ -17,7 +17,7 @@ function About() {
         <Link href="./" className="opacity-50">
           Home
         </Link>
-        <p>/</p>
+        <p className="opacity-50">/</p>
         <Link href="./Contact" className="active:text-text-2">
           Contact
         </Link>

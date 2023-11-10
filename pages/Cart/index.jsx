@@ -43,7 +43,7 @@ function Cart() {
           <Link href="./" className="opacity-50">
             Home
           </Link>
-          <p>/</p>
+          <p className="opacity-50">/</p>
           <Link href="./Cart" className="active:text-text-2">
             Cart
           </Link>
@@ -117,7 +117,10 @@ function Cart() {
             />
           </div>
           <div>
-            <ButtonRed classCustom="ml-[16px] px-[48px]" title="Apply Coupon" />
+            <ButtonRed
+              classCustom="ml-[16px] px-[48px] py-[16px]"
+              title="Apply Coupon"
+            />
           </div>
           <div className="ml-[173px] min-w-[470px] border-[1.5px] border-solid border-black rounded px-[24px] py-[32px]">
             <p className="font-poppins text-xl font-medium not-italic leading-7">
@@ -139,7 +142,7 @@ function Cart() {
               <div className="flex justify-center">
                 <ButtonRed
                   title="Procees to checkout"
-                  classCustom="px-[48px]"
+                  classCustom="px-[48px] py-[16px]"
                   link={HandleToCheckout}
                 />
               </div>

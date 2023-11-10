@@ -2,9 +2,9 @@ import React, { memo } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
-import Button from "../../components/Button/ButtonRed";
+import Button from "@/components/Button/ButtonRed";
 
-import styles from "../../styles/account.module.css";
+import styles from "@/styles/account.module.css";
 
 function Account() {
   const HandleReMove = () => {
@@ -157,7 +157,7 @@ function Account() {
             {/* <p className="font-poppins text-base font-normal leading-6">
               Cancel
             </p> */}
-            <Button title="Save Changes" classCustom="px-[48px]" />
+            <Button title="Save Changes" classCustom="px-[48px] py-[16px]" />
           </div>
         </div>
       </div>

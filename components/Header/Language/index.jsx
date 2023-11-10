@@ -22,7 +22,7 @@ function Languages() {
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
           </p>
           <a
-            href="http"
+            href="./"
             className={classNames(
               "font-poppins font-3 text-sm  text-text-1 underline  flex justify-center",
               styles.shopNow,
