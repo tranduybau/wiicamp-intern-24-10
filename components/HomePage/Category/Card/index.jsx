@@ -17,8 +17,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ArrowLeft from "@/components/Button/ArrowLeft";
-import ArrowRight from "@/components/Button/ArrowRight";
+import ArrowLeft from "@/components/App/Button/ArrowLeft";
+import ArrowRight from "@/components/App/Button/ArrowRight";
 
 import "swiper/css";
 
@@ -89,7 +89,7 @@ function Card() {
           <ArrowRight HandleNext={handleNext} />
         </div>
       </div>
-      <div className="flex pb-[69px] border-b border-inherit border-solid ">
+      <div className="flex pb-[69px] border-b border-inherit border-solid">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={30}

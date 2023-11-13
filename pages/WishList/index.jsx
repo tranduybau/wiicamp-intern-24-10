@@ -3,8 +3,8 @@ import { Eye, ShoppingCart, Star, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import ButtonCart from "@/components/Button/ButtonCart";
-import Button from "@/components/Button/ButtonWhite";
+import ButtonCart from "@/components/App/Button/ButtonCart";
+import Button from "@/components/App/Button/Outline";
 
 function Wishlist() {
   const listCard = [

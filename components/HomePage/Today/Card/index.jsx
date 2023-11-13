@@ -13,10 +13,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ArrowLeft from "@/components/Button/ArrowLeft";
-import ArrowRight from "@/components/Button/ArrowRight";
-import Button from "@/components/Button/ButtonCart";
-import RatingDisplay from "@/components/Button/RatingDisplay";
+import ArrowLeft from "@/components/App/Button/ArrowLeft";
+import ArrowRight from "@/components/App/Button/ArrowRight";
+import Button from "@/components/App/Button/ButtonCart";
+import RatingDisplay from "@/components/App/Button/RatingDisplay";
 
 import FlashSales from "../FlashSales";
 

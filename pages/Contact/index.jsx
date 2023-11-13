@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 
-import Button from "../../components/Button/ButtonRed";
+import Button from "../../components/App/Button/Contain";
 
 import styles from "../../styles/contact.module.css";
 

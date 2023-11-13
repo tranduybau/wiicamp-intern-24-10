@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import Link from "next/link";
 
-import Button from "@/components/Button/ButtonRed";
+import Button from "@/components/App/Button/Contain";
 
 function NotFound() {
   return (

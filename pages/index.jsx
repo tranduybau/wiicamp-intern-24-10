@@ -1,24 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import axios from "../libraries/axiosClient";
+import HomePage from "../components/HomePage";
+import MoveTop from "../components/MoveTop";
+import SideBar from "../components/SideBar";
 
-// import { Inter } from "next/font/google";
-import HomePage from "./HomePage";
-import SideBar from "./SideBar";
-
-// const inter = Inter({ subsets: ["latin"] });
-const apiName = "https://fakestoreapi.com/products";
-
-export default function Home({ products }) {
+export default function Home({ products, categories, thisMonth, ourProducts }) {
   return (
-    // <main className={`p-24 bg-white ${inter.className}`}>
-    //   <SideBar />
-    //   <HomePage />
-    // </main>
     <main>
       <SideBar />
-      <HomePage products={products} />
+      <HomePage
+        products={products}
+        categories={categories}
+        thisMonth={thisMonth}
+        ourProducts={ourProducts}
+      />
+      <MoveTop />
     </main>
   );
 }
@@ -34,16 +31,32 @@ const addDiscountById = (data) => {
 };
 
 export async function getServerSideProps() {
-  const response = await axios.get(apiName);
-  const products = addDiscountById(response.data);
+  const responseProduct = await fetch("https://fakestoreapi.com/products");
+  const resCategories = await fetch("https://fakestoreapi.com/products");
+  const resThisMonth = await fetch("https://fakestoreapi.com/products");
+  const resOurProducts = await fetch("https://fakestoreapi.com/products");
+  const rawDataProduct = await responseProduct.json();
+  const rawDataCategory = await resCategories.json();
+  const rawDataThisMonth = await resThisMonth.json();
+  const rawDataOurProduct = await resOurProducts.json();
+  const products = addDiscountById(rawDataProduct);
+  const categories = addDiscountById(rawDataCategory);
+  const thisMonth = addDiscountById(rawDataThisMonth);
+  const ourProducts = addDiscountById(rawDataOurProduct);
 
   return {
     props: {
       products,
+      categories,
+      thisMonth,
+      ourProducts,
     },
   };
 }
 
 Home.propTypes = {
   products: PropTypes.instanceOf(Array).isRequired,
+  categories: PropTypes.instanceOf(Array).isRequired,
+  thisMonth: PropTypes.instanceOf(Array).isRequired,
+  ourProducts: PropTypes.instanceOf(Array).isRequired,
 };

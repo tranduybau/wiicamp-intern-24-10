@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
-import Button from "@/components/Button/ButtonRed";
+import Button from "@/components/App/Button/Contain";
 
 import styles from "@/styles/account.module.css";
 

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 
-import Button from "../../components/Button/ButtonRed";
+import Button from "../../components/App/Button/Contain";
 
 import styles from "../../styles/checkout.module.css";
 

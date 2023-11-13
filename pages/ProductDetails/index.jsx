@@ -3,7 +3,7 @@ import { Heart, RefreshCcw, Star, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Button from "@/components/Button/ButtonRed";
+import Button from "@/components/App/Button/Contain";
 
 function ProductDetails() {
   const listImg = [

@@ -18,15 +18,15 @@ import styles from "@/styles/navigation.module.css";
 
 function Navigation() {
   const [openNav, setOpenNav] = React.useState(false);
-  //   const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(false);
 
-  //   React.useEffect(() => {
-  //     const token = localStorage.getItem("token");
+  React.useEffect(() => {
+    const token = localStorage.getItem("token");
 
-  //     if (token) {
-  //       setIsLogin(true);
-  //     }
-  //   }, []);
+    if (token) {
+      setIsLogin(true);
+    }
+  }, []);
 
   const [isShowAccount, setIsShowAccount] = React.useState(false);
   const HandleDropAccount = () => {
@@ -158,7 +158,7 @@ function Navigation() {
               {openNav ? "" : <AlignJustify size={32} />}
             </button>
             <div className="flex text-text-2 gap-[16px]">
-              {/* {isLogin ? (
+              {isLogin ? (
                 <>
                   <Link href="./WishList">
                     <Heart className="ml-6" size={32} />
@@ -168,50 +168,50 @@ function Navigation() {
                   </Link>
                 </>
               ) : (
-                <> */}
-              <Link href="./WishList">
-                <Heart className="ml-6" size={32} />
-              </Link>
-              <Link href="./Cart">
-                <ShoppingCart size={32} />
-              </Link>
-              <div className="relative inline-block">
-                <button
-                  type="button"
-                  className=" hover:bg-second-3 hover:text-text-1 rounded-full"
-                  onClick={HandleDropAccount}
-                >
-                  <User size={32} className="hover:p-1" />
-                </button>
-                <div
-                  id="myDropdown"
-                  className={classNames(
-                    "absolute text-text-1 min-w-[224px]",
-                    isShowAccount ? "block right-0" : "hidden",
-                    styles.background,
-                  )}
-                >
-                  <div className="pt-[18px] pr-[12px] pb-[10px] pl-[20px] flex flex-col gap-[13px] ">
-                    {listAccount &&
-                      listAccount.map((item) => {
-                        return (
-                          <a
-                            className="flex gap-[16px] items-center"
-                            key={item.id}
-                            href={item.link}
-                          >
-                            <p>{item.icon}</p>
-                            <p className="font-poppins text-sm font-normal leading-5">
-                              {item.name}
-                            </p>
-                          </a>
-                        );
-                      })}
+                <>
+                  <Link href="./WishList">
+                    <Heart className="ml-6" size={32} />
+                  </Link>
+                  <Link href="./Cart">
+                    <ShoppingCart size={32} />
+                  </Link>
+                  <div className="relative inline-block">
+                    <button
+                      type="button"
+                      className=" hover:bg-second-3 hover:text-text-1 rounded-full"
+                      onClick={HandleDropAccount}
+                    >
+                      <User size={32} className="hover:p-1" />
+                    </button>
+                    <div
+                      id="myDropdown"
+                      className={classNames(
+                        "absolute text-text-1 min-w-[224px]",
+                        isShowAccount ? "block right-0" : "hidden",
+                        styles.background,
+                      )}
+                    >
+                      <div className="pt-[18px] pr-[12px] pb-[10px] pl-[20px] flex flex-col gap-[13px] ">
+                        {listAccount &&
+                          listAccount.map((item) => {
+                            return (
+                              <a
+                                className="flex gap-[16px] items-center"
+                                key={item.id}
+                                href={item.link}
+                              >
+                                <p>{item.icon}</p>
+                                <p className="font-poppins text-sm font-normal leading-5">
+                                  {item.name}
+                                </p>
+                              </a>
+                            );
+                          })}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              {/* </>
-              )} */}
+                </>
+              )}
             </div>
           </div>
           {openNav && (

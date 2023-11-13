@@ -1,12 +1,12 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
 
-import ToDay from "./ToDay/index";
+import ToDay from "./Today/index";
 import Category from "./Category";
-import Delivery from "./Delivery";
 import Featured from "./Featured";
 import OurProduct from "./OurProduct";
 import SaleTime from "./SaleTime";
+import Delivery from "./Services";
 import ThisMonth from "./ThisMonth";
 
 function HomePage({ products }) {
