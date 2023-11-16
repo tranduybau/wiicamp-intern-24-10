@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { memo } from "react";
 import { ArrowUp } from "lucide-react";
 
 function MoveTop() {
-  const [openMoveTop, setOpenMoveTop] = useState(false);
-
-  useEffect(() => {
-    const handleOpen = () => {
-      if (window.scrollY > 800) {
-        setOpenMoveTop(true);
-      } else {
-        setOpenMoveTop(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleOpen);
-  }, []);
-
-  const handleScrollUp = () => {
+  const handleScroll = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -24,20 +10,17 @@ function MoveTop() {
   };
   return (
     <div className="container  ">
-      {" "}
-      {openMoveTop && (
-        <div className="fixed right-[50px] bottom-[50px] bg-second-2 rounded-full">
-          <button
-            onClick={handleScrollUp}
-            className="max-w-[46px] max-h-[46px] w-full h-auto justify-center p-[11px] rounded-full bg-Secondary-0"
-            type="button"
-          >
-            <ArrowUp size={24} />
-          </button>
-        </div>
-      )}
+      <div className="fixed md:right-[50px] bottom-[30px] bg-second-2 rounded-full">
+        <button
+          onClick={handleScroll}
+          className="max-w-[46px] max-h-[46px]  justify-center p-[10px] rounded-full"
+          type="button"
+        >
+          <ArrowUp size={24} />
+        </button>
+      </div>
     </div>
   );
 }
 
-export default MoveTop;
+export default memo(MoveTop);

@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,31 +9,47 @@ import * as yup from "yup";
 
 import Button from "@/components/App/Button/Contain";
 
-const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().min(8).max(32).required(),
+import axios from "../../libraries/axiosClient";
+
+const validationSchema = yup.object().shape({
+  name: yup.string().required("Name is required"),
+  email: yup.string().email().required("Email is required"),
+  password: yup.string().min(8).max(32).required("Password is required"),
 });
 
 function SignUp() {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(validationSchema),
   });
 
-  const onSubmitHandler = (data) => {
-    // eslint-disable-next-line no-console
-    console.log({ data });
+  const onSubmitHandler = () => {
+    // e.preventDefault();
+
+    const payload = {
+      name,
+      email,
+      password,
+    };
+
+    try {
+      axios.post("https://fakestoreapi.com/auth/login", payload);
+      // eslint-disable-next-line no-console
+      console.log("payload", payload);
+      toast.success("Registered successfully!");
+    } catch (error) {
+      toast.warning("Registration failed!", 1.5);
+    }
     reset();
   };
-
-  //   const router = useRouter();
-  //   const HandleSignUp = () => {
-  //     router.push("/SignUp");
-  //   };
 
   return (
     <div className="container mt-16 mb-36 lg:flex block max-h-[781px]">
@@ -58,17 +75,24 @@ function SignUp() {
             Enter your details below
           </sp>
           <div>
-            <input
-              type="text"
-              className="form-control border-b border-inherit border-solids w-full h-8 mb-10"
-              placeholder="Name"
-            />
+            <div className="mb-10">
+              <input
+                type="type"
+                className="form-control border-b border-inherit border-solids w-full h-8"
+                placeholder="Name"
+                {...register("name")}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <p className="text-second-3">{errors.name?.message}</p>
+            </div>
+
             <div className="mb-10">
               <input
                 type="email"
                 className="form-control border-b border-inherit border-solids w-full h-8 "
                 placeholder="Email or Phone Number"
                 {...register("email")}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <p className="text-second-3">{errors.email?.message}</p>
             </div>
@@ -78,6 +102,7 @@ function SignUp() {
                 className="form-control border-b border-inherit border-solids w-full h-8 "
                 placeholder="Password"
                 {...register("password")}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <p className="text-second-3">{errors.password?.message}</p>
             </div>
@@ -85,7 +110,6 @@ function SignUp() {
           <Button
             classCustom="px-[122px] mb-4 py-[16px]"
             title="Create Account"
-            //   submit={HandleSignUp}
             type="submit"
           />
           <Link

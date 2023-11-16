@@ -122,11 +122,8 @@ function Card() {
           {listCategory &&
             listCategory.map((item) => {
               return (
-                <SwiperSlide key={item}>
-                  <div
-                    className="min-w-[170px] min-h-[145px] border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center "
-                    key={item}
-                  >
+                <SwiperSlide key={item.id}>
+                  <div className="min-w-[170px] min-h-[145px] border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center ">
                     <Link href="./id">
                       <p className="mb-4 flex justify-center">{item.icon}</p>
                       <p className="text-base font-poppins font-normal text-text-2">

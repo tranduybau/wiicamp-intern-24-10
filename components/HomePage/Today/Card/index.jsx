@@ -1,10 +1,10 @@
 // import swiper
 
 import React, { memo, useRef } from "react";
+import { toast } from "react-toastify";
 import { Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,25 +16,54 @@ import "swiper/css/scrollbar";
 import ArrowLeft from "@/components/App/Button/ArrowLeft";
 import ArrowRight from "@/components/App/Button/ArrowRight";
 import Button from "@/components/App/Button/ButtonCart";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+
+// import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import useCartStore from "@/Store/CartStore";
 
 import FlashSales from "../FlashSales";
 
+import "react-toastify/dist/ReactToastify.css";
 import "swiper/css";
 
 function CardSales({ products }) {
-  const router = useRouter();
-  const HandleAddCart = () => {
-    router.push("/Cart");
+  const { addToCart } = useCartStore();
+
+  const handleAddCart = (productId) => {
+    addToCart(productId);
+    // eslint-disable-next-line no-console
+    console.log("addToCart", productId);
+    toast.success("Add to cart successfully", 1.5);
   };
 
-  const HandleAddWishList = () => {
-    router.push("/WishList");
+  const HandleAddWishList = (id, title, price, image, rate, count) => {
+    const existingWishlist =
+      JSON.parse(localStorage.getItem("wishlists")) || [];
+
+    const isProductInWishlist = existingWishlist.some((item) => {
+      return item.id === id;
+    });
+
+    if (isProductInWishlist) {
+      toast.error("The product already exists in the wishlist!", 1.5);
+    } else {
+      const productToAdd = {
+        id,
+        title,
+        price,
+        discount: 10,
+        image,
+        rating: {
+          rate,
+          count,
+        },
+      };
+      existingWishlist.push(productToAdd);
+      localStorage.setItem("wishlists", JSON.stringify(existingWishlist));
+
+      toast.success("Add to wishlist successfully", 1.5);
+    }
   };
 
-  const HandleView = () => {
-    router.push("/id");
-  };
   const swiperRef = useRef();
   const handleNext = () => {
     swiperRef?.current?.swiper?.slideNext();
@@ -84,8 +113,8 @@ function CardSales({ products }) {
             products.map((item, index) => {
               return (
                 <SwiperSlide key={item.id}>
-                  <div className="min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
-                    <Link href="./ProductDetails">
+                  <div className="min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center ">
+                    <Link href={`/${item.id}`} className="">
                       <Image
                         src={item.image}
                         alt={index}
@@ -95,25 +124,40 @@ function CardSales({ products }) {
                         className="object-contain"
                       />
                     </Link>
-                    <Button title="Add to cart" link={HandleAddCart} />
+                    <Button
+                      title="Add to cart"
+                      link={() => handleAddCart(item.id)}
+                    />
                     <div className="!absolute top-1 right-3 flex flex-col">
-                      <button type="button" onClick={HandleAddWishList}>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          HandleAddWishList(
+                            item.id,
+                            item.title,
+                            item.price,
+                            item.image,
+                            item.rating.rate,
+                            item.rating.count,
+                          )
+                        }
+                      >
                         <Heart
                           className="rounded-full bg-white p-1.5"
                           size={32}
                         />
                       </button>
-                      <button type="button" onClick={HandleView}>
+                      <Link href={`/${item.id}`}>
                         <Eye
                           className="rounded-full bg-white p-1.5 "
                           size={32}
                         />
-                      </button>
+                      </Link>
                     </div>
 
-                    <p className="!absolute top-3 left-3 bg-second-3  rounded font-poppins text-xs font-normal py-[4px] px-[12px] text-text-1">
+                    <span className="!absolute top-3 left-3 bg-second-3  rounded font-poppins text-xs font-normal py-[4px] px-[12px] text-text-1">
                       -{item.discount}%
-                    </p>
+                    </span>
                   </div>
                   <div className="flex flex-col gap-[8px] mt-4">
                     <h3 className="text-base font-bold font-poppins text-text-2 truncate">
@@ -128,12 +172,12 @@ function CardSales({ products }) {
                       </span>
                     </div>
                     <div className="flex  ">
-                      <p className="text-second-4 flex mr-2">
-                        <RatingDisplay rate={item.rating.rate} />
-                      </p>
-                      <p className="font-medium opacity-50 font-poppins text-base">
+                      <span className="text-second-4 flex mr-2">
+                        {/* <RatingDisplay rate={item.rating.rate} /> */}
+                      </span>
+                      <span className="font-medium opacity-50 font-poppins text-base">
                         ({item.rating.count})
-                      </p>
+                      </span>
                     </div>
                   </div>
                 </SwiperSlide>

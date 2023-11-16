@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useRef } from "react";
 import classNames from "classnames";
 import {
   AlignJustify,
@@ -13,27 +13,60 @@ import {
   XCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
+import useCartStore from "@/Store/CartStore";
+import useSearch from "@/Store/SearchBar";
 import styles from "@/styles/navigation.module.css";
 
 function Navigation() {
   const [openNav, setOpenNav] = React.useState(false);
-  const [isLogin, setIsLogin] = React.useState(false);
+  // const [isLogin, setIsLogin] = React.useState(false);
 
-  React.useEffect(() => {
-    const token = localStorage.getItem("token");
+  const { getCartItems } = useCartStore();
+  const cartItems = getCartItems();
 
-    if (token) {
-      setIsLogin(true);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const token = localStorage.getItem("token");
+
+  //   if (token) {
+  //     setIsLogin(true);
+  //   }
+  // }, []);
 
   const [isShowAccount, setIsShowAccount] = React.useState(false);
+
+  const dropdownRef = useRef(null);
   const HandleDropAccount = () => {
     setIsShowAccount(!isShowAccount);
   };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsShowAccount(false);
+    }
+  };
+
+  React.useEffect(() => {
+    const handleDocumentClick = (e) => {
+      handleClickOutside(e);
+    };
+    document.addEventListener("mousedown", handleDocumentClick);
+  });
+
   const handlerClose = () => {
     setOpenNav(false);
+  };
+
+  const router = useRouter();
+  const keyword = useSearch((state) => state.keyword);
+  const setKeyword = useSearch((state) => state.setKeyword);
+
+  const onSearch = (e) => {
+    e.preventDefault();
+
+    const encodeSearchQuery = encodeURI(keyword);
+    router.push(`/SearchProduct?q=${encodeSearchQuery}`);
   };
 
   const navList = (
@@ -86,15 +119,18 @@ function Navigation() {
       </ul>
       <div className="relative lg:flex sm:justify-center lg:ml-[148px]">
         <input
-          type="search"
-          id="default-search"
-          className="block p-2 text-sm text-text-2 bg-gray-50 w-[243px] "
+          id="search"
+          className="block p-2 text-sm text-text-2 bg-gray-50 w-[243px]"
           placeholder="What are you looking for?"
           required
+          type="text"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
         />
         <button
           type="submit"
-          className="text-black absolute right-2.5 bottom-2.5  focus:ring-4 focus:outline-none  font-medium rounded-lg sm:absolute:none "
+          onClick={onSearch}
+          className="text-black absolute right-2.5 bottom-2.5  rounded-lg sm:absolute:none truncate"
         >
           <Search />
         </button>
@@ -155,63 +191,72 @@ function Navigation() {
               onClick={() => setOpenNav(!openNav)}
               type="button"
             >
-              {openNav ? "" : <AlignJustify size={32} />}
+              {openNav ? (
+                ""
+              ) : (
+                <AlignJustify className=" md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
+              )}
             </button>
             <div className="flex text-text-2 gap-[16px]">
-              {isLogin ? (
+              {/* {isLogin ? (
                 <>
                   <Link href="./WishList">
-                    <Heart className="ml-6" size={32} />
+                    <Heart className="ml-6 lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
                   </Link>
                   <Link href="./Cart">
-                    <ShoppingCart size={32} />
+                    <ShoppingCart className=" md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
                 </>
-              ) : (
-                <>
-                  <Link href="./WishList">
-                    <Heart className="ml-6" size={32} />
-                  </Link>
-                  <Link href="./Cart">
-                    <ShoppingCart size={32} />
-                  </Link>
-                  <div className="relative inline-block">
-                    <button
-                      type="button"
-                      className=" hover:bg-second-3 hover:text-text-1 rounded-full"
-                      onClick={HandleDropAccount}
-                    >
-                      <User size={32} className="hover:p-1" />
-                    </button>
-                    <div
-                      id="myDropdown"
-                      className={classNames(
-                        "absolute text-text-1 min-w-[224px]",
-                        isShowAccount ? "block right-0" : "hidden",
-                        styles.background,
-                      )}
-                    >
-                      <div className="pt-[18px] pr-[12px] pb-[10px] pl-[20px] flex flex-col gap-[13px] ">
-                        {listAccount &&
-                          listAccount.map((item) => {
-                            return (
-                              <a
-                                className="flex gap-[16px] items-center"
-                                key={item.id}
-                                href={item.link}
-                              >
-                                <p>{item.icon}</p>
-                                <p className="font-poppins text-sm font-normal leading-5">
-                                  {item.name}
-                                </p>
-                              </a>
-                            );
-                          })}
-                      </div>
-                    </div>
+              ) : ( */}
+              <Link href="./WishList">
+                <Heart className="ml-6 hover:bg-second-3 hover:text-text-1 rounded-full hover:p-1 md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
+              </Link>
+              <Link href="./Cart">
+                <div className="relative">
+                  <ShoppingCart className="hover:bg-second-3 hover:text-text-1 hover:rounded-full hover:p-1  md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
+                  {cartItems.length >= 0 && (
+                    <span className="top-[-8px] right-[-6px] absolute rounded-full bg-second-3 text-text-1  font-poppins text-xs font-normal leading-[18px] shrink-0 w-[20px] h-[20px] flex justify-center">
+                      {cartItems.length}
+                    </span>
+                  )}
+                </div>
+              </Link>
+              <div className="relative inline-block " ref={dropdownRef}>
+                <button
+                  type="button"
+                  className=" hover:bg-second-3 hover:text-text-1 rounded-full"
+                  onClick={HandleDropAccount}
+                >
+                  <User className="hover:p-1  md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
+                </button>
+                <div
+                  id="myDropdown"
+                  className={classNames(
+                    "absolute text-text-1 min-w-[224px]",
+                    isShowAccount ? "block right-0" : "hidden",
+                    styles.background,
+                  )}
+                >
+                  <div className="pt-[18px] pr-[12px] pb-[10px] pl-[20px] flex flex-col gap-[13px] ">
+                    {listAccount &&
+                      listAccount.map((item) => {
+                        return (
+                          <a
+                            className="flex gap-[16px] items-center"
+                            key={item.id}
+                            href={item.link}
+                          >
+                            <p>{item.icon}</p>
+                            <p className="font-poppins text-sm font-normal leading-5">
+                              {item.name}
+                            </p>
+                          </a>
+                        );
+                      })}
                   </div>
-                </>
-              )}
+                </div>
+              </div>
+              {/* )} */}
             </div>
           </div>
           {openNav && (

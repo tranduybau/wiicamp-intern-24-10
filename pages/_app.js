@@ -1,20 +1,22 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+// import { SessiomProvider } from "next-auth/react";
 import PropTypes from "prop-types";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
-// import HomePage from "./HomePage";
-// import SideBar from "./SideBar";
+import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Header />
-      {/* <SideBar /> */}
-      {/* <HomePage /> */}
+      {/* <SessiomProvider session={pageProps.session}> */}
       <Component {...pageProps} />
+      {/* </SessiomProvider> */}
+      <ToastContainer />
       <Footer />
     </>
   );

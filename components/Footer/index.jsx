@@ -124,7 +124,7 @@ function Footer() {
                   />
                 </Link>
                 <div>
-                  <Link href="http">
+                  <Link href="http" className="w-auto h-auto">
                     <Image
                       src="/img/googleplay.png"
                       alt="googleplay"
@@ -134,7 +134,7 @@ function Footer() {
                       priority
                     />
                   </Link>
-                  <Link href="http">
+                  <Link href="http" className="w-auto h-auto">
                     <Image
                       src="/img/appstore.png"
                       alt="appstore"

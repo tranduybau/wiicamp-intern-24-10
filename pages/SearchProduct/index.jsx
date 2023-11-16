@@ -1,3 +1,5 @@
+"use client";
+
 import React, { memo } from "react";
 import { toast } from "react-toastify";
 import { Eye, Heart } from "lucide-react";
@@ -6,16 +8,15 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 
 import Button from "@/components/App/Button/ButtonCart";
+import RatingDisplay from "@/components/App/Button/RatingDisplay";
 
-// import RatingDisplay from "@/components/App/Button/RatingDisplay";
-import useCartStore from "@/Store/CartStore";
+import useCartStore from "../../Store/CartStore";
 
-function CardSales({ products }) {
+function SearchProduct({ products }) {
   const { addToCart } = useCartStore();
 
   const handleAddCart = (productId) => {
     addToCart(productId);
-    toast.success("Add to cart successfully");
   };
 
   const HandleAddWishList = (id, title, price, image, rate, count) => {
@@ -47,15 +48,13 @@ function CardSales({ products }) {
     }
   };
 
-  const maxProducts = 4;
-
   return (
-    <div className="mt-[60px] grid xl:grid-cols-4 lg:grid-cols-3 gap-[44px] sm:grid-cols-2 grid-cols-1 justify-center">
+    <div className="mt-[60px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center container mb-[140px]">
       {products &&
-        products.slice(0, maxProducts).map((item, index) => {
+        products.map((item, index) => {
           return (
-            <div key={item.id}>
-              <div className=" min-w-[270px]  min-h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
+            <div className="mb-[16px]" key={item}>
+              <div className=" min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
                 <Link href={`${item.id}`}>
                   <Image
                     src={item.image}
@@ -67,10 +66,10 @@ function CardSales({ products }) {
                   />
                 </Link>
                 <Button
-                  title="Add to cart"
+                  title=" Add to cart"
                   link={() => handleAddCart(item.id)}
                 />
-                <div className="!absolute top-3 right-3 flex flex-col">
+                <div className="!absolute top-1 right-3 flex flex-col">
                   <button
                     type="button"
                     onClick={() =>
@@ -90,10 +89,16 @@ function CardSales({ products }) {
                     <Eye className="rounded-full bg-white p-1.5 " size={32} />
                   </Link>
                 </div>
+                <div className="!absolute top-3 left-3">
+                  {item.discount && (
+                    <p className="bg-second-3 rounded  font-poppins text-xs font-normal py-[4px] px-[12px] text-text-1">
+                      {item.discount}%
+                    </p>
+                  )}
+                </div>
               </div>
-
               <div className="flex flex-col gap-[8px] mt-4">
-                <h3 className="text-base font-bold font-poppins text-text-2 truncate ">
+                <h3 className="text-base font-bold font-poppins text-text-2 truncate">
                   {item.title}
                 </h3>
                 <div className="flex gap-2 text-base font-poppins font-medium ">
@@ -104,9 +109,9 @@ function CardSales({ products }) {
                     ${item.price}
                   </span>
                 </div>
-                <div className="flex  ">
+                <div className="flex">
                   <p className="text-second-4 flex mr-2">
-                    {/* <RatingDisplay rate={item.rating.rate} /> */}
+                    <RatingDisplay rate={item.rating.rate} />
                   </p>
                   <p className="font-medium opacity-50 font-poppins text-base">
                     ({item.rating.count})
@@ -119,8 +124,37 @@ function CardSales({ products }) {
     </div>
   );
 }
-export default memo(CardSales);
 
-CardSales.propTypes = {
+export default memo(SearchProduct);
+
+const addDiscountById = (data) => {
+  const array = [...data];
+  return array.map((item) => {
+    return {
+      ...item,
+      discount: 10, // hardcode discount = 10
+    };
+  });
+};
+
+export async function getServerSideProps({ query }) {
+  const searchQuery = query.q || "";
+
+  const response = await fetch(`https://fakestoreapi.com/products`);
+
+  const rawData = await response.json();
+
+  const filteredProducts = addDiscountById(rawData).filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
+  return {
+    props: {
+      products: filteredProducts,
+    },
+  };
+}
+
+SearchProduct.propTypes = {
   products: PropTypes.instanceOf(Array).isRequired,
 };

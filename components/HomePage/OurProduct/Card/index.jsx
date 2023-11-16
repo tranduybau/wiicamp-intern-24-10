@@ -1,28 +1,53 @@
 // no import swpier
 import React, { memo } from "react";
+import { toast } from "react-toastify";
 import { Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
 import ArrowLeft from "@/components/App/Button/ArrowLeft";
 import ArrowRight from "@/components/App/Button/ArrowRight";
 import Button from "@/components/App/Button/ButtonCart";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+
+// import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import useCartStore from "@/Store/CartStore";
 
 function CardSales({ products }) {
-  const router = useRouter();
-  const HandleAddCart = () => {
-    // eslint-disable-next-line no-console
-    console.log("Add to Cart");
-  };
-  const HandleAddWishList = () => {
-    router.push("/WishList");
+  const { addToCart } = useCartStore();
+
+  const handleAddCart = (productId) => {
+    addToCart(productId);
+    toast.success("Add to cart successfully");
   };
 
-  const HandleView = () => {
-    router.push("/id");
+  const HandleAddWishList = (id, title, price, image, rate, count) => {
+    const existingWishlist =
+      JSON.parse(localStorage.getItem("wishlists")) || [];
+
+    const isProductInWishlist = existingWishlist.some((item) => {
+      return item.id === id;
+    });
+
+    if (isProductInWishlist) {
+      toast.error("The product already exists in the wishlist!");
+    } else {
+      const productToAdd = {
+        id,
+        title,
+        price,
+        discount: 10,
+        image,
+        rating: {
+          rate,
+          count,
+        },
+      };
+      existingWishlist.push(productToAdd);
+      localStorage.setItem("wishlists", JSON.stringify(existingWishlist));
+
+      toast.success("Add to wishlist successfully");
+    }
   };
 
   const maxProducts = 8;
@@ -43,9 +68,9 @@ function CardSales({ products }) {
         {products &&
           products.slice(0, maxProducts).map((item, index) => {
             return (
-              <div className="mb-[16px]" key={item}>
+              <div className="mb-[16px]" key={item.id}>
                 <div className=" min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
-                  <Link href="./product/id">
+                  <Link href={`${item.id}`}>
                     <Image
                       src={item.image}
                       alt={index}
@@ -55,17 +80,32 @@ function CardSales({ products }) {
                       className="object-contain"
                     />
                   </Link>
-                  <Button title=" Add to cart" link={HandleAddCart} />
+                  <Button
+                    title=" Add to cart"
+                    link={() => handleAddCart(item.id)}
+                  />
                   <div className="!absolute top-1 right-3 flex flex-col">
-                    <button type="button" onClick={HandleAddWishList}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        HandleAddWishList(
+                          item.id,
+                          item.title,
+                          item.price,
+                          item.image,
+                          item.rating.rate,
+                          item.rating.count,
+                        )
+                      }
+                    >
                       <Heart
                         className="rounded-full bg-white p-1.5"
                         size={32}
                       />
                     </button>
-                    <button type="button" onClick={HandleView}>
+                    <Link href={`/${item.id}`}>
                       <Eye className="rounded-full bg-white p-1.5 " size={32} />
-                    </button>
+                    </Link>
                   </div>
                   <div className="!absolute top-3 left-3">
                     {item.discount && (
@@ -89,7 +129,7 @@ function CardSales({ products }) {
                   </div>
                   <div className="flex">
                     <p className="text-second-4 flex mr-2">
-                      <RatingDisplay rate={item.rating.rate} />
+                      {/* <RatingDisplay rate={item.rating.rate} /> */}
                     </p>
                     <p className="font-medium opacity-50 font-poppins text-base">
                       ({item.rating.count})

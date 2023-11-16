@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function SaleTime() {
   const [days, setDays] = useState(0);
@@ -87,12 +88,12 @@ function SaleTime() {
           </div>
         </div>
         <div className="mt-10 w-40 h-14 bg-green flex justify-center  items-center">
-          <a
+          <Link
             href="/buyNow"
             className=" text-text-1 text-base font-medium font-poppins"
           >
             Buy Now!
-          </a>
+          </Link>
         </div>
       </div>
 

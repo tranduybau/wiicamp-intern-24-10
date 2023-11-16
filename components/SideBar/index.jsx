@@ -59,6 +59,7 @@ function Sidebar() {
 
   const Category = [
     {
+      id: "1",
       name: "Woman’s Fashion",
       href: "#",
       icon: (
@@ -66,19 +67,20 @@ function Sidebar() {
       ),
     },
     {
+      id: "2",
       name: "Men’s Fashion",
       href: "#",
       icon: (
         <ChevronRight className="cursor-pointer" onClick={handleSelectMen} />
       ),
     },
-    { name: "Electronics", href: "#" },
-    { name: "Home & Lifestyle", href: "#" },
-    { name: "Medicine", href: "#" },
-    { name: "Sports & Outdoor", href: "#" },
-    { name: "Baby’s & Toys", href: "#" },
-    { name: "Groceries & Pets", href: "#" },
-    { name: "Health & Beauty", href: "#" },
+    { id: "3", name: "Electronics", href: "#" },
+    { id: "4", name: "Home & Lifestyle", href: "#" },
+    { id: "5", name: "Medicine", href: "#" },
+    { id: "6", name: "Sports & Outdoor", href: "#" },
+    { id: "7", name: "Baby’s & Toys", href: "#" },
+    { id: "8", name: "Groceries & Pets", href: "#" },
+    { id: "9", name: "Health & Beauty", href: "#" },
   ];
 
   const Slide = (
@@ -125,15 +127,19 @@ function Sidebar() {
 
   const listSlider = [
     {
+      id: "1",
       src: Slide,
     },
     {
+      id: "2",
       src: Slide,
     },
     {
+      id: "3",
       src: Slide,
     },
     {
+      id: "4",
       src: Slide,
     },
   ];
@@ -144,7 +150,7 @@ function Sidebar() {
         {Category &&
           Category.map((item, index) => {
             return (
-              <div key={`${item.name}`} className="w-full mb-4">
+              <div key={item.id} className="w-full mb-4">
                 <div
                   className={` ${
                     item.icon ? "flex justify-between " : "w-full "
@@ -237,7 +243,7 @@ function Sidebar() {
         >
           {listSlider.map((item) => {
             return (
-              <SwiperSlide key={item}>
+              <SwiperSlide key={item.id}>
                 <div className="object-cover h-[344px] sm:w-full">
                   {item.src}
                 </div>

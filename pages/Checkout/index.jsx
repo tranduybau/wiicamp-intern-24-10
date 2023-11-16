@@ -3,25 +3,30 @@ import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 
+import useCartStore from "@/Store/CartStore";
+
 import Button from "../../components/App/Button/Contain";
+import UseCart from "../ProductDetails/index";
 
 import styles from "../../styles/checkout.module.css";
 
 function Checkout() {
-  const listItem = [
-    {
-      id: "1",
-      image: "/img/toys.png",
-      name: "LCD Monitor",
-      price: "$650",
-    },
-    {
-      id: "2",
-      image: "/img/screen.png",
-      name: "LCD Monitor",
-      price: "$650",
-    },
-  ];
+  const { getCartItems } = useCartStore();
+  const cartItems = getCartItems();
+
+  const HandleAddOrder = () => {
+    // eslint-disable-next-line no-console
+    console.log("addOrder");
+  };
+
+  let total = 0;
+
+  cartItems.forEach((item) => {
+    const CartId = UseCart(item.productId);
+    if (CartId) {
+      total += CartId.price * item.quantity;
+    }
+  });
 
   return (
     <div className="container mt-[80px] mb-[140px] xl:px-0 px-[16px]">
@@ -69,6 +74,7 @@ function Checkout() {
               <input
                 className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
                 type="name"
+                required
               />
             </div>
             <div className="flex flex-col gap-[8px]">
@@ -88,6 +94,7 @@ function Checkout() {
               <input
                 className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
                 type="name"
+                required
               />
             </div>
             <div className="flex flex-col gap-[8px]">
@@ -128,6 +135,7 @@ function Checkout() {
               name="vehicle1"
               value="Bike"
               className={styles.custom_checkbox}
+              required
             />
             <label htmlFor="aaa">
               {" "}
@@ -142,33 +150,42 @@ function Checkout() {
           </div>
         </div>
         <div className="flex flex-col gap-[32px]  xl:min-w-[527px] max-w-[527px] lg:ml-[173px] ml-0 font-poppins text-base font-normal leading-6 lg:mt-0 mt-[20px]">
-          {listItem &&
-            listItem.map((item) => {
+          {cartItems &&
+            cartItems.map((item, index) => {
+              const CartId = UseCart(item.productId);
               return (
-                <div key={item.id}>
-                  <div className="flex flex-col  font-poppins text-base font-normal leading-6 text-text-2 lg:mr-[102px] mr-0">
-                    <div className="flex justify-between">
-                      <div className="flex">
-                        <Image
-                          src={item.image}
-                          alt="aa"
-                          width={54}
-                          height={54}
-                          priority
-                          className="object-contain mr-[20px]"
-                        />
-                        <span className="">{item.name}</span>
+                <div key={item.productId}>
+                  {CartId ? (
+                    <div className="flex flex-col  font-poppins text-base font-normal leading-6 text-text-2 lg:mr-[102px] mr-0">
+                      <div className="flex justify-between">
+                        <div className="flex">
+                          <Image
+                            src={CartId?.image}
+                            alt={index}
+                            width={54}
+                            height={54}
+                            priority
+                            className="object-contain mr-[20px]"
+                          />
+                          <span className="flex items-center">
+                            {CartId?.title}
+                          </span>
+                        </div>
+                        <span className="flex items-center">
+                          ${CartId.price * item.quantity}
+                        </span>
                       </div>
-                      <span className="">{item.price}</span>
                     </div>
-                  </div>
+                  ) : (
+                    <span>Loading....</span>
+                  )}
                 </div>
               );
             })}
           <div className=" flex flex-col gap-[16px] lg:mr-[102px] mr-0">
             <div className="flex justify-between ">
               <span>Subtotal:</span>
-              <span>$1750</span>
+              <span>${total}</span>
             </div>
             <p className="border-b border-solid  " />
             <div className="flex justify-between ">
@@ -178,7 +195,7 @@ function Checkout() {
             <p className="border-b border-solid  " />
             <div className="flex justify-between ">
               <span>Total:</span>
-              <span>$1750</span>
+              <span>${total}</span>
             </div>
           </div>
           <div className="sm:flex block justify-between lg:mr-[102px] mr-0">
@@ -192,28 +209,28 @@ function Checkout() {
                 width={42}
                 height={28}
                 priority
-                alt="aa"
+                alt="bkash"
               />
               <Image
                 src="/img/visa.png"
                 width={42}
                 height={28}
                 priority
-                alt="aa"
+                alt="visa"
               />
               <Image
                 src="/img/masterCard.png"
                 width={39.2}
                 height={25.2}
                 priority
-                alt="aa"
+                alt="master"
               />
               <Image
                 src="/img/nagad.png"
                 width={39.2}
                 height={25.2}
                 priority
-                alt="aa"
+                alt="nagad"
               />
             </div>
           </div>
@@ -228,7 +245,7 @@ function Checkout() {
               type="text"
               placeholder="Coupon Code"
               className={classNames(
-                "lg:py-[16px] py-2 pl-[24px] lg:min-w-[300px] max-w-[300px] font-poppins text-base font-normal opacity-50 lg:mr-0 mr-[20px]",
+                "py-[16px]  pl-[24px] lg:min-w-[300px] max-w-[300px] font-poppins text-base font-normal opacity-50 lg:mr-0 mr-[20px]",
                 styles.border,
               )}
             />
@@ -238,7 +255,11 @@ function Checkout() {
             />
           </div>
           <div>
-            <Button title="Place Order" classCustom="px-[48px] py-[16px]" />
+            <Button
+              title="Place Order"
+              classCustom="px-[48px] py-[16px]"
+              link={HandleAddOrder}
+            />
           </div>
         </div>
       </div>
