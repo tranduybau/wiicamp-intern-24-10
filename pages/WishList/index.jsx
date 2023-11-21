@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import ButtonCart from "@/components/App/Button/ButtonCart";
 import Button from "@/components/App/Button/Outline";
+import RatingDisplay from "@/components/App/Button/RatingDisplay";
 
-// import RatingDisplay from "@/components/App/Button/RatingDisplay";
 import useCartStore from "@/Store/CartStore";
 
 function Wishlist() {
@@ -65,24 +65,35 @@ function Wishlist() {
     addToCart(productId);
   };
 
-  const HandleDelete = () => {
-    // eslint-disable-next-line no-console
-    console.log("aaaa");
+  const HandleDelete = (id) => {
+    const existingWishlist =
+      JSON.parse(localStorage.getItem("wishlists")) || [];
+
+    const updatedWishlist = existingWishlist.filter((item) => item.id !== id);
+
+    localStorage.setItem("wishlists", JSON.stringify(updatedWishlist));
+
+    setWishlistItems(updatedWishlist);
+  };
+
+  const handleClearWishlist = () => {
+    localStorage.removeItem("wishlists");
+    setWishlistItems([]);
   };
 
   return (
-    <div className="container mt-[80px] ">
+    <div className="container mt-[80px] lg:px-0 px-[16px]">
       <div className="flex items-center justify-between mb-[60px]">
         <p className="font-poppins text-xl font-normal leading-6 text-text-2">
           Wishlist ({wishlistItems.length})
         </p>
-        <Button title="Move All To Bag" />
+        <Button title="Move All To Bag" link={handleClearWishlist} />
       </div>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-[26px]  justify-center">
         {wishlistItems &&
           wishlistItems.map((item, index) => {
             return (
-              <div className=" " key={item}>
+              <div key={item.id}>
                 <div className="bg-white min-w-[270px]  h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
                   <Link href={`${item.id}`}>
                     <Image
@@ -97,7 +108,7 @@ function Wishlist() {
                     classCustom="flex justify-center gap-[8px]"
                     icon={<ShoppingCart />}
                     title="Add to cart"
-                    link={handleAddCart}
+                    link={() => handleAddCart(item.id)}
                   />
                   <div className="!absolute top-3 right-3">
                     <button
@@ -120,7 +131,7 @@ function Wishlist() {
                 </div>
 
                 <div className="flex flex-col gap-2 mt-4">
-                  <h3 className="text-base font-bold font-poppins text-text-2 truncate">
+                  <h3 className="text-base font-bold font-poppins text-text-2 md:truncate">
                     {item.title}
                   </h3>
                   <div className="flex gap-2 text-base font-poppins font-medium ">
@@ -133,12 +144,12 @@ function Wishlist() {
                   </div>
                 </div>
                 <div className="flex  ">
-                  <p className="text-second-4 flex mr-2">
-                    {/* <RatingDisplay rate={item.rating.rate} /> */}
-                  </p>
-                  <p className="font-medium opacity-50 font-poppins text-base">
+                  <span className="text-second-4 flex mr-2">
+                    <RatingDisplay rate={item.rating.rate} />
+                  </span>
+                  <span className="font-medium opacity-50 font-poppins text-base">
                     ({item.rating.count})
-                  </p>
+                  </span>
                 </div>
               </div>
             );
@@ -156,7 +167,7 @@ function Wishlist() {
       <div className="mt-[60px] mb-[140px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 justify-center">
         {listCard.map((item, index) => {
           return (
-            <div className="mb-[30px]" key={item}>
+            <div className="mb-[30px]" key={item.id}>
               <div className="bg-second-2 min-w-[270px]  min-h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
                 <Link href="./product/id">
                   <Image

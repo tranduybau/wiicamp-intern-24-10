@@ -21,7 +21,7 @@ function Featured() {
         <div className="basis-1/2 bg-black">
           <FlayStation />
         </div>
-        <div className="basis-1/2 flex-grow lg:mt-0 mt-[15px]">
+        <div className="basis-1/2 flex-grow lg:mt-0 mt-[15px] ">
           <div className="bg-black text-text-1 lg:mb-[32px] mb-[15px]">
             <WomenCollection />
           </div>

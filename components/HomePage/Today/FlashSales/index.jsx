@@ -1,8 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
 
-// import { ArrowLeft, ArrowRight } from "lucide-react";
-// import Arrow from "../../../Button/ArrowLeft";
-
 function FlashSale() {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);

@@ -12,7 +12,6 @@ import Button from "@/components/App/Button/Contain";
 import axios from "../../libraries/axiosClient";
 
 const schema = yup.object().shape({
-  // email: yup.string().email().required(),
   username: yup.string().required("Name is required"),
   password: yup.string().min(8).max(32).required(),
 });

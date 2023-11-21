@@ -7,6 +7,11 @@ const useStore = create((set) => ({
       ...state,
       keyword,
     })),
+  clearKeyword: () =>
+    set((state) => ({
+      ...state,
+      keyword: "",
+    })),
 }));
 
 export default useStore;

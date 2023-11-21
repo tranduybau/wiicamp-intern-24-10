@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 import HomePage from "../components/HomePage";
 import MoveTop from "../components/MoveTop";
-import SideBar from "../components/SideBar";
+
+import SideBar from "./SideBar";
 
 export default function Home({ products, categories, thisMonth, ourProducts }) {
   return (

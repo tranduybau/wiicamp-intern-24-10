@@ -52,7 +52,7 @@ function SignUp() {
   };
 
   return (
-    <div className="container mt-16 mb-36 lg:flex block max-h-[781px]">
+    <div className="container mt-16 mb-36 lg:flex block min-h-[781px]">
       <div className="lg:max-w-[805px] ">
         <Image
           src="/img/login.png"
@@ -71,9 +71,9 @@ function SignUp() {
           <span className="font-inter lg:text-4xl text-3xl font-medium leading-7 text-text-2 mb-6 lg:mt-0 mt-8">
             Create an account
           </span>
-          <sp className="font-poppins text-base font-normal mb-12">
+          <span className="font-poppins text-base font-normal mb-12">
             Enter your details below
-          </sp>
+          </span>
           <div>
             <div className="mb-10">
               <input

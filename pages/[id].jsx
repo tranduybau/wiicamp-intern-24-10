@@ -172,21 +172,41 @@ function ProductDetails({ product }) {
                     Size:
                   </span>
                   <div className="flex xl:gap-[16px] gap-[8px]">
-                    <p className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center">
+                    <button
+                      type="button"
+                      className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center hover:bg-second-3 active:bg-second-3 active:text-text-1 hover:text-text-1"
+                      data-size="XS"
+                    >
                       XS
-                    </p>
-                    <p className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center">
+                    </button>
+                    <button
+                      type="button"
+                      className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center hover:bg-second-3 active:bg-second-3 active:text-text-1 hover:text-text-1"
+                      data-size="S"
+                    >
                       S
-                    </p>
-                    <p className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center">
+                    </button>
+                    <button
+                      type="button"
+                      className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center hover:bg-second-3 active:bg-second-3 active:text-text-1 hover:text-text-1"
+                      data-size="M"
+                    >
                       M
-                    </p>
-                    <p className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center">
+                    </button>
+                    <button
+                      type="button"
+                      className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center hover:bg-second-3 active:bg-second-3 active:text-text-1 hover:text-text-1"
+                      data-size="L"
+                    >
                       L
-                    </p>
-                    <p className="border border-solid border-inherit min-w-[32px] min-h-[32px] rounded flex justify-center items-center">
+                    </button>
+                    <button
+                      type="button"
+                      className="border border-solid border-inherit  min-w-[32px] min-h-[32px] rounded flex justify-center items-center hover:bg-second-3 active:bg-second-3 active:text-text-1 hover:text-text-1"
+                      data-size="XL"
+                    >
                       XL
-                    </p>
+                    </button>
                   </div>
                 </div>
                 <div className="flex">
@@ -202,7 +222,7 @@ function ProductDetails({ product }) {
                       min="1"
                       value={counter}
                       type="text"
-                      className=" border border-solid border-inherit max-w-[75px] min-h-[44px] font-poppins text-xl font-medium leading-7 px-[30px]"
+                      className=" border border-solid border-inherit max-w-[75px] min-h-[44px] font-poppins text-xl font-medium leading-7 px-[25px]"
                     />
                     <button
                       type="button"

@@ -44,10 +44,10 @@ const useCartStore = create((set, get) => ({
       return { carts: updateCarts };
     });
   },
-  removeFromCart: (productId) => {
+  removeFromCart: (cartId) => {
     set((state) => {
       const updatedCarts = state.carts.filter(
-        (item) => item.productId !== productId,
+        (item) => item.productId !== cartId,
       );
 
       return { carts: updatedCarts };

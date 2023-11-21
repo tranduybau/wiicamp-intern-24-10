@@ -1,22 +1,66 @@
 import React, { memo } from "react";
+// import { toast } from "react-toastify";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
+// import axios from "@/libraries/axiosClient";
 import useCartStore from "@/Store/CartStore";
 
 import Button from "../../components/App/Button/Contain";
+import Input from "../../components/App/Input/LabeledInput";
+import CurrencyFormatter from "../../components/FomatNumber";
+import axios from "../../libraries/axiosClient";
 import UseCart from "../ProductDetails/index";
 
 import styles from "../../styles/checkout.module.css";
 
 function Checkout() {
+  const [firstName, setFirstName] = React.useState("");
+  const [companyName, setCompanyName] = React.useState("");
+  const [address, setAddress] = React.useState("");
+  const [apartment, setApartment] = React.useState("");
+  const [city, setCity] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [email, setEmail] = React.useState("");
+
   const { getCartItems } = useCartStore();
   const cartItems = getCartItems();
+  const router = useRouter();
 
-  const HandleAddOrder = () => {
-    // eslint-disable-next-line no-console
-    console.log("addOrder");
+  const HandleAddOrder = async () => {
+    const orderDetails = cartItems.map((p) => {
+      return {
+        productId: p.productId,
+        name: p.name,
+        imgage: p.image,
+        quantity: p.quantity,
+        price: p.price - (p.price * p.discount) / 100,
+        discount: p.discount,
+      };
+    });
+
+    const order = {
+      firstName,
+      companyName,
+      address,
+      apartment,
+      city,
+      phoneNumber,
+      email,
+      orderDetails,
+    };
+
+    try {
+      await axios.post("https://fakestoreapi.com/carts", order);
+      // await axios.delete(`/cart/${customerId}`);
+
+      router.push("/");
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
   };
 
   let total = 0;
@@ -57,76 +101,55 @@ function Checkout() {
             Billing Details
           </p>
           <div className="mt-[48px] flex flex-col gap-[32px] lg:min-w-[470px] max-w-[470px]">
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                First Name
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                Company Name
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                Street Address
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                Apartment, floor, etc. (optional)
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                Town/City
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                Phone Number
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-poppins text-base font-normal leading-6 opacity-40">
-                Email Address
-              </span>
-              <input
-                className="max-w-[470px] bg-secondary py-[13px] px-[16px] rounded "
-                type="name"
-                required
-              />
-            </div>
+            <Input
+              input=" First Name"
+              type="name"
+              required
+              value={firstName}
+              link={(e) => setFirstName(e.target.value)}
+            />
+            <Input
+              input="Company Name"
+              type="CompanyName"
+              required={false}
+              value={companyName}
+              link={(e) => setCompanyName(e.target.value)}
+            />
+            <Input
+              input="Street Address"
+              type="address"
+              required
+              value={address}
+              link={(e) => setAddress(e.target.value)}
+            />
+            <Input
+              input="Apartment, floor, etc. (optional)"
+              type="Apartment"
+              required={false}
+              value={apartment}
+              link={(e) => setApartment(e.target.value)}
+            />
+            <Input
+              input="Town/City"
+              type="City"
+              required
+              value={city}
+              link={(e) => setCity(e.target.value)}
+            />
+            <Input
+              input="Phone Number"
+              type="number"
+              required
+              value={phoneNumber}
+              link={(e) => setPhoneNumber(e.target.value)}
+            />
+            <Input
+              input=" Email Address"
+              type="email"
+              required
+              value={email}
+              link={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="mt-[24px] flex gap-[16px]">
             <input
@@ -172,7 +195,10 @@ function Checkout() {
                           </span>
                         </div>
                         <span className="flex items-center">
-                          ${CartId.price * item.quantity}
+                          <CurrencyFormatter
+                            amount={CartId.price * item.quantity}
+                          />
+                          {/* ${CartId.price * item.quantity} */}
                         </span>
                       </div>
                     </div>
@@ -185,7 +211,7 @@ function Checkout() {
           <div className=" flex flex-col gap-[16px] lg:mr-[102px] mr-0">
             <div className="flex justify-between ">
               <span>Subtotal:</span>
-              <span>${total}</span>
+              <CurrencyFormatter amount={total} />
             </div>
             <p className="border-b border-solid  " />
             <div className="flex justify-between ">
@@ -195,7 +221,7 @@ function Checkout() {
             <p className="border-b border-solid  " />
             <div className="flex justify-between ">
               <span>Total:</span>
-              <span>${total}</span>
+              <CurrencyFormatter amount={total} />
             </div>
           </div>
           <div className="sm:flex block justify-between lg:mr-[102px] mr-0">

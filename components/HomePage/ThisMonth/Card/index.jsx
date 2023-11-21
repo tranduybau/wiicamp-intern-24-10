@@ -6,9 +6,11 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 
 import Button from "@/components/App/Button/ButtonCart";
+import RatingDisplay from "@/components/App/Button/RatingDisplay";
 
-// import RatingDisplay from "@/components/App/Button/RatingDisplay";
 import useCartStore from "@/Store/CartStore";
+
+import CurrencyFormatter from "../../../FomatNumber";
 
 function CardSales({ products }) {
   const { addToCart } = useCartStore();
@@ -98,19 +100,23 @@ function CardSales({ products }) {
                 </h3>
                 <div className="flex gap-2 text-base font-poppins font-medium ">
                   <span className="text-second-3">
-                    ${item.price - (item.price * item.discount * 1) / 100}
+                    <CurrencyFormatter
+                      amount={
+                        item.price - (item.price * item.discount * 1) / 100
+                      }
+                    />
                   </span>
                   <span className="line-through font-medium opacity-50">
-                    ${item.price}
+                    <CurrencyFormatter amount={item.price} />
                   </span>
                 </div>
                 <div className="flex  ">
-                  <p className="text-second-4 flex mr-2">
-                    {/* <RatingDisplay rate={item.rating.rate} /> */}
-                  </p>
-                  <p className="font-medium opacity-50 font-poppins text-base">
+                  <span className="text-second-4 flex mr-2">
+                    <RatingDisplay rate={item.rating.rate} />
+                  </span>
+                  <span className="font-medium opacity-50 font-poppins text-base">
                     ({item.rating.count})
-                  </p>
+                  </span>
                 </div>
               </div>
             </div>

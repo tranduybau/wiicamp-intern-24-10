@@ -47,6 +47,7 @@ function Navigation() {
     }
   };
 
+  // click outside close
   React.useEffect(() => {
     const handleDocumentClick = (e) => {
       handleClickOutside(e);
@@ -61,13 +62,23 @@ function Navigation() {
   const router = useRouter();
   const keyword = useSearch((state) => state.keyword);
   const setKeyword = useSearch((state) => state.setKeyword);
+  const clearKeyword = useSearch((state) => state.clearKeyword);
 
-  const onSearch = (e) => {
-    e.preventDefault();
+  // search
+  React.useEffect(() => {
+    const isSearchPage = router.pathname === "/SearchProduct";
+    if (isSearchPage) {
+      setKeyword(router.query.q || "");
+    } else {
+      clearKeyword();
+    }
+  }, [router.pathname, router.query.q, setKeyword, clearKeyword]);
 
+  const onSearch = () => {
     const encodeSearchQuery = encodeURI(keyword);
     router.push(`/SearchProduct?q=${encodeSearchQuery}`);
   };
+  const [currentPage, setCurrentPage] = React.useState(null);
 
   const navList = (
     <div className="mt-2 flex flex-col lg:mt-0 lg:flex-row lg:items-center ">
@@ -75,44 +86,72 @@ function Navigation() {
         <li
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base  hover:text-second-3 text-text-2 leading-6 ",
-            styles.home,
+            "font-normal font-poppins md:block flex justify-center text-base  text-text-2 leading-6 ",
           )}
         >
-          <Link href="./" className="flex items-center">
+          <Link
+            href="./"
+            className={`flex items-center ${
+              currentPage === "Home"
+                ? "border-b-2 border-solid border-inherit"
+                : ""
+            }`}
+            onClick={() => setCurrentPage("Home")}
+          >
             Home
           </Link>
         </li>
         <li
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base hover:text-second-3 text-text-2 leading-6",
-            styles.contact,
+            "font-normal font-poppins md:block flex justify-center text-base text-text-2 leading-6",
           )}
         >
-          <Link href="./Contact" className="flex items-center">
+          <Link
+            href="./Contact"
+            className={`flex items-center ${
+              currentPage === "Contact"
+                ? "border-b-2 border-solid border-inherit"
+                : ""
+            }`}
+            onClick={() => setCurrentPage("Contact")}
+          >
             Contact
           </Link>
         </li>
         <li
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base hover:text-second-3 text-text-2 leading-6",
-            styles.about,
+            "font-normal font-poppins md:block flex justify-center text-base  text-text-2 leading-6",
           )}
         >
-          <Link href="./About" className="flex items-center">
+          <Link
+            href="./About"
+            className={`flex items-center ${
+              currentPage === "About"
+                ? "border-b-2 border-solid border-inherit"
+                : ""
+            }`}
+            onClick={() => setCurrentPage("About")}
+          >
             About
           </Link>
         </li>
         <li
           color="blue-gray"
           className={classNames(
-            "font-normal font-poppins md:block flex justify-center text-base hover:text-second-3 text-text-2 leading-6",
-            styles.signUp,
+            "font-normal font-poppins md:block flex justify-center text-base  text-text-2 leading-6",
           )}
         >
-          <Link href="./SignUp" className="flex items-center">
+          <Link
+            href="./SignUp"
+            className={`flex items-center ${
+              currentPage === "SignUp"
+                ? "border-b-2 border-solid border-inherit"
+                : ""
+            }`}
+            onClick={() => setCurrentPage("SignUp")}
+          >
             Sign Up
           </Link>
         </li>

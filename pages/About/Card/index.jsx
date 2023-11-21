@@ -14,6 +14,7 @@ import "swiper/css";
 function Card() {
   const listCard = [
     {
+      id: "1",
       img: "/img/men.png",
       name: "Tom Cruise",
       position: " Founder & Chairman",
@@ -22,6 +23,7 @@ function Card() {
       iconLinkedIn: <Linkedin size={24} />,
     },
     {
+      id: "2",
       img: "/img/woman.png",
       name: "Emma Watson",
       position: "Managing Director",
@@ -30,6 +32,7 @@ function Card() {
       iconLinkedIn: <Linkedin size={24} />,
     },
     {
+      id: "3",
       img: "/img/man_designer.png",
       name: "Will Smith",
       position: "Product Designer",
@@ -38,6 +41,7 @@ function Card() {
       iconLinkedIn: <Linkedin size={24} />,
     },
     {
+      id: "4",
       img: "/img/man_designer.png",
       name: "Will Smith",
       position: "Product Designer",
@@ -46,6 +50,7 @@ function Card() {
       iconLinkedIn: <Linkedin size={24} />,
     },
     {
+      id: "5",
       img: "/img/man_designer.png",
       name: "Will Smith",
       position: "Product Designer",
@@ -54,6 +59,7 @@ function Card() {
       iconLinkedIn: <Linkedin size={24} />,
     },
     {
+      id: "6",
       img: "/img/man_designer.png",
       name: "Will Smith",
       position: "Product Designer",

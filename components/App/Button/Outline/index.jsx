@@ -6,7 +6,7 @@ function ButtonWhite({ title, classCustom, link }) {
     <button
       type="button"
       onClick={link}
-      className={`${classCustom} text-base font-poppins font-medium leading-6 text-text-2 border border-inherit border-solid px-[48px] py-[16px]`}
+      className={`${classCustom} text-base font-poppins font-medium leading-6 text-text-2 border border-inherit border-solid md:px-[48px] px-[12px] py-[16px]`}
     >
       {title}
     </button>

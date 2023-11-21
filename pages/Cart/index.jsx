@@ -5,12 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import ButtonRed from "../../components/App/Button/Contain";
-import Button from "../../components/App/Button/Outline";
-import useCartStore from "../../Store/CartStore";
-import UseCart from "../ProductDetails/index";
+import ButtonRed from "@/components/App/Button/Contain";
+import Button from "@/components/App/Button/Outline";
 
-import styles from "../../styles/cart.module.css";
+import useCartStore from "@/Store/CartStore";
+import styles from "@/styles/cart.module.css";
+
+import CurrencyFormatter from "../../components/FomatNumber";
+import UseCart from "../ProductDetails/index";
 
 function Cart() {
   const router = useRouter();
@@ -18,7 +20,6 @@ function Cart() {
   const { getCartItems, updateCartItemQuantity, removeFromCart } =
     useCartStore();
   const cartItems = getCartItems();
-  // console.log("cartItems", cartItems);
 
   const HandleDeleteCart = (productId) => {
     removeFromCart(productId);
@@ -63,7 +64,7 @@ function Cart() {
   });
 
   return (
-    <div className="container mt-[80px] mb-[140px] md:px-0 px-[16px]">
+    <div className="container mt-[80px] mb-[140px] lg:px-0 px-[16px]">
       <div className="flex flex-col sm:gap-[80px] gap-[24px]">
         <div className="flex gap-[12px] font-poppins text-sm font-normal leading-5">
           <Link href="./" className="opacity-50">
@@ -78,7 +79,7 @@ function Cart() {
           <div className=" flex flex-col gap-[40px]">
             <div
               className={classNames(
-                "bg-white text-text-2 py-[24px] px-[40px] flex justify-between font-poppins sm:text-base text-xs font-normal leading-6 max-w-full",
+                "bg-white text-text-2 py-[24px] lg:px-[40px] px-[5px] flex justify-between font-poppins sm:text-base text-xs font-normal leading-6 max-w-full",
                 styles.shadow,
               )}
             >
@@ -95,42 +96,36 @@ function Cart() {
                     {CartId ? (
                       <div
                         className={classNames(
-                          "bg-white text-text-2 py-[24px] px-[40px] flex justify-between font-poppins lg:text-base text-xs font-normal leading-6 w-full",
+                          "bg-white text-text-2 py-[24px] lg:px-[40px] flex justify-between font-poppins lg:text-base text-xs font-normal leading-6 w-full",
                           styles.shadow,
                         )}
                       >
-                        <div className="flex">
-                          <button
-                            type="button"
-                            onClick={() => HandleDeleteCart(CartId)}
-                          >
-                            <X className="text-second-3 lg:w-[24px] w-[16px]" />
-                          </button>
-                          <span className="min-w-[54px] min-h-[54px]">
-                            <Image
-                              src={CartId?.image}
-                              alt={index}
-                              width={54}
-                              height={54}
-                              priority
-                              className="object-contain"
-                            />
-                          </span>
-                        </div>
-                        <span>${CartId?.price}</span>
-                        <span className="lg:max-w-[72px] max-w-[45px] max-h-[30px] flex lg:max-h-[44px] relative">
+                        <span className="min-w-[54px] min-h-[54px] flex">
+                          <Image
+                            src={CartId?.image}
+                            alt={index}
+                            width={54}
+                            height={54}
+                            priority
+                            className="object-contain"
+                          />
+                        </span>
+
+                        <CurrencyFormatter amount={CartId?.price} />
+
+                        <span className="lg:max-w-[72px] max-w-[45px] max-h-[30px] flex lg:max-h-[44px] relative ">
                           <input
                             style={{ width: "80%" }}
                             type="text"
                             value={item.quantity}
                             min="1"
                             className={classNames(
-                              "lg:py-1 py-0 px-1",
+                              "lg:py-1 py-0 px-1 flex ",
                               styles.border,
                               "lg:pr-8 pr-0",
                             )}
                           />
-                          <div className="absolute top-1 right-6 cursor-pointer">
+                          <div className="absolute top-1 right-6 cursor-pointer items-center">
                             <ChevronUp
                               className="lg:w-[16px] lg:h-[16px] h-[12px] w-[12px]"
                               onClick={() => HandleIncrease(index)}
@@ -141,7 +136,17 @@ function Cart() {
                             />
                           </div>
                         </span>
-                        <span>${CartId.price * item.quantity}</span>
+                        <div className="flex items-center gap-[10px]">
+                          <CurrencyFormatter
+                            amount={CartId.price * item.quantity}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => HandleDeleteCart(CartId)}
+                          >
+                            <X className="text-second-3 lg:w-[24px] w-[16px]" />
+                          </button>
+                        </div>
                       </div>
                     ) : (
                       <span>Loading...</span>
@@ -172,7 +177,7 @@ function Cart() {
             />
             <div>
               <ButtonRed
-                classCustom="sm:ml-[16px] ml-0 px-[48px] py-[16px] md:mt-0 mt-[24px]"
+                classCustom="sm:ml-[16px] ml-0 md:px-[48px] px-[20px] py-[16px] md:mt-0 mt-[24px]"
                 title="Apply Coupon"
               />
             </div>
@@ -185,7 +190,7 @@ function Cart() {
             <div className="mt-[24px] flex flex-col gap-[16px]">
               <div className="flex justify-between border-b border-solid border-inherit pb-[16px]">
                 <p>Subtotal:</p>
-                <p>${total}</p>
+                <CurrencyFormatter amount={total} />
               </div>
               <div className="flex justify-between border-b border-solid border-inherit pb-[16px]">
                 <p>Shipping:</p>
@@ -193,12 +198,12 @@ function Cart() {
               </div>
               <div className="flex justify-between ">
                 <p>Total:</p>
-                <p>${total}</p>
+                <CurrencyFormatter amount={total} />
               </div>
               <div className="flex justify-center">
                 <ButtonRed
                   title="Procees to checkout"
-                  classCustom="px-[48px] py-[16px]"
+                  classCustom="md:px-[48px] px-[10px] py-[16px]"
                   link={HandleToCheckout}
                 />
               </div>

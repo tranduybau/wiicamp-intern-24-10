@@ -16,10 +16,11 @@ import "swiper/css/scrollbar";
 import ArrowLeft from "@/components/App/Button/ArrowLeft";
 import ArrowRight from "@/components/App/Button/ArrowRight";
 import Button from "@/components/App/Button/ButtonCart";
+import RatingDisplay from "@/components/App/Button/RatingDisplay";
 
-// import RatingDisplay from "@/components/App/Button/RatingDisplay";
 import useCartStore from "@/Store/CartStore";
 
+import CurrencyFormatter from "../../../FomatNumber";
 import FlashSales from "../FlashSales";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -165,15 +166,19 @@ function CardSales({ products }) {
                     </h3>
                     <div className="flex gap-2 text-base font-poppins font-medium ">
                       <span className="text-second-3">
-                        ${item.price - (item.price * item.discount * 1) / 100}
+                        <CurrencyFormatter
+                          amount={
+                            item.price - (item.price * item.discount * 1) / 100
+                          }
+                        />
                       </span>
                       <span className="line-through font-medium opacity-50">
-                        ${item.price}
+                        <CurrencyFormatter amount={item.price} />
                       </span>
                     </div>
                     <div className="flex  ">
                       <span className="text-second-4 flex mr-2">
-                        {/* <RatingDisplay rate={item.rating.rate} /> */}
+                        <RatingDisplay rate={item.rating.rate} />
                       </span>
                       <span className="font-medium opacity-50 font-poppins text-base">
                         ({item.rating.count})
