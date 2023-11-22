@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import MoveTop from "../components/MoveTop";
 
 import HomePage from "./HomePage";
-// import SideBar from "./SideBar";
+import SideBar from "./SideBar";
 
 export default function Home({ products, categories, thisMonth, ourProducts }) {
   return (
     <main>
-      {/* <SideBar /> */}
+      <SideBar />
       <HomePage
         products={products}
         categories={categories}
