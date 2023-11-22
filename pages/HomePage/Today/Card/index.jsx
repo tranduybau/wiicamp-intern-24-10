@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,10 +18,10 @@ import ArrowLeft from "@/components/App/Button/ArrowLeft";
 import ArrowRight from "@/components/App/Button/ArrowRight";
 import Button from "@/components/App/Button/ButtonCart";
 import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import CurrencyFormatter from "@/components/FomatNumber";
 
 import useCartStore from "@/Store/CartStore";
 
-import CurrencyFormatter from "../../../FomatNumber";
 import FlashSales from "../FlashSales";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -28,12 +29,21 @@ import "swiper/css";
 
 function CardSales({ products }) {
   const { addToCart } = useCartStore();
+  const router = useRouter();
 
   const handleAddCart = (productId) => {
-    addToCart(productId);
-    // eslint-disable-next-line no-console
-    console.log("addToCart", productId);
-    toast.success("Add to cart successfully", 1.5);
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.warning("Please log in!", 1.5);
+      router.push("/Login");
+      return;
+    }
+    try {
+      addToCart(productId);
+      toast.success("Add to cart successfully", 1.5);
+    } catch (error) {
+      toast.warning("Add to cart failed!!", 1.5);
+    }
   };
 
   const HandleAddWishList = (id, title, price, image, rate, count) => {
@@ -129,6 +139,7 @@ function CardSales({ products }) {
                       title="Add to cart"
                       link={() => handleAddCart(item.id)}
                     />
+
                     <div className="!absolute top-1 right-3 flex flex-col">
                       <button
                         type="button"

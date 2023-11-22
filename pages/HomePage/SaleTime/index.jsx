@@ -7,6 +7,7 @@ function SaleTime() {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+
   useEffect(() => {
     function getNextSunday() {
       const now = new Date();
@@ -40,6 +41,7 @@ function SaleTime() {
 
     return () => clearInterval(interval);
   }, []);
+
   return (
     <div className="mt-[140px] container w-full bg-black lg:flex md:block px-14 py-[78.5px]">
       <div className="w-2/4 text-text-1 ">

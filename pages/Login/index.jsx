@@ -9,7 +9,7 @@ import * as yup from "yup";
 
 import Button from "@/components/App/Button/Contain";
 
-import axios from "../../libraries/axiosClient";
+import axios from "@/libraries/axiosClient";
 
 const schema = yup.object().shape({
   username: yup.string().required("Name is required"),
@@ -20,6 +20,7 @@ function Login() {
   const router = useRouter();
   const [username, setName] = React.useState("");
   const [password, setPassword] = React.useState("");
+
   const {
     register,
     handleSubmit,
@@ -42,16 +43,14 @@ function Login() {
       );
 
       if (response.status === 200) {
-        // eslint-disable-next-line no-console
-        console.log("token", response);
+        localStorage.setItem("token", response.data.token);
+        axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
         toast.success("Login successfully!", 1.5);
-        router.push("./");
+        router.push("/");
       } else {
         toast.warning("Login failed! Server error.", 1.5);
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error("Login failed:", error);
       toast.warning("Login failed! Please try again later.", 1.5);
     }
 

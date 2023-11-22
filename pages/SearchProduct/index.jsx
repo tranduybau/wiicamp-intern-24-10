@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import Button from "@/components/App/Button/ButtonCart";
 import RatingDisplay from "@/components/App/Button/RatingDisplay";
 
-import useCartStore from "../../Store/CartStore";
+import useCartStore from "@/Store/CartStore";
 
 function SearchProduct({ products }) {
   const { addToCart } = useCartStore();

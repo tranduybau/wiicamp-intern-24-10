@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Delivery from "../../components/HomePage/Services";
+import Delivery from "../HomePage/Services";
 
 import Card from "./Card";
 import OurStory from "./OurStory";

@@ -1,7 +1,5 @@
 import React, { memo, useRef } from "react";
 import {
-  //   ArrowLeft,
-  //   ArrowRight,
   Camera,
   Gamepad,
   Headphones,
@@ -70,7 +68,9 @@ function Card() {
       icon: <Gamepad />,
     },
   ];
+
   const swiperRef = useRef();
+
   const handleNext = () => {
     swiperRef?.current?.swiper?.slideNext();
   };

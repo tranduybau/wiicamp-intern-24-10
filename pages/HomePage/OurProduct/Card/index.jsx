@@ -4,23 +4,34 @@ import { toast } from "react-toastify";
 import { Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
 import ArrowLeft from "@/components/App/Button/ArrowLeft";
 import ArrowRight from "@/components/App/Button/ArrowRight";
 import Button from "@/components/App/Button/ButtonCart";
 import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import CurrencyFormatter from "@/components/FomatNumber";
 
 import useCartStore from "@/Store/CartStore";
 
-import CurrencyFormatter from "../../../FomatNumber";
-
 function CardSales({ products }) {
+  const router = useRouter();
   const { addToCart } = useCartStore();
 
   const handleAddCart = (productId) => {
-    addToCart(productId);
-    toast.success("Add to cart successfully");
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.warning("Please log in!", 1.5);
+      router.push("/Login");
+      return;
+    }
+    try {
+      addToCart(productId);
+      toast.success("Add to cart successfully", 1.5);
+    } catch (error) {
+      toast.warning("Add to cart failed!!", 1.5);
+    }
   };
 
   const HandleAddWishList = (id, title, price, image, rate, count) => {

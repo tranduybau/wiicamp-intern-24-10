@@ -25,7 +25,7 @@ function Checkout() {
   const [phoneNumber, setPhoneNumber] = React.useState("");
   const [email, setEmail] = React.useState("");
 
-  const { getCartItems } = useCartStore();
+  const { getCartItems, removeAllCart } = useCartStore();
   const cartItems = getCartItems();
   const router = useRouter();
 
@@ -55,6 +55,7 @@ function Checkout() {
     try {
       await axios.post("https://fakestoreapi.com/carts", order);
       // await axios.delete(`/cart/${customerId}`);
+      removeAllCart();
 
       router.push("/");
     } catch (error) {

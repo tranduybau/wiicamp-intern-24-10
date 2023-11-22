@@ -96,7 +96,7 @@ function Cart() {
                     {CartId ? (
                       <div
                         className={classNames(
-                          "bg-white text-text-2 py-[24px] lg:px-[40px] flex justify-between font-poppins lg:text-base text-xs font-normal leading-6 w-full",
+                          "bg-white text-text-2 py-[24px] lg:px-[40px] flex justify-between  font-poppins lg:text-base text-xs font-normal leading-6 w-full",
                           styles.shadow,
                         )}
                       >
@@ -113,7 +113,7 @@ function Cart() {
 
                         <CurrencyFormatter amount={CartId?.price} />
 
-                        <span className="lg:max-w-[72px] max-w-[45px] max-h-[30px] flex lg:max-h-[44px] relative ">
+                        <span className="lg:max-w-[72px] max-w-[50px] max-h-[35px] flex lg:max-h-[44px] relative ">
                           <input
                             style={{ width: "80%" }}
                             type="text"
@@ -127,11 +127,11 @@ function Cart() {
                           />
                           <div className="absolute top-1 right-6 cursor-pointer items-center">
                             <ChevronUp
-                              className="lg:w-[16px] lg:h-[16px] h-[12px] w-[12px]"
+                              className="lg:w-[16px] lg:h-[16px] h-[14px] w-[14px]"
                               onClick={() => HandleIncrease(index)}
                             />
                             <ChevronDown
-                              className="lg:w-[16px] lg:h-[16px] h-[12px] w-[12px]"
+                              className="lg:w-[16px] lg:h-[16px] h-[14px] w-[14px]"
                               onClick={() => HandleDecrease(index)}
                             />
                           </div>

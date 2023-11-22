@@ -84,8 +84,8 @@ function Sidebar() {
   ];
 
   const Slide = (
-    <div className="bg-black  max-h-[344px] max-w-[892px] object-cover flex gap-[38px]">
-      <div className="min-w-[294px] text-text-1 ml-[64px] mt-[58px]">
+    <div className="bg-black  max-h-[344px] md:max-w-[892px] w-full object-cover flex gap-[38px]">
+      <div className="md:min-w-[294px] w-full text-text-1 ml-[64px] mt-[58px]">
         <div className="flex gap-[24px] items-center">
           <Image
             src="/img/apple.png"
@@ -231,7 +231,7 @@ function Sidebar() {
         </div>
       )}
 
-      <div className="lg:ml-[45px] ml-0 sm:max-w-[913px] w-full pt-10">
+      <div className="lg:ml-[45px] ml-0 md:max-w-[913px]  pt-10">
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
@@ -239,14 +239,12 @@ function Sidebar() {
           pagination={{
             clickable: true,
           }}
-          className="swiper_banner max-w-full"
+          className="swiper_banner "
         >
           {listSlider.map((item) => {
             return (
               <SwiperSlide key={item.id}>
-                <div className="object-cover h-[344px] sm:w-full">
-                  {item.src}
-                </div>
+                <div className="object-cover h-[344px] ">{item.src}</div>
               </SwiperSlide>
             );
           })}

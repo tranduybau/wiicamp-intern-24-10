@@ -1,6 +1,6 @@
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 function Item({ title, icon, classCustom, name }) {
   return (
     <div className={classCustom}>
@@ -23,3 +23,10 @@ function Item({ title, icon, classCustom, name }) {
   );
 }
 export default memo(Item);
+
+Item.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  classCustom: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};

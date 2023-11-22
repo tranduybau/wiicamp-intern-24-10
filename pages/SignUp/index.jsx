@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
-// import { useRouter } from "next/router";
 import * as yup from "yup";
 
 import Button from "@/components/App/Button/Contain";
@@ -32,8 +31,6 @@ function SignUp() {
   });
 
   const onSubmitHandler = () => {
-    // e.preventDefault();
-
     const payload = {
       name,
       email,
@@ -42,8 +39,7 @@ function SignUp() {
 
     try {
       axios.post("https://fakestoreapi.com/auth/login", payload);
-      // eslint-disable-next-line no-console
-      console.log("payload", payload);
+
       toast.success("Registered successfully!");
     } catch (error) {
       toast.warning("Registration failed!", 1.5);

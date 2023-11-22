@@ -53,6 +53,10 @@ const useCartStore = create((set, get) => ({
       return { carts: updatedCarts };
     });
   },
+  removeAllCart: () => {
+    const updateCarts = [];
+    return { carts: updateCarts };
+  },
 }));
 
 export default useCartStore;

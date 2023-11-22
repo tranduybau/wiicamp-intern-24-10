@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import HomePage from "../components/HomePage";
 import MoveTop from "../components/MoveTop";
 
+import HomePage from "./HomePage";
 import SideBar from "./SideBar";
 
 export default function Home({ products, categories, thisMonth, ourProducts }) {
