@@ -8,7 +8,7 @@ function ArrowNext({ HandleNext }) {
       type="button"
       className="relative bg-second-2 rounded-full lg:p-1 p-0"
       onClick={HandleNext}
-      id="text"
+      id="arrowRight"
       aria-label="arrowRight"
     >
       <ArrowRight size={32} />

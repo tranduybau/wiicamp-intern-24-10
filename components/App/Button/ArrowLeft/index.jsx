@@ -7,7 +7,7 @@ function ArrowPrev({ HandlePrev }) {
     // <div className="flex gap-2 items-center">
     <button
       type="button"
-      id="text"
+      id="arrowLeft"
       aria-label="arrowLeft"
       className="relative  bg-second-2 rounded-full lg:p-1 p-0"
       onClick={HandlePrev}

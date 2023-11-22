@@ -143,8 +143,8 @@ function CardSales({ products }) {
                     <div className="!absolute top-1 right-3 flex flex-col">
                       <button
                         type="button"
-                        id="heart"
-                        aria-label="heart"
+                        id="heartToday"
+                        aria-label="heartToday"
                         onClick={() =>
                           HandleAddWishList(
                             item.id,
