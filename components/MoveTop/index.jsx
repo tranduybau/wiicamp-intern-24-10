@@ -15,6 +15,8 @@ function MoveTop() {
           onClick={handleScroll}
           className="max-w-[46px] max-h-[46px]  justify-center p-[10px] rounded-full"
           type="button"
+          id="arrowup"
+          aria-label="arrowup"
         >
           <ArrowUp size={24} />
         </button>

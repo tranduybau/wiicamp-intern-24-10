@@ -36,6 +36,8 @@ function Footer() {
                 />
                 <button
                   type="submit"
+                  id="sendemail"
+                  aria-label="sendemail"
                   className="text-text-1 absolute right-2.5 bottom-2.5  focus:ring-4 focus:outline-none  font-medium rounded-lg sm:absolute:none "
                 >
                   <SendHorizontal />
@@ -52,14 +54,15 @@ function Footer() {
                 111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="mailto: exclusive@gmail.com">
+                <Link href="mailto: exclusive@gmail.com" aria-label="email">
                   exclusive@gmail.com
                 </Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="tel:+88015-88888-9999">+88015-88888-9999</Link>
+                <Link href="tel:+88015-88888-9999" aria-label="phone">
+                  +88015-88888-9999
+                </Link>
               </p>
-              {/* </div> */}
             </div>
           </div>
           <div className="flex justify-center lg:ml-[84px] ml-0">
@@ -147,16 +150,19 @@ function Footer() {
                 </div>
               </div>
               <div className="flex mt-[24px] gap-[24px]">
-                <Link href="https://www.facebook.com/hoangvinh02">
+                <Link
+                  href="https://www.facebook.com/hoangvinh02"
+                  aria-label="facebook"
+                >
                   <Facebook size={24} />
                 </Link>
-                <Link href="https://www.twitter.com">
+                <Link href="https://www.twitter.com" aria-label="twitter">
                   <Twitter size={24} />
                 </Link>
-                <Link href="https://www.instagram.com">
+                <Link href="https://www.instagram.com" aria-label="instagram">
                   <Instagram size={24} />
                 </Link>
-                <Link href="https://www.instagram.com">
+                <Link href="https://www.instagram.com" aria-label="in">
                   <Linkedin size={24} />
                 </Link>
               </div>

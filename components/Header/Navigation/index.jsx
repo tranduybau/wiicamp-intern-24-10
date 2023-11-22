@@ -175,6 +175,8 @@ function Navigation() {
         />
         <button
           type="submit"
+          id="search"
+          aria-label="search"
           onClick={onSearch}
           className="text-black absolute right-2.5 bottom-2.5  rounded-lg sm:absolute:none truncate"
         >
@@ -247,10 +249,10 @@ function Navigation() {
             <div className="flex text-text-2 gap-[16px]">
               {isLogin ? (
                 <>
-                  <Link href="./WishList">
+                  <Link href="./WishList" aria-label="wishlist">
                     <Heart className="ml-6 hover:bg-second-3 hover:text-text-1 rounded-full hover:p-1 md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
-                  <Link href="./Cart">
+                  <Link href="./Cart" aria-label="cart">
                     <div className="relative">
                       <ShoppingCart className="hover:bg-second-3 hover:text-text-1 hover:rounded-full hover:p-1  md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                       {cartItems.length >= 0 && (
@@ -263,6 +265,8 @@ function Navigation() {
                   <div className="relative inline-block " ref={dropdownRef}>
                     <button
                       type="button"
+                      id="user"
+                      aria-label="user"
                       className=" hover:bg-second-3 hover:text-text-1 rounded-full"
                       onClick={HandleDropAccount}
                     >
@@ -299,10 +303,10 @@ function Navigation() {
                 </>
               ) : (
                 <>
-                  <Link href="./WishList">
+                  <Link href="./WishList" aria-label="wishlist">
                     <Heart className="ml-6 lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
                   </Link>
-                  <Link href="./Cart">
+                  <Link href="./Cart" aria-label="cart">
                     <ShoppingCart className=" md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
                 </>

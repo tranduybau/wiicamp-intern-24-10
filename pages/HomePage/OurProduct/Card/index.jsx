@@ -100,6 +100,8 @@ function CardSales({ products }) {
                   <div className="!absolute top-1 right-3 flex flex-col">
                     <button
                       type="button"
+                      id="heart"
+                      aria-label="heart"
                       onClick={() =>
                         HandleAddWishList(
                           item.id,
@@ -116,7 +118,7 @@ function CardSales({ products }) {
                         size={32}
                       />
                     </button>
-                    <Link href={`/${item.id}`}>
+                    <Link href={`/${item.id}`} aria-label="view">
                       <Eye className="rounded-full bg-white p-1.5 " size={32} />
                     </Link>
                   </div>

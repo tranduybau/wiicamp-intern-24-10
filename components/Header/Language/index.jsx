@@ -31,9 +31,10 @@ function Languages() {
             Shop Now
           </a>
         </div>
-        <div className="ml-[231px]   flex justify-end ">
+        <div className="ml-[231px]   flex justify-end " htmlFor="state">
           <select
             value={selectedOption}
+            id="state"
             onChange={handleLanguage}
             className="bg-black text-text-1 font-poppins text-sm "
           >

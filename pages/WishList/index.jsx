@@ -113,6 +113,8 @@ function Wishlist() {
                   <div className="!absolute top-3 right-3">
                     <button
                       type="button"
+                      id="delete"
+                      aria-label="delete"
                       className="rounded-full bg-white p-1.5 cursor-pointer"
                       onClick={() => HandleDelete(item.id)}
                     >
