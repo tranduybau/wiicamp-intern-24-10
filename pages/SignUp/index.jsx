@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as yup from "yup";
 
 import Button from "@/components/App/Button/Contain";
@@ -11,15 +12,17 @@ import Button from "@/components/App/Button/Contain";
 import axios from "../../libraries/axiosClient";
 
 const validationSchema = yup.object().shape({
-  name: yup.string().required("Name is required"),
+  username: yup.string().required("Name is required"),
   email: yup.string().email().required("Email is required"),
   password: yup.string().min(8).max(32).required("Password is required"),
 });
 
 function SignUp() {
-  const [name, setName] = React.useState("");
+  const [username, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  const router = useRouter();
 
   const {
     register,
@@ -32,15 +35,16 @@ function SignUp() {
 
   const onSubmitHandler = () => {
     const payload = {
-      name,
+      username,
       email,
       password,
     };
 
     try {
-      axios.post("https://fakestoreapi.com/auth/login", payload);
+      axios.post("https://fakestoreapi.com/users", payload);
 
       toast.success("Registered successfully!");
+      router.push("/Login");
     } catch (error) {
       toast.warning("Registration failed!", 1.5);
     }
@@ -76,10 +80,10 @@ function SignUp() {
                 type="type"
                 className="form-control border-b border-inherit border-solids w-full h-8"
                 placeholder="Name"
-                {...register("name")}
+                {...register("username")}
                 onChange={(e) => setName(e.target.value)}
               />
-              <p className="text-second-3">{errors.name?.message}</p>
+              <p className="text-second-3">{errors.username?.message}</p>
             </div>
 
             <div className="mb-10">

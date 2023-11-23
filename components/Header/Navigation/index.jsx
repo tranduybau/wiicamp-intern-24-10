@@ -304,10 +304,10 @@ function Navigation() {
               ) : (
                 <>
                   <Link href="./WishList" aria-label="wishlist">
-                    <Heart className="ml-6 lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+                    <Heart className="ml-6 hover:bg-second-3 hover:text-text-1 rounded-full hover:p-1 md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
                   <Link href="./Cart" aria-label="cart">
-                    <ShoppingCart className=" md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
+                    <ShoppingCart className=" hover:bg-second-3 hover:text-text-1 hover:rounded-full hover:p-1  md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
                 </>
               )}

@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import classNames from "classnames";
 import { Mail, Phone } from "lucide-react";
+import Head from "next/head";
 import Link from "next/link";
 
 import Button from "../../components/App/Button/Contain";
@@ -10,6 +11,13 @@ import styles from "../../styles/contact.module.css";
 function Contact() {
   return (
     <div className="container mt-[80px] mb-[140px] lg:px-0 px-[16px]">
+      <Head>
+        <title>Contact - Exclusive</title>
+        <meta
+          name="description"
+          content="We are available 24/7, 7 days a week.Phone: +8801611112222"
+        />
+      </Head>
       <div className="flex gap-[12px] font-poppins text-sm font-normal leading-5 ">
         <Link href="./" className="opacity-50">
           Home

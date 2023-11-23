@@ -84,8 +84,8 @@ function Sidebar() {
   ];
 
   const Slide = (
-    <div className="bg-black  max-h-[344px] md:max-w-[892px] w-full object-cover flex gap-[38px]">
-      <div className="md:min-w-[294px] w-full text-text-1 ml-[64px] mt-[58px]">
+    <div className="bg-black  max-h-[344px] max-w-[892px] full object-cover flex gap-[38px]">
+      <div className="lg:min-w-[294px] max-w-[294px]  text-text-1 lg:ml-[64px] mt-[58px]">
         <div className="flex gap-[24px] items-center">
           <Image
             src="/img/apple.png"
@@ -99,7 +99,7 @@ function Sidebar() {
             iPhone 14 Series
           </span>
         </div>
-        <span className="mt-[20px] font-inter text-5xl font-semibold leading-[60px] tracking-[1.92px] w-[294px]">
+        <span className="mt-[20px] font-inter text-5xl font-semibold leading-[60px] tracking-[1.92px] max-w-[294px]">
           Up to 10% off Voucher
         </span>
         <button
@@ -215,11 +215,11 @@ function Sidebar() {
       <div className="w-[217px] lg:border-r lg:border-solid border-inherit lg:pt-10 border-none">
         <div className="hidden lg:block">{navList}</div>
         <button
-          className="ml-auto text-inherit hover:text-second-3 lg:hidden flex text-center text-text-2"
+          className=" text-inherit hover:text-second-3 lg:hidden flex text-center text-text-2"
           onClick={() => setOpenNav(!openNav)}
           type="button"
         >
-          {openNav ? "" : <AlignJustify size={32} />}
+          {openNav ? "" : <AlignJustify size={24} />}
         </button>
       </div>
       {openNav && (
@@ -231,7 +231,7 @@ function Sidebar() {
         </div>
       )}
 
-      <div className="lg:ml-[45px] ml-0 md:max-w-[913px]  pt-10">
+      <div className="lg:ml-[45px] ml-0 max-w-[913px]  pt-10">
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           autoplay={{ delay: 3000 }}
@@ -244,7 +244,7 @@ function Sidebar() {
           {listSlider.map((item) => {
             return (
               <SwiperSlide key={item.id}>
-                <div className="object-cover h-[344px] ">{item.src}</div>
+                <div className="object-cover  ">{item.src}</div>
               </SwiperSlide>
             );
           })}
