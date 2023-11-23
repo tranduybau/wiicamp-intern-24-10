@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Heart, Minus, Plus, RefreshCcw, Truck } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
@@ -80,6 +81,10 @@ function ProductDetails({ product }) {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
+      <Head>
+        <title>{product.title}</title>
+        <meta name="description" content={product.title} />
+      </Head>
       {product ? (
         <div
           className="container mt-[80px] mb-[140px] xl:px-0 px-[16px]"
