@@ -82,7 +82,7 @@ function ProductDetails({ product }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       <Head>
-        <title>{product.title}</title>
+        <title>{product.id}</title>
         <meta name="description" content={product.title} />
       </Head>
       {product ? (
