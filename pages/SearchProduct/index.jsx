@@ -3,6 +3,7 @@
 import React, { memo } from "react";
 import { toast } from "react-toastify";
 import { Eye, Heart } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
@@ -50,6 +51,10 @@ function SearchProduct({ products }) {
 
   return (
     <div className="mt-[60px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center container mb-[140px]">
+      <Head>
+        <title>Search - Exclusive</title>
+        <meta name="description" content="Search products by name's" />
+      </Head>
       {products &&
         products.map((item, index) => {
           return (

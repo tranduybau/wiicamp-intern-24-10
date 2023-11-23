@@ -9,7 +9,10 @@ function Header() {
     <div className="sticky top-0 z-40 bg-white">
       <Head>
         <title>Home - Exclusive</title>
-        {/* <meta name="description" content="Meta description for the Home page" /> */}
+        <meta
+          name="description"
+          content="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!s"
+        />
       </Head>
       <Language />
       <Navigation />

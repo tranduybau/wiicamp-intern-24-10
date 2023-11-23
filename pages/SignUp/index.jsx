@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -53,6 +54,10 @@ function SignUp() {
 
   return (
     <div className="container mt-16 mb-36 lg:flex block min-h-[781px]">
+      <Head>
+        <title>SignUp - Exclusive</title>
+        <meta name="description" content="Create an account " />
+      </Head>
       <div className="lg:max-w-[805px] ">
         <Image
           src="/img/login.png"

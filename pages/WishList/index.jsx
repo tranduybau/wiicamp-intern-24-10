@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { Eye, ShoppingCart, Star, Trash2 } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -83,6 +84,10 @@ function Wishlist() {
 
   return (
     <div className="container mt-[80px] lg:px-0 px-[16px]">
+      <Head>
+        <title>WishList - Exclusive</title>
+        <meta name="description" content="Add to WishList" />
+      </Head>
       <div className="flex items-center justify-between mb-[60px]">
         <p className="font-poppins text-xl font-normal leading-6 text-text-2">
           Wishlist ({wishlistItems.length})

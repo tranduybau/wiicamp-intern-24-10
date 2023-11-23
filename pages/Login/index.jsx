@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -58,6 +59,10 @@ function Login() {
   };
   return (
     <div className="container mt-16 mb-36 lg:flex block ">
+      <Head>
+        <title>Login - Exclusive</title>
+        <meta name="description" content="Log in to Exclusive" />
+      </Head>
       <div className="lg:w-3/5 w-full ">
         <Image
           src="/img/login.png"

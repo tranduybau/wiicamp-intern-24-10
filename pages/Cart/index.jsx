@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import classNames from "classnames";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -65,6 +66,10 @@ function Cart() {
 
   return (
     <div className="container mt-[80px] mb-[140px] lg:px-0 px-[16px]">
+      <Head>
+        <title>Cart - Exclusive</title>
+        <meta name="description" content="Add to Cart " />
+      </Head>
       <div className="flex flex-col sm:gap-[80px] gap-[24px]">
         <div className="flex gap-[12px] font-poppins text-sm font-normal leading-5">
           <Link href="./" className="opacity-50">
