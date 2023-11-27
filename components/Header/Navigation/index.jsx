@@ -39,12 +39,18 @@ function Navigation() {
   }, [router]);
 
   const dropdownRef = useRef(null);
+
+  const handlerClose = () => {
+    setOpenNav(openNav);
+  };
+
   const HandleDropAccount = () => {
     setIsShowAccount(!isShowAccount);
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setOpenNav(false);
       setIsShowAccount(false);
     }
   };
@@ -55,11 +61,7 @@ function Navigation() {
       handleClickOutside(e);
     };
     document.addEventListener("mousedown", handleDocumentClick);
-  });
-
-  const handlerClose = () => {
-    setOpenNav(false);
-  };
+  }, []);
 
   const keyword = useSearch((state) => state.keyword);
   const setKeyword = useSearch((state) => state.setKeyword);
@@ -178,7 +180,7 @@ function Navigation() {
           id="search"
           aria-label="search"
           onClick={onSearch}
-          className="text-black absolute right-2.5 bottom-2.5  rounded-lg sm:absolute:none truncate"
+          className="text-black absolute right-2.5 lg:bottom-2.5 bottom-0.5  rounded-lg sm:absolute:none truncate"
         >
           <Search />
         </button>
@@ -319,6 +321,7 @@ function Navigation() {
                 "lg:hidden sm:block gap-12 h-screen  bg-opacity-50 fixed top-0 drop-shadow-2xl",
                 styles.menu_mobile,
               )}
+              ref={dropdownRef}
             >
               <div className="flex justify-end">
                 <X

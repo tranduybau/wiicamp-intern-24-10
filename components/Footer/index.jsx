@@ -15,14 +15,12 @@ function Footer() {
     <div className="bg-black text-text-1">
       <div className="container">
         <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-[82px] pb-[60px] ">
-          <div className="lg:block flex justify-center">
-            <div className="max:w-[217px]">
+          <div className="lg:block flex md:justify-normal justify-center">
+            <div className="max-w-[217px]">
               <p className="font-inter font-semibold text-2xl leading-6 tracking-wider mb-6">
-                <Link href="./home">Exclusive</Link>
+                <Link href="./">Exclusive</Link>
               </p>
-              <p className="font-poppins font-medium text-xl mb-6">
-                <Link href="./Subscribe">Subscribe</Link>
-              </p>
+              <p className="font-poppins font-medium text-xl mb-6">Subscribe</p>
               <p className="font-poppins text-base font-normal mb-4">
                 Get 10% off your first order
               </p>
@@ -45,6 +43,7 @@ function Footer() {
               </div>
             </div>
           </div>
+
           <div className="flex justify-center lg:ml-[80px] ml-0">
             <div className="max-w-[175px] sm:mt-0 mt-10 ">
               <p className="font-poppins font-medium text-xl leading-6 tracking-wider mb-6">
@@ -65,8 +64,9 @@ function Footer() {
               </p>
             </div>
           </div>
+
           <div className="flex justify-center lg:ml-[84px] ml-0">
-            <div className="max-w-[123px] md:mt-0 mt-[20px]">
+            <div className="lg:min-w-[123px] min-w-[175px] md:mt-0 mt-[20px]">
               <p className="font-poppins  font-medium text-xl leading-6 tracking-wider mb-6">
                 Account
               </p>
@@ -87,8 +87,9 @@ function Footer() {
               </p>
             </div>
           </div>
+
           <div className="flex justify-center lg:ml-[22px] ml-0">
-            <div className="lg:min-w-[109px] md:min-w-[217px] md:mt-0 mt-[20px]">
+            <div className="lg:min-w-[109px] min-w-[175px] md:mt-0 mt-[20px]">
               <p className="font-poppins  font-medium text-xl leading-6 tracking-wider mb-6">
                 Quick Link
               </p>
@@ -107,7 +108,8 @@ function Footer() {
               {/* </div> */}
             </div>
           </div>
-          <div className="flex justify-center lg:ml-[35px] ml-0">
+
+          <div className="flex lg:justify-normal justify-center xl:ml-[35px] ml-0">
             <div className="min-w-[198px] ">
               <p className="font-poppins font-medium text-xl leading-6 tracking-wider mb-6">
                 Download App

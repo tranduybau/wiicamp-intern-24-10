@@ -4,9 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import ButtonCart from "@/components/App/Button/ButtonCart";
-import Button from "@/components/App/Button/Outline";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import ButtonCart from "@/components/App/AppButtonCart";
+import Button from "@/components/App/AppButtonOutline";
+import RatingDisplay from "@/components/App/AppRatingDisplay";
 
 import useCartStore from "@/Store/CartStore";
 

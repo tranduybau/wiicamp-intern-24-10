@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import * as yup from "yup";
 
-import Button from "@/components/App/Button/Contain";
+import Button from "@/components/App/AppButtonContain";
 
 import axios from "../../libraries/axiosClient";
 

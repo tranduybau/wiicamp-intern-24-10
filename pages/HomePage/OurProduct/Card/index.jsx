@@ -1,16 +1,15 @@
 // no import swpier
 import React, { memo } from "react";
 import { toast } from "react-toastify";
-import { Eye, Heart } from "lucide-react";
+import { ArrowLeft, ArrowRight, Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import ArrowLeft from "@/components/App/Button/ArrowLeft";
-import ArrowRight from "@/components/App/Button/ArrowRight";
-import Button from "@/components/App/Button/ButtonCart";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import ArrowIcon from "@/components/App/AppArrow";
+import Button from "@/components/App/AppButtonCart";
+import RatingDisplay from "@/components/App/AppRatingDisplay";
 import CurrencyFormatter from "@/components/FomatNumber";
 
 import useCartStore from "@/Store/CartStore";
@@ -72,17 +71,24 @@ function CardSales({ products }) {
           Explore Our Products
         </h2>
         <div className="flex gap-2 items-center">
-          <ArrowLeft />
-
-          <ArrowRight />
+          <ArrowIcon
+            icon={
+              <ArrowLeft className="lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+            }
+          />
+          <ArrowIcon
+            icon={
+              <ArrowRight className="lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+            }
+          />
         </div>
       </div>
-      <div className="mt-[60px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center">
+      <div className="mt-[60px] gap-[44px] sm:grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 flex flex-col items-center justify-center">
         {products &&
           products.slice(0, maxProducts).map((item, index) => {
             return (
               <div className="mb-[16px]" key={item.id}>
-                <div className=" min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
+                <div className="min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center">
                   <Link href={`${item.id}`}>
                     <Image
                       src={item.image}
@@ -131,7 +137,7 @@ function CardSales({ products }) {
                   </div>
                 </div>
                 <div className="flex flex-col gap-[8px] mt-4">
-                  <h3 className="text-base font-bold font-poppins text-text-2 truncate">
+                  <h3 className="text-base font-bold font-poppins text-text-2 sm:truncate ">
                     {item.title}
                   </h3>
                   <div className="flex gap-2 text-base font-poppins font-medium ">

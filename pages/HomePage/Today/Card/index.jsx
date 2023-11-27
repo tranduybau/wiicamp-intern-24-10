@@ -2,7 +2,7 @@
 
 import React, { memo, useRef } from "react";
 import { toast } from "react-toastify";
-import { Eye, Heart } from "lucide-react";
+import { ArrowLeft, ArrowRight, Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,10 +14,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ArrowLeft from "@/components/App/Button/ArrowLeft";
-import ArrowRight from "@/components/App/Button/ArrowRight";
-import Button from "@/components/App/Button/ButtonCart";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import ArrowIcon from "@/components/App/AppArrow";
+import Button from "@/components/App/AppButtonCart";
+import RatingDisplay from "@/components/App/AppRatingDisplay";
 import CurrencyFormatter from "@/components/FomatNumber";
 
 import useCartStore from "@/Store/CartStore";
@@ -89,24 +88,35 @@ function CardSales({ products }) {
       <div className="flex mt-6 justify-between">
         <FlashSales />
         <div className="flex gap-2 items-center">
-          <ArrowLeft HandlePrev={handlePrev} />
-          <ArrowRight HandleNext={handleNext} />
+          <ArrowIcon
+            Handle={handlePrev}
+            icon={
+              <ArrowLeft className="lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+            }
+          />
+          <ArrowIcon
+            Handle={handleNext}
+            icon={
+              <ArrowRight className="lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+            }
+          />
         </div>
       </div>
       <div className="flex mt-10 justify-center ">
         <Swiper
           modules={[Autoplay]}
-          spaceBetween="30px"
+          // spaceBetween="30px"
           slidesPerView="auto"
           autoplay={{
-            delay: 2000,
+            delay: 1000,
           }}
+          loop
           ref={swiperRef}
           breakpoints={{
             0: {
               slidesPerView: 1,
             },
-            640: {
+            520: {
               slidesPerView: 2,
             },
             768: {
@@ -124,8 +134,8 @@ function CardSales({ products }) {
             products.map((item, index) => {
               return (
                 <SwiperSlide key={item.id}>
-                  <div className="min-w-[270px] h-[250px] shadow-none group relative inline-flex justify-center overflow-hidden items-center ">
-                    <Link href={`/${item.id}`} className="">
+                  <div className="min-w-[270px]  h-[250px] shadow-none group relative inline-flex  justify-center overflow-hidden items-center ">
+                    <Link href={`/${item.id}`}>
                       <Image
                         src={item.image}
                         alt={index}

@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import Button from "@/components/App/Button/ButtonCart";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import Button from "@/components/App/AppButtonCart";
+import RatingDisplay from "@/components/App/AppRatingDisplay";
 import CurrencyFormatter from "@/components/FomatNumber";
 
 import useCartStore from "@/Store/CartStore";
@@ -63,7 +63,7 @@ function CardSales({ products }) {
   const maxProducts = 4;
 
   return (
-    <div className="mt-[60px] grid xl:grid-cols-4 lg:grid-cols-3 gap-[44px] sm:grid-cols-2 grid-cols-1 justify-center">
+    <div className="mt-[60px] sm:grid xl:grid-cols-4 lg:grid-cols-3 gap-[44px] sm:grid-cols-2 grid-cols-1 flex flex-col justify-center items-center">
       {products &&
         products.slice(0, maxProducts).map((item, index) => {
           return (
@@ -108,7 +108,7 @@ function CardSales({ products }) {
               </div>
 
               <div className="flex flex-col gap-[8px] mt-4">
-                <h3 className="text-base font-bold font-poppins text-text-2 truncate ">
+                <h3 className="text-base font-bold font-poppins text-text-2 sm:truncate ">
                   {item.title}
                 </h3>
                 <div className="flex gap-2 text-base font-poppins font-medium ">

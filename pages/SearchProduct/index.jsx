@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
-import Button from "@/components/App/Button/ButtonCart";
-import RatingDisplay from "@/components/App/Button/RatingDisplay";
+import Button from "@/components/App/AppButtonCart";
+import RatingDisplay from "@/components/App/AppRatingDisplay";
 
 import useCartStore from "@/Store/CartStore";
 

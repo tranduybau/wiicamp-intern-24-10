@@ -1,5 +1,7 @@
 import React, { memo, useRef } from "react";
 import {
+  ArrowLeft,
+  ArrowRight,
   Camera,
   Gamepad,
   Headphones,
@@ -15,8 +17,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import ArrowLeft from "@/components/App/Button/ArrowLeft";
-import ArrowRight from "@/components/App/Button/ArrowRight";
+import ArrowIcon from "@/components/App/AppArrow";
 
 import "swiper/css";
 
@@ -85,8 +86,18 @@ function Card() {
           Browse By Category
         </h2>
         <div className="flex gap-2 items-center">
-          <ArrowLeft HandlePrev={handlePrev} />
-          <ArrowRight HandleNext={handleNext} />
+          <ArrowIcon
+            Handle={handlePrev}
+            icon={
+              <ArrowLeft className="lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+            }
+          />
+          <ArrowIcon
+            Handle={handleNext}
+            icon={
+              <ArrowRight className="lg:w-[32px] lg:h-[32px] w-[24px] h-[24px]" />
+            }
+          />
         </div>
       </div>
       <div className="flex pb-[69px] border-b border-inherit border-solid">
@@ -123,14 +134,17 @@ function Card() {
             listCategory.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
-                  <div className="min-w-[170px] min-h-[145px] border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center ">
-                    <Link href="./id">
+                  <Link
+                    href="./id"
+                    className="min-w-[170px] min-h-[145px] border border-inherit border-solid rounded hover:bg-second-3 flex justify-center items-center "
+                  >
+                    <div>
                       <p className="mb-4 flex justify-center">{item.icon}</p>
                       <p className="text-base font-poppins font-normal text-text-2">
                         {item.name}
                       </p>
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 </SwiperSlide>
               );
             })}

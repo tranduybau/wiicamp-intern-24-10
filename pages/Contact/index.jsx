@@ -4,7 +4,7 @@ import { Mail, Phone } from "lucide-react";
 import Head from "next/head";
 import Link from "next/link";
 
-import Button from "../../components/App/Button/Contain";
+import Button from "../../components/App/AppButtonContain";
 
 import styles from "../../styles/contact.module.css";
 

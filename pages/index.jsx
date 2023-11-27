@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MoveTop from "../components/MoveTop";
+import MoveTop from "../components/AppMoveTop";
 
 import HomePage from "./HomePage";
 import SideBar from "./SideBar";

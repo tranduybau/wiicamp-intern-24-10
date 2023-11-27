@@ -1,6 +1,6 @@
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 function ButtonWhite({ title, classCustom, link }) {
   return (
     <button
@@ -13,3 +13,9 @@ function ButtonWhite({ title, classCustom, link }) {
   );
 }
 export default memo(ButtonWhite);
+
+ButtonWhite.propTypes = {
+  title: PropTypes.string.isRequired,
+  classCustom: PropTypes.string.isRequired,
+  link: PropTypes.func.isRequired,
+};

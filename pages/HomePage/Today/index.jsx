@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import Button from "@/components/App/Button/Contain";
+import Button from "@/components/App/AppButtonContain";
 
 import Card from "./Card/index";
 

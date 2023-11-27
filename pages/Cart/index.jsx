@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import ButtonRed from "@/components/App/Button/Contain";
-import Button from "@/components/App/Button/Outline";
+import ButtonRed from "@/components/App/AppButtonContain";
+import Button from "@/components/App/AppButtonOutline";
 
 import useCartStore from "@/Store/CartStore";
 import styles from "@/styles/cart.module.css";

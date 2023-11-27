@@ -1,6 +1,6 @@
-import React, { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-function FlashSales() {
+function UseCountDown() {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -40,21 +40,6 @@ function FlashSales() {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <>
-      <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl flex justify-center">
-        {days}
-      </p>
-      <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl  flex justify-center">
-        {hours}
-      </p>
-      <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl  flex justify-center">
-        {minutes}
-      </p>
-      <p className="font-inter lg:text-4xl font-bold not-italic text-text-2 sm:text-2xl  flex justify-center">
-        {seconds}
-      </p>
-    </>
-  );
+  return [days, hours, minutes, seconds];
 }
-export default memo(FlashSales);
+export default UseCountDown;

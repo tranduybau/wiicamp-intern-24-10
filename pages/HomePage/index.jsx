@@ -11,7 +11,7 @@ import ThisMonth from "./ThisMonth";
 
 function HomePage({ products }) {
   return (
-    <div className="mt-[124px] mb-36 xl:px-0 px-[16px]">
+    <div className="lg:mt-[124px] mt-[60px] mb-36 xl:px-0 px-[16px]">
       <ToDay products={products} />
       <Category />
       <ThisMonth products={products} />
