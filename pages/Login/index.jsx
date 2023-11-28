@@ -111,9 +111,9 @@ function Login() {
             <Button
               classCustom="px-[48px] py-[16px]"
               title="Login"
-              type="submit"
+              // type="submit"
             />
-            <Link href="./" className="py-4 text-second-3">
+            <Link href="/" className="py-4 text-second-3">
               Forget Password?
             </Link>
           </div>

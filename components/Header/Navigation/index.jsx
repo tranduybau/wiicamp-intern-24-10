@@ -23,7 +23,7 @@ function Navigation() {
   const [openNav, setOpenNav] = React.useState(false);
   const [isLogin, setIsLogin] = React.useState(false);
   const [isShowAccount, setIsShowAccount] = React.useState(false);
-  const [currentPage, setCurrentPage] = React.useState(null);
+  const [currentPage, setCurrentPage] = React.useState(false);
 
   const { getCartItems } = useCartStore();
   const cartItems = getCartItems();
@@ -99,7 +99,7 @@ function Navigation() {
           )}
         >
           <Link
-            href="./"
+            href="/"
             className={`flex items-center ${
               currentPage === "Home"
                 ? "border-b-2 border-solid border-inherit"
@@ -117,7 +117,7 @@ function Navigation() {
           )}
         >
           <Link
-            href="./Contact"
+            href="/Contact"
             className={`flex items-center ${
               currentPage === "Contact"
                 ? "border-b-2 border-solid border-inherit"
@@ -135,7 +135,7 @@ function Navigation() {
           )}
         >
           <Link
-            href="./About"
+            href="/About"
             className={`flex items-center ${
               currentPage === "About"
                 ? "border-b-2 border-solid border-inherit"
@@ -153,7 +153,7 @@ function Navigation() {
           )}
         >
           <Link
-            href="./SignUp"
+            href="/SignUp"
             className={`flex items-center ${
               currentPage === "SignUp"
                 ? "border-b-2 border-solid border-inherit"
@@ -227,7 +227,7 @@ function Navigation() {
       <div className="sticky top-0 z-10 h-max max-w-full rounded-none pt-10 pb-4">
         <div className="flex justify-between container">
           <Link
-            href="./"
+            href="/"
             className={classNames(
               " font-inter text-2xl font-bold text-text-2 leading-6 tracking-wider ",
               styles.logo,
@@ -251,10 +251,10 @@ function Navigation() {
             <div className="flex text-text-2 gap-[16px]">
               {isLogin ? (
                 <>
-                  <Link href="./WishList" aria-label="wishlist">
+                  <Link href="/WishList" aria-label="wishlist">
                     <Heart className="ml-6 hover:bg-second-3 hover:text-text-1 rounded-full hover:p-1 md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
-                  <Link href="./Cart" aria-label="cart">
+                  <Link href="/Cart" aria-label="cart">
                     <div className="relative">
                       <ShoppingCart className="hover:bg-second-3 hover:text-text-1 hover:rounded-full hover:p-1  md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                       {cartItems.length >= 0 && (
@@ -305,10 +305,10 @@ function Navigation() {
                 </>
               ) : (
                 <>
-                  <Link href="./WishList" aria-label="wishlist">
+                  <Link href="/WishList" aria-label="wishlist">
                     <Heart className="ml-6 hover:bg-second-3 hover:text-text-1 rounded-full hover:p-1 md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
-                  <Link href="./Cart" aria-label="cart">
+                  <Link href="/Cart" aria-label="cart">
                     <ShoppingCart className=" hover:bg-second-3 hover:text-text-1 hover:rounded-full hover:p-1  md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
                   </Link>
                 </>

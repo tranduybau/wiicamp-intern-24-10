@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function Button({ classCustom, title, link, submit }) {
   return (
-    <button type="button" onClick={link} onSubmit={submit}>
+    <button type="submit" onClick={link} onSubmit={submit}>
       <p
         className={`${classCustom}  bg-second-3 text-base font-poppins font-medium text-text-1`}
       >
