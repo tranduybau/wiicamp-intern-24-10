@@ -76,23 +76,23 @@ function Checkout() {
   return (
     <div className="container mt-[80px] mb-[140px] xl:px-0 px-[16px]">
       <div className="md:flex block gap-[12px] font-poppins text-sm font-normal leading-5 ">
-        <Link href="./Account" className="opacity-50">
+        <Link href="/Account" className="opacity-50">
           Account
         </Link>
         <p className="opacity-50">/</p>
-        <Link href="./MyAccount" className="opacity-50">
+        <Link href="/MyAccount" className="opacity-50">
           My Account
         </Link>
         <p className="opacity-50">/</p>
-        <Link href="./Product" className="opacity-50">
+        <Link href="/Product" className="opacity-50">
           Product
         </Link>
         <p className="opacity-50">/</p>
-        <Link href="./Cart" className="opacity-50">
+        <Link href="/Cart" className="opacity-50">
           View Cart
         </Link>
         <p className="opacity-50">/</p>
-        <Link href="./Checkout" className="active:text-text-2">
+        <Link href="/Checkout" className="active:text-text-2">
           Checkout
         </Link>
       </div>
@@ -227,7 +227,7 @@ function Checkout() {
           </div>
           <div className="sm:flex block justify-between lg:mr-[102px] mr-0">
             <div className="flex gap-[16px]">
-              <input type="radio" />
+              <input type="radio" name="paymentMethod" />
               <p>Bank</p>
             </div>
             <div className="flex gap-[8px]">
@@ -263,7 +263,7 @@ function Checkout() {
           </div>
           <div className="flex justify-between mr-[102px]">
             <div className="flex gap-[16px]">
-              <input type="radio" />
+              <input type="radio" name="paymentMethod" />
               <p>Cash on delivery</p>
             </div>
           </div>

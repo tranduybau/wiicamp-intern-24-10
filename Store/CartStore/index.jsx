@@ -27,6 +27,7 @@ const useCartStore = create((set, get) => ({
       };
     });
   },
+
   getCartItems: () => {
     return get().carts;
   },

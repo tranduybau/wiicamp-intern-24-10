@@ -7,7 +7,7 @@ function ArrowPrev({ Handle, icon }) {
       type="button"
       id="arrowLeft"
       aria-label="arrowLeft"
-      className="relative  bg-second-2 rounded-full lg:p-1 p-0"
+      className="relative  bg-second-2 rounded-full lg:p-1 p-0 cursor-pointer"
       onClick={Handle}
     >
       {icon}

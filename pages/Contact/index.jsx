@@ -4,9 +4,9 @@ import { Mail, Phone } from "lucide-react";
 import Head from "next/head";
 import Link from "next/link";
 
-import Button from "../../components/App/AppButtonContain";
+import Button from "@/components/App/AppButtonContain";
 
-import styles from "../../styles/contact.module.css";
+import styles from "@/styles/contact.module.css";
 
 function Contact() {
   return (
@@ -19,11 +19,11 @@ function Contact() {
         />
       </Head>
       <div className="flex gap-[12px] font-poppins text-sm font-normal leading-5 ">
-        <Link href="./" className="opacity-50">
+        <Link href="/" className="opacity-50">
           Home
         </Link>
         <p className="opacity-50">/</p>
-        <Link href="./Contact" className="active:text-text-2">
+        <Link href="/Contact" className="active:text-text-2">
           Contact
         </Link>
       </div>
@@ -85,9 +85,12 @@ function Contact() {
         >
           <div className="md:flex gap-[16px] block">
             <input
-              className="max-w-[235px] bg-secondary py-[13px] px-[16px] rounded "
-              type="name"
+              className={classNames(
+                "max-w-[235px] bg-secondary py-[13px] px-[16px] rounded",
+                styles.aaaa,
+              )}
               placeholder="Your Name *"
+              type="text"
               required
             />
             <input
@@ -103,11 +106,13 @@ function Contact() {
               required
             />
           </div>
-          <input
-            className=" bg-secondary  px-[16px] rounded min-h-[207px] max-w-[737px]"
-            type="name"
+          <textarea
+            className=" bg-secondary  px-[16px] rounded min-h-[207px] max-w-[737px] "
+            type="text"
             placeholder="Your Massage"
             required
+            name="message"
+            id="message"
           />
           <div className="flex justify-end">
             <Button title="Send Massage" classCustom="px-[48px] py-[16px]" />

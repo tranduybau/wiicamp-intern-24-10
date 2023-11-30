@@ -22,11 +22,11 @@ function About() {
         />
       </Head>
       <div className="flex gap-[12px] font-poppins text-sm font-normal leading-5 ">
-        <Link href="./" className="opacity-50">
+        <Link href="/" className="opacity-50">
           Home
         </Link>
         <p className="opacity-50">/</p>
-        <Link href="./Contact" className="active:text-text-2">
+        <Link href="/Contact" className="active:text-text-2">
           Contact
         </Link>
       </div>

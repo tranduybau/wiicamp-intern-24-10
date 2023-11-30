@@ -23,8 +23,7 @@ function Navigation() {
   const [openNav, setOpenNav] = React.useState(false);
   const [isLogin, setIsLogin] = React.useState(false);
   const [isShowAccount, setIsShowAccount] = React.useState(false);
-  const [currentPage, setCurrentPage] = React.useState(false);
-
+  // const [currentPage, setCurrentPage] = React.useState(false);
   const { getCartItems } = useCartStore();
   const cartItems = getCartItems();
 
@@ -101,11 +100,10 @@ function Navigation() {
           <Link
             href="/"
             className={`flex items-center ${
-              currentPage === "Home"
+              router.pathname === "/"
                 ? "border-b-2 border-solid border-inherit"
                 : ""
             }`}
-            onClick={() => setCurrentPage("Home")}
           >
             Home
           </Link>
@@ -119,11 +117,10 @@ function Navigation() {
           <Link
             href="/Contact"
             className={`flex items-center ${
-              currentPage === "Contact"
+              router.pathname === "/Contact"
                 ? "border-b-2 border-solid border-inherit"
                 : ""
             }`}
-            onClick={() => setCurrentPage("Contact")}
           >
             Contact
           </Link>
@@ -137,11 +134,10 @@ function Navigation() {
           <Link
             href="/About"
             className={`flex items-center ${
-              currentPage === "About"
+              router.pathname === "/About"
                 ? "border-b-2 border-solid border-inherit"
                 : ""
             }`}
-            onClick={() => setCurrentPage("About")}
           >
             About
           </Link>
@@ -155,11 +151,10 @@ function Navigation() {
           <Link
             href="/SignUp"
             className={`flex items-center ${
-              currentPage === "SignUp"
+              router.pathname === "/SignUp"
                 ? "border-b-2 border-solid border-inherit"
                 : ""
             }`}
-            onClick={() => setCurrentPage("SignUp")}
           >
             Sign Up
           </Link>

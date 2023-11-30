@@ -26,9 +26,9 @@ function Footer() {
               </p>
               <div className="relative border-solid border border-current max-w-[217px]">
                 <input
-                  type="send"
+                  // type="send"
                   id="default-send"
-                  className=" p-3 bg-black "
+                  className=" p-3 bg-black"
                   placeholder="Enter your email"
                   required
                 />
@@ -36,7 +36,7 @@ function Footer() {
                   type="submit"
                   id="sendemail"
                   aria-label="sendemail"
-                  className="text-text-1 absolute right-2.5 bottom-2.5  focus:ring-4 focus:outline-none  font-medium rounded-lg sm:absolute:none "
+                  className="text-text-1 absolute right-2.5 bottom-2.5 font-medium sm:absolute:none "
                 >
                   <SendHorizontal />
                 </button>
@@ -50,9 +50,15 @@ function Footer() {
                 Support
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+                <Link
+                  href="https://www.google.com/maps/place/111+Bijoy+Sarani,+Dhaka,+DH+1515,+Bangladesh"
+                  target="_blank"
+                >
+                  111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+                </Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
+                s
                 <Link href="mailto: exclusive@gmail.com" aria-label="email">
                   exclusive@gmail.com
                 </Link>
@@ -71,25 +77,26 @@ function Footer() {
                 Account
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="./MyAccount">My Account</Link>
+                <Link href="/Account">My Account</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="./SignUp">Login / Register</Link>
+                <Link href="/Login">Login / </Link>
+                <Link href="/SignUp">Register</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="./Cart"> Cart</Link>
+                <Link href="/Cart">Cart</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="Wishlist">Wishlist</Link>
+                <Link href="/WishList">WishList</Link>
               </p>
               <p className="font-poppins text-base font-normal mb-4 leading-6">
-                <Link href="./">Shop</Link>
+                <Link href="/">Shop</Link>
               </p>
             </div>
           </div>
 
-          <div className="flex justify-center lg:ml-[22px] ml-0">
-            <div className="lg:min-w-[109px] min-w-[175px] md:mt-0 mt-[20px]">
+          <div className="flex justify-center 2xl:ml-[22px] ml-0">
+            <div className="xl:min-w-[109px] min-w-[175px] md:mt-0 mt-[20px]">
               <p className="font-poppins  font-medium text-xl leading-6 tracking-wider mb-6">
                 Quick Link
               </p>
