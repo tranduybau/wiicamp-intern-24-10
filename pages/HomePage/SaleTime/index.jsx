@@ -9,12 +9,12 @@ function SaleTime() {
   return (
     <div className="mt-[140px] container w-full bg-black lg:flex md:block px-14 py-[78.5px]">
       <div className="w-2/4 text-text-1 ">
-        <p className="text-text-3 font-poppins text-base font-semibold mb-8 ">
+        <h3 className="text-text-3 font-poppins text-base font-semibold mb-8 ">
           Categories
-        </p>
-        <p className="lg:text-5xl text-3xl font-semibold font-inter mr-7 leading-tight mb-8 max-w-[443px]">
+        </h3>
+        <h2 className="lg:text-5xl text-3xl font-semibold font-inter mr-7 leading-tight mb-8 max-w-[443px]">
           Enhance Your Music Experience
-        </p>
+        </h2>
         <div className="lg:flex md:block">
           <div className="flex gap-6">
             <div className="bg-white min-w-[62px] min-h-[62px] rounded-full text-text-2 p-1">

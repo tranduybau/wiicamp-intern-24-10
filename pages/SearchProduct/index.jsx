@@ -50,7 +50,7 @@ function SearchProduct({ products }) {
   };
 
   return (
-    <div className="mt-[60px] gap-[44px] grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center container mb-[140px]">
+    <div className="mt-[60px] gap-[44px] sm:grid xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 flex flex-col justify-center items-center container mb-[140px]">
       <Head>
         <title>Search - Exclusive</title>
         <meta name="description" content="Search products by name's" />
@@ -103,7 +103,7 @@ function SearchProduct({ products }) {
                 </div>
               </div>
               <div className="flex flex-col gap-[8px] mt-4">
-                <h3 className="text-base font-bold font-poppins text-text-2 truncate">
+                <h3 className="text-base font-bold font-poppins text-text-2 sm:truncate">
                   {item.title}
                 </h3>
                 <div className="flex gap-2 text-base font-poppins font-medium ">

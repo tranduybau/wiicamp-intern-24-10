@@ -93,6 +93,7 @@ function Contact() {
               type="text"
               required
             />
+
             <input
               className="max-w-[235px] bg-secondary py-[13px] px-[16px] rounded md:mt-0 mt-[20px] md:ml-0 sm:ml-[20px]"
               type="email"

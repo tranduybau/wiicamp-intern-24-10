@@ -105,28 +105,39 @@ function CardSales({ products }) {
       <div className="flex mt-10 justify-center ">
         <Swiper
           modules={[Autoplay]}
-          // spaceBetween="30px"
-          slidesPerView="auto"
           autoplay={{
             delay: 1000,
           }}
           loop
+          watchOverflow="true"
+          watchSlidesProgress="true"
           ref={swiperRef}
+          className="mySwiper xxl:!-mr-72 mt-[40px]"
           breakpoints={{
-            0: {
-              slidesPerView: 1,
+            1010: {
+              slidesPerView: 4,
+
+              spaceBetween: 30,
             },
-            520: {
-              slidesPerView: 2,
+            680: {
+              slidesPerView: 2.5,
+              spaceBetween: 30,
             },
-            768: {
-              slidesPerView: 3,
+            480: {
+              slidesPerView: 2.5,
+              spaceBetween: 30,
             },
-            1024: {
-              slidesPerView: 3,
+            400: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            320: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
             },
             1280: {
-              slidesPerView: 4,
+              slidesPerView: 4.5,
+              spaceBetween: 30,
             },
           }}
         >
@@ -199,7 +210,7 @@ function CardSales({ products }) {
                         <CurrencyFormatter amount={item.price} />
                       </span>
                     </div>
-                    <div className="flex  ">
+                    <div className="flex">
                       <span className="text-second-4 flex mr-2">
                         <RatingDisplay rate={item.rating.rate} />
                       </span>

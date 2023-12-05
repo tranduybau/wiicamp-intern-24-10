@@ -23,14 +23,16 @@ function Navigation() {
   const [openNav, setOpenNav] = React.useState(false);
   const [isLogin, setIsLogin] = React.useState(false);
   const [isShowAccount, setIsShowAccount] = React.useState(false);
-  // const [currentPage, setCurrentPage] = React.useState(false);
   const { getCartItems } = useCartStore();
   const cartItems = getCartItems();
+  const [wishlist, setWishList] = React.useState([]);
 
   const router = useRouter();
 
   React.useEffect(() => {
     const token = localStorage.getItem("token");
+    const Wishlist = localStorage.getItem("wishlists");
+    setWishList(Wishlist ? JSON.parse(Wishlist) : []);
 
     if (token) {
       setIsLogin(true);
@@ -40,7 +42,7 @@ function Navigation() {
   const dropdownRef = useRef(null);
 
   const handlerClose = () => {
-    setOpenNav(openNav);
+    setOpenNav(false);
   };
 
   const HandleDropAccount = () => {
@@ -60,7 +62,7 @@ function Navigation() {
       handleClickOutside(e);
     };
     document.addEventListener("mousedown", handleDocumentClick);
-  }, []);
+  }, [isShowAccount]);
 
   const keyword = useSearch((state) => state.keyword);
   const setKeyword = useSearch((state) => state.setKeyword);
@@ -246,8 +248,17 @@ function Navigation() {
             <div className="flex text-text-2 gap-[16px]">
               {isLogin ? (
                 <>
-                  <Link href="/WishList" aria-label="wishlist">
+                  <Link
+                    href="/WishList"
+                    aria-label="wishlist"
+                    className="relative"
+                  >
                     <Heart className="ml-6 hover:bg-second-3 hover:text-text-1 rounded-full hover:p-1 md:w-[32px] md:h-[32px] w-[24px] h-[24px]" />
+                    {wishlist.length >= 0 && (
+                      <span className="top-[-8px] right-[-6px] absolute rounded-full bg-second-3 text-text-1  font-poppins text-xs font-normal leading-[18px] shrink-0 w-[20px] h-[20px] flex justify-center">
+                        {wishlist.length}
+                      </span>
+                    )}
                   </Link>
                   <Link href="/Cart" aria-label="cart">
                     <div className="relative">

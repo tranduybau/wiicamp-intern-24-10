@@ -6,10 +6,10 @@ function FlashSale() {
   const [days, hours, minutes, seconds] = UseCountDown();
 
   return (
-    <div className=" lg:flex gap-[87px] sm:block items-center">
-      <h2 className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl  tracking-[1.44px] leading-[48px]">
+    <div className=" sm:flex lg:gap-[87px] gap-[30px] block items-center">
+      <h1 className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl  tracking-[1.44px] leading-[48px]">
         Flash Sales
-      </h2>
+      </h1>
       <div className="flex lg:gap-3 gap-2 md:mt-0 mt-2">
         <div>
           <p className="font-poppins text-xs font-medium not-italic text-text-2 ">

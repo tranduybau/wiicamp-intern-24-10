@@ -8,3 +8,7 @@
 }
 
 
+.aaaa::after {
+    content: " *";
+    color: red;
+}

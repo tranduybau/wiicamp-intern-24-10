@@ -56,7 +56,7 @@ function SignUp() {
     <div className="container mt-16 mb-36 lg:flex block min-h-[781px]">
       <Head>
         <title>SignUp - Exclusive</title>
-        <meta name="description" content="Create an account " />
+        <meta name="description" content="Create an account" />
       </Head>
       <div className="lg:max-w-[805px] ">
         <Image

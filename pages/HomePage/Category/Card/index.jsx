@@ -81,10 +81,10 @@ function Card() {
   };
   return (
     <>
-      <div className="flex justify-between">
-        <h2 className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl mb-[60px] items-center tracking-[1.44px] leading-[48px]">
+      <div className="flex justify-between mb-[60px]">
+        <h1 className="font-inter lg:text-4xl font-semibold text-text-2 not-italic sm:text-2xl  items-center tracking-[1.44px] leading-[48px]">
           Browse By Category
-        </h2>
+        </h1>
         <div className="flex gap-2 items-center">
           <ArrowIcon
             Handle={handlePrev}
@@ -110,23 +110,29 @@ function Card() {
           }}
           ref={swiperRef}
           breakpoints={{
-            0: {
+            320: {
               slidesPerView: 2,
+              spaceBetween: 30,
             },
             480: {
-              slidesPerView: 2,
+              slidesPerView: 2.5,
+              spaceBetween: 30,
             },
             600: {
-              slidesPerView: 3,
+              slidesPerView: 3.5,
+              spaceBetween: 30,
             },
             800: {
-              slidesPerView: 4,
+              slidesPerView: 4.5,
+              spaceBetween: 30,
             },
             1280: {
               slidesPerView: 5,
+              spaceBetween: 30,
             },
             1440: {
               slidesPerView: 6,
+              spaceBetween: 30,
             },
           }}
         >
